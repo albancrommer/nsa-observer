@@ -1,0 +1,23 @@
+<template name="itemShow">
+    <div class="item-show">
+        <dl class="dl-horizontal">
+            <dt>Name
+            <dd>{{ name }}
+            <dt>Description
+            <dd>{{ description }}
+            <dt>Family
+            <dd>{{ family }}
+            <dt>Category
+            <dd>{{ category }}
+            <dt>Related items
+            <dd>
+                <ul>
+                {{#each relatedItems}}
+                {{#if this }}
+                <li><a> {{this}}</a></li>
+                {{/if}}
+                {{/each}}
+                </ul>
+        </dl>
+    </div>
+</template>

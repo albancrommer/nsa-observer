@@ -1,0 +1,42 @@
+/* 
+    Document   : style
+    Created on : 4 janv. 2014, 23:40:25
+    Author     : alban
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body{
+    background: #ccc;
+}
+.item-list-outer{
+    background: rgba(255,255,255,0.8);
+    display:none;
+    height:100%;
+    left: 1%;
+    overflow: auto;
+    padding: 1%;
+    position: absolute;
+    width: 29%;
+}
+
+.item-list ul,
+.item-list li{
+    list-style: none;
+    margin:0px;
+    padding:0px;
+}
+.item-show-outer {
+    background: rgba(255,255,255,0.8);
+    display:none;
+    left: 33%;
+    padding: 1%;
+    overflow: auto;
+    position: absolute;
+    width: 63%;
+}
+
