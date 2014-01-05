@@ -15,7 +15,6 @@ body{
 }
 .item-list-outer{
     background: rgba(255,255,255,0.8);
-    display:none;
     height:100%;
     left: 1%;
     overflow: auto;
@@ -23,16 +22,18 @@ body{
     position: absolute;
     width: 29%;
 }
+body dl{
+    margin: 0px;
+}
 
-.item-list ul,
-.item-list li{
+body ul,
+body li{
     list-style: none;
     margin:0px;
     padding:0px;
 }
 .item-show-outer {
     background: rgba(255,255,255,0.8);
-    display:none;
     left: 33%;
     padding: 1%;
     overflow: auto;

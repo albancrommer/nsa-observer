@@ -1,21 +1,22 @@
 <template name="itemShow">
     <div class="item-show">
+        <div class="close pull-right"><i class="caret"></i></div>
         <dl class="dl-horizontal">
             <dt>Name
-            <dd>{{ name }}
+            <dd>{{ currentItem.name }}
             <dt>Description
-            <dd>{{ description }}
+            <dd>{{ currentItem.description }}
             <dt>Family
-            <dd>{{ family }}
+            <dd><a class="family-link" family="{{ currentItem.family }}">{{ currentItem.family }}</a>
             <dt>Category
-            <dd>{{ category }}
+            <dd><a class="category-link" category="{{ currentItem.category }}">{{ currentItem.category }}</a>
             <dt>Related items
             <dd>
                 <ul>
-                {{#each relatedItems}}
-                {{#if this }}
-                <li><a> {{this}}</a></li>
-                {{/if}}
+                {{#each currentItem.relatedItems}}
+                    {{#if this }}
+                        <li><a href="{{this}}" class='internal-link'>{{this}}</a></li>
+                    {{/if}}
                 {{/each}}
                 </ul>
         </dl>

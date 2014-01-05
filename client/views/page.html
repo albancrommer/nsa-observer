@@ -1,0 +1,13 @@
+<template name="page">
+  {{> nav }}
+  {{#if itemListIsVisible }}
+    <div class="item-list-outer">
+  {{> itemList}}
+    </div>
+  {{/if}}
+  {{#if itemShowIsVisible }}
+    <div class="item-show-outer">
+  {{> itemShow}}
+    </div>
+  {{/if}}
+</template>   
