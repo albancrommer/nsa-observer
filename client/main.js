@@ -106,7 +106,6 @@ Template.nav.events({
             family      = element.attr("family"),
             itemList    = []
         ;
-        console.log(element,category,family)
         if( family ){
             itemList    = Items.find({family:family}).fetch();
         }else{

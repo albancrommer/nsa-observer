@@ -19,6 +19,15 @@
                     {{/if}}
                 {{/each}}
                 </ul>
+            <dt>Links
+            <dd>
+                <ul>
+                {{#each currentItem.links}}
+                    {{#if this }}
+                        <li><a href="{{this}}" target="_blank" class='external-link'>{{this}}</a></li>
+                    {{/if}}
+                {{/each}}
+                </ul>
         </dl>
     </div>
 </template>
