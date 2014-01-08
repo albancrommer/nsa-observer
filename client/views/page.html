@@ -1,13 +1,12 @@
 <template name="page">
-  {{> nav }}
-  {{#if itemListIsVisible }}
-    <div class="item-list-outer">
-  {{> itemList}}
+    {{# if itemListIsVisible }}
+    <div class="item-list-outer panel">
+        {{> itemList}}
     </div>
-  {{/if}}
-  {{#if itemShowIsVisible }}
-    <div class="item-show-outer">
-  {{> itemShow}}
+    {{/if}}
+    {{# if itemShowIsVisible }}
+    <div class="item-show-outer panel">
+      {{> itemShow}}
     </div>
-  {{/if}}
+    {{/if}}
 </template>   

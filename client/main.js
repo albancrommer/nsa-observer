@@ -1,3 +1,36 @@
+var isDisplayed = true;
+var isHidden = false;
+
+var itemLinkShowList = function(event){
+    var 
+        element     = $(event.currentTarget),
+        category    = element.attr("category"),
+        family      = element.attr("family"),
+        itemList    = []
+    ;
+    if( family ){
+        itemList    = Items.find({family:family}).fetch();
+        Session.set("listName","Family : "+family)
+    }else{
+        itemList    = Items.find({category:category}).fetch();
+        Session.set("listName","Category : "+category)
+    }
+    togglePanels(isDisplayed,["itemListIsVisible"]);
+    Session.set("itemList",itemList)
+    
+}
+
+var togglePanels = function (hideOrShow,panels){
+    console.log(hideOrShow,panels)
+    var iterator,
+        state = hideOrShow || false,
+        panels = panels || ["itemListIsVisible","itemShowIsVisible"];
+        for( iterator = 0; iterator < panels.length; iterator++ ){
+            Session.set(panels[iterator],state);
+        }
+}
+
+
 if( ! (Session.get("itemList") instanceof Array) ){
     Session.set("itemList",[]);
 }
@@ -5,29 +38,48 @@ if( ! (Session.get("currentItem") ) ){
     Session.set("currentItem",{});
 }
 if( ! (Session.get("itemListIsVisible") ) ){
-    Session.set("itemListIsVisible",false);
+    togglePanels(isHidden,["itemListIsVisible"]);
 }
 if( ! (Session.get("itemShowIsVisible") ) ){
-    Session.set("itemShowIsVisible",false);
+    togglePanels(isHidden,["itemShowIsVisible"]);
 }
+if( ! (Session.get("listName") ) ){
+    Session.set("listName","");
+}
+if( ! (Session.get("sliderRendered") ) ){
+    Session.set("sliderRendered",false);
+}
+
+
 
 // page 
 Template.page.itemListIsVisible = function(){
-    console.log("call Template.page.itemListIsVisible",Session.get("itemListIsVisible"))
-    return Session.get("itemListIsVisible") || false;
+    return Session.get("itemListIsVisible");
 }
 Template.page.itemShowIsVisible = function(){
     return Session.get("itemShowIsVisible");
 }
+Template.page.rendered = function(){
+    // esc
+    $(document).keyup( function(e) {
+        if (e.keyCode == 27) { 
+            togglePanels(isHidden)  ;
+        }   
+    })
+}
+
 // itemList
 Template.itemList.element= function () {
     return Session.get("itemList") || [];
 };
 
+Template.itemList.listName= function () {
+    return Session.get("listName");
+};
+
 Template.itemList.events({
     'click .close':function(event){
-        Session.set("itemListIsVisible",false);
-        Session.set("itemShowIsVisible",false);
+        togglePanels(isHidden);
     }
 });
 
@@ -35,7 +87,7 @@ Template.itemList.events({
 Template.item.events({
   'click a': function () {
     Session.set("currentItem",this);
-    Session.set("itemShowIsVisible",true);
+    togglePanels(isDisplayed,["itemShowIsVisible"]);
   }
 });
 
@@ -47,7 +99,8 @@ Template.itemShow.currentItem = function(){
 Template.itemShow.events({
  
      'click .close':function(event){
-        Session.set("itemShowIsVisible",false);
+
+        togglePanels(isHidden,["itemShowIsVisible"]);
     },
     'click .internal-link':function(event){
         event.preventDefault();
@@ -76,7 +129,7 @@ Template.itemShow.events({
         if( ! family ){
             return;
         }
-        itemList = Items.find({family:family}).fetch();
+        itemList = Items.find({family:family},{sorted:{name:1}}).fetch();
         Session.set("itemList",itemList);
         return false;
         
@@ -90,28 +143,48 @@ Template.itemShow.events({
         if( ! category ){
             return;
         }
-        itemList = Items.find({category:category}).fetch();
+        itemList = Items.find({category:category},{sorted:{name:1}}).fetch();
         Session.set("itemList",itemList);
         return false;
         
     },
 });
 
+
 // nav
+
+Template.nav.rendered = function(){
+    $('.nav-container').data("toggled",true);
+}
+
 Template.nav.events({
-    'click a':function(event){
-        var 
-            element     = $(event.currentTarget),
-            category    = element.attr("category"),
-            family      = element.attr("family"),
-            itemList    = []
-        ;
-        if( family ){
-            itemList    = Items.find({family:family}).fetch();
+    'click a':itemLinkShowList,
+    'click .menu-toggle':function(e){
+        var el          = $(".nav-container"),
+            key         = "toggled",
+            orig        = "originalTranslate",
+            transform   = "",
+            toggled     = el.data(key);
+        if( toggled ){
+            transform = "translateX(0%)"
+            el.data(orig,el.css("transform"));
         }else{
-            itemList    = Items.find({category:category}).fetch();
+            transform = el.data(orig);
         }
-        Session.set("itemListIsVisible",true);
-        Session.set("itemList",itemList)
+        el.css("transform",transform)
+        el.data(key,!toggled)
+        console.log(el,toggled,transform,el.data(key))
     }
 })
+
+
+// Slider
+
+Template.slider.events({
+    'click a':itemLinkShowList
+})
+
+Template.slider.rendered = function(){
+    $.jInvertScroll(['.scroll'],{onScroll:function(){
+    }});
+}

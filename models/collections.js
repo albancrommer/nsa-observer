@@ -1,10 +1,8 @@
 // declare collections
 // this code should be included in both the client and the server
-Categories  = new Meteor.Collection("categories");
 Items       = new Meteor.Collection("items");
 if( Meteor.isServer && 0 === Items.find().count()){
-    
-Items.insert({name:"AGILEVIEW",category:"program",family:"collect",status:"unknown",description:"NSA internet information tool or database / digital network intelligence tools (DNI tool)",relatedItems:[""],links:[]});
+    Items.insert({name:"AGILEVIEW",category:"program",family:"collect",status:"unknown",description:"NSA internet information tool or database / digital network intelligence tools (DNI tool)",relatedItems:[""],links:[]});
 Items.insert({name:"AGILITY",category:"program",family:"collect",status:"unknown",description:"NSA internet information tool or database / digital network intelligence tools (DNI tool)",relatedItems:[""],links:[]});
 Items.insert({name:"AIGHANDLER",category:"program",family:"collect",status:"unknown",description:"Geolocation analysis<ref name=\"20130313article\">http://williamaarkin.wordpress.com/2012/03/13/nsa-code-names-revealed/</ref>",relatedItems:[""],links:[]});
 Items.insert({name:"AIRGAP/COZEN",category:"program",family:"collect",status:"unknown",description:"Priority missions tool used to determine SIGINT gaps",relatedItems:[""],links:[]});

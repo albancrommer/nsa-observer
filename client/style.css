@@ -5,39 +5,166 @@
     Description:
         Purpose of the stylesheet follows.
 */
-
-root { 
-    display: block;
-}
-
 body{
     background: #ccc;
 }
-.item-list-outer{
-    background: rgba(255,255,255,0.8);
-    height:100%;
-    left: 1%;
-    overflow: auto;
-    padding: 1%;
-    position: absolute;
-    width: 29%;
+
+/*Item container*/
+
+.item-container{
+    
 }
-body dl{
+
+/* Item list */
+.panel{
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.34);
+    min-height: 100%;
+    z-index: 1;
+}
+.item-list-outer {
+    height: 100%;
+    left: 1%;
+    padding: 1%;
+    position: fixed;
+    top: 36px;
+    width: 27%;
+}
+.item-list{
+    max-height: 90%;
+    overflow: auto;
+}
+.item-list a {
+    background: none repeat scroll 0 0 white;
+    padding: 5px 0;
+    text-decoration: none;
+    text-shadow: 0 1px 3px white;
+}
+
+/* Item show */
+
+.item-show-outer {
+    left: 30%;
+    max-height: 90%;
+    padding: 1%;
+    overflow: auto;
+    position: fixed;
+    top: 36px;
+    width: 67%;
+}
+.item-show dl{
     margin: 0px;
 }
 
-body ul,
-body li{
+.item-show ul,
+.item-show li{
     list-style: none;
     margin:0px;
     padding:0px;
 }
-.item-show-outer {
-    background: rgba(255,255,255,0.8);
-    left: 33%;
-    padding: 1%;
-    overflow: auto;
-    position: absolute;
-    width: 63%;
+
+.item-show-link {
+    background: none repeat scroll 0 0 transparent;
+    display: inline;
+    line-height: 1;
+    padding: 0 3px;
+    text-decoration: underline;
 }
 
+.item-show-link:before {
+    content: "➜ ";
+}
+
+/* nav */
+
+.nav-container{
+    background: #EEE;
+    border-radius: 8px 0 0 8px ;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateX(97%);
+    transition: all 300ms ease-in 0s;
+}
+.nav-container .nav{
+    margin:0px;
+    padding:0px;
+}
+.nav-container .menu-toggle{
+    display: inline-block;
+    padding:8px;
+    background: #EEE;
+}
+
+/* Scroller */
+/* hide horizontal scrollbars, since we use the vertical ones to scroll to the right */
+body
+{
+  overflow-x: hidden;
+  background: url('../images/bg.jpg') repeat top left;
+}
+
+/**
+  * important: keep position fixed, you can however use top:0 instead of bottom:0
+  * if you want to make it stick to the top of the browser
+  */
+.scroll
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.horizon {
+    line-height: 0;
+    width: 2250px;
+    z-index: -3;
+}
+.middle {
+    line-height: 0;
+    width: 4500px;
+    z-index: -2;
+}
+.front {
+    top: 150px;
+    width: 6000px;
+    z-index: 0;
+}
+.page {
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #EEEEEE;
+    padding: 10px 30px;
+    position: absolute;
+    top: 0;
+    width: 500px;
+}
+.description {
+    left: 300px;
+    width: 500px;
+}
+.documentation {
+    left: 1600px;
+    width: 500px;
+}
+.options {
+    left: 2900px;
+    width: 500px;
+}
+.download {
+    left: 4200px;
+    width: 500px;
+}
+.license {
+    padding: 100px 30px 30px;
+}
+.slider img{
+    border: 0 none;
+    height: auto;
+    margin-top: -11%;
+    max-width: 235%;
+}
+
+.middle.scroll > img {
+    margin-top: 5%;
+}
