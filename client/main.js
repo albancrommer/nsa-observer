@@ -6,15 +6,21 @@ var itemLinkShowList = function(event){
         element     = $(event.currentTarget),
         category    = element.attr("category"),
         family      = element.attr("family"),
-        itemList    = []
+        itemList    = [],
+        search      = {},
+        listName    = ""
     ;
     if( family ){
-        itemList    = Items.find({family:family}).fetch();
-        Session.set("listName","Family : "+family)
+        search      = {category:category,family:family};
+        listName    = category+"s: "+family;
+    }else if (category){
+        search      = {category:category};
+        listName    = category+"s";
     }else{
-        itemList    = Items.find({category:category}).fetch();
-        Session.set("listName","Category : "+category)
+        return;
     }
+    Session.set("listName",listName)
+    itemList    = Items.find(search,{sorted:{name:1}}).fetch();
     togglePanels(isDisplayed,["itemListIsVisible"]);
     Session.set("itemList",itemList)
     
