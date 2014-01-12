@@ -1,32 +1,32 @@
 <template name="itemShow">
-    <div class="close pull-right"><i class="caret"></i></div>
-    <h2>{{ currentItem.name }}</h2>
+    <div class="panel-close">x</div>
+    <h3>{{ currentItem.name }}</h3>
     <div class="item-show">
         <dl class="dl-horizontal">
             <dt>Description
-            <dd>{{ currentItem.description }}
-            <dt>Family
-            <dd><a class="family-link" family="{{ currentItem.family }}">{{ currentItem.family }}</a>
+            <dd>{{{ currentItem.description }}}&nbsp;
             <dt>Category
-            <dd><a class="category-link" category="{{ currentItem.category }}">{{ currentItem.category }}</a>
+            <dd><a class="item-show-link category-link" category="{{ currentItem.category }}">{{ currentItem.category }}</a> &nbsp;
+            <dt>Family
+            <dd><a class="item-show-link family-link" category="{{ currentItem.category }}" family="{{ currentItem.family }}">{{ currentItem.family }}</a>&nbsp;
             <dt>Related items
             <dd>
                 <ul>
                 {{#each currentItem.relatedItems}}
                     {{#if this }}
-                        <li><a href="{{this}}" class='internal-link'>{{this}}</a></li>
+                        <li>{{{this}}}
                     {{/if}}
                 {{/each}}
-                </ul>
+                </ul>&nbsp;
             <dt>Links
             <dd>
                 <ul>
                 {{#each currentItem.links}}
                     {{#if this }}
-                        <li><a href="{{this}}" target="_blank" class='external-link'>{{this}}</a></li>
+                        <li><a href="{{this}}" target="_blank" class="item-show-link external-link">{{this}}</a></li>
                     {{/if}}
                 {{/each}}
-                </ul>
+                </ul>&nbsp;
         </dl>
     </div>
 </template>

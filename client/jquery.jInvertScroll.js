@@ -32,8 +32,8 @@
             longest = 0,
             totalHeight,
             winHeight,
-            winWidth;
-        
+            winWidth,
+            instance;
 
         if(typeof sel === 'Object' && sel.length > 0) {
             return;
@@ -61,12 +61,12 @@
             
             // do the position calculation for each element
             $.each(elements, function (i, el) {
-                var deltaW = el.width() - winWidth;
+                var deltaW = el.height() - winHeight;
                 if (deltaW <= 0) {
-                    deltaW = el.width();
+                    deltaW = el.height();
                 }
                 var pos = Math.floor(deltaW * scrollPercent) * -1;
-                el.css('left', pos);
+                el.css('top', pos);
             });
         }
         
@@ -74,7 +74,7 @@
         $.each(sel, function(i, val) {
             $(val).each(function(e) {
                 elements.push($(this));
-                var w = $(this).width();
+                var w = $(this).height();
                 if(longest < w) {
                     longest = w;
                 }
@@ -96,5 +96,9 @@
        
         // Listen for the actual scroll event
         $(window).on('scroll resize', redraw);
+        
+        
+        // Force redraw
+        redraw();
     };
 }(jQuery));

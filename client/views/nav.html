@@ -1,19 +1,28 @@
 <template name="nav">
     <div class="nav-container">
-        <div class="nav menu-toggle">&#10140;</div>
-        <div class="nav btn-group">
-                <a class="btn btn-small btn-primary" category="program" >Programs</a> 
-                <a class="btn btn-small" family="collect">Collect</a>
-                <a class="btn btn-small" family="process">Process</a>
-                <a class="btn btn-small" family="database">Database</a>
-                <a class="btn btn-small" family="target">Target</a>
-                <a class="btn btn-small" family="attack">Attack</a>
+        <div class="menu-toggle">
+            &#10140;
         </div>
-        <div class="nav btn-group">
-                <a class="btn btn-small btn-primary" category="attack vector" >Attack vectors</a> 
-                <a class="btn btn-small" family="software">Software</a>
-                <a class="btn btn-small" family="hardware">Hardware</a>
-                <a class="btn btn-small" family="network">Network</a>
+        {{# if showNav }}
+        <div class="nav-content">
+            <div class="nav toggable btn-group">
+                    <a class="btn btn-small btn-primary" category="attack vector" >Attack vectors</a> 
+                    <a class="btn btn-small" category="attack vector" family="software">Software</a>
+                    <a class="btn btn-small" category="attack vector" family="hardware">Hardware</a>
+                    <a class="btn btn-small" category="attack vector" family="network">Network</a>
+            </div>
+            <div class="nav toggable btn-group">
+                    <a class="btn btn-small btn-primary" category="program" >Programs</a> 
+                    <a class="btn btn-small" category="program" family="collect">Collect</a>
+                    <a class="btn btn-small" category="program" family="process">Process</a>
+                    <a class="btn btn-small" category="program" family="database">Database</a>
+                    <a class="btn btn-small" category="program" family="target">Target</a>
+                    <a class="btn btn-small" category="program" family="attack">Attack</a>
+            </div>
+            <div class="nav toggable">
+                <input class="search" type="text" size="8" placeholder="search">
+            </div>
         </div>
+        {{/ if }}
     </div>
 </template>
