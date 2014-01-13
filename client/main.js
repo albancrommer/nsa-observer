@@ -173,7 +173,7 @@ Template.nav.events({
         var el = $(e.currentTarget),
             val = el.val(),
             itemList = [],
-            regexp = new RegExp(val);
+            regexp = new RegExp(val,'i');
        
        itemList = Items.find({name:regexp}).fetch();
        Session.set("listName","search:"+val);
@@ -189,6 +189,23 @@ Template.nav.events({
 Template.slider.events({
     'click a':itemLinkShowList
 })
+
+Template.slider.num = function(){
+    return Items.find().count();
+}
+
+Template.slider.programs_num = function(){
+    return Items.find({category:"program"}).count();
+}
+Template.slider.attacks_num = function(){
+    return Items.find({category:"attack vector"}).count();
+}
+Template.slider.compartiments_num = function(){
+    return Items.find({category:"compartiment"}).count();
+}
+Template.slider.undefineds_num = function(){
+    return Items.find({category:"undefined"}).count();
+}
 
 Template.slider.rendered = function(){
     $.jInvertScroll(['.scroll'],{onScroll:function(percent){

@@ -59,7 +59,6 @@ body li{
 }
 .panel ul,
 .panel dd,
-.panel dt,
 .panel a
 {
     font-family: monospace;
@@ -167,17 +166,20 @@ body li{
 .description {
     top: 100px;
 }
-.documentation {
+.programs {
     top: 1300px;
 }
-.options {
+.attacks {
     top: 2300px;
 }
-.download {
+.compartiments {
     top: 3300px;
 }
-.license {
-    padding: 100px 30px 30px;
+.undefineds{
+    top: 4300px;
+}
+.contacts{
+    top: 5300px;
 }
 .slider img{
     border: 0 none;

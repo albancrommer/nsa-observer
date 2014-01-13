@@ -14,22 +14,19 @@
 			<div class="description page">
                             <div class="symbolic subpanel">
                                 
-                            <h2>Welcome</h2>
+                            <h2>Welcome to the "NSA Observer"</h2>
                             <p>
-                                This site will attempt to provide 
-                                public informations and links about the NSA programs, 
-                                compartiments, and attack vectors.
+                                You will find here informations about {{num}} NSA programs, 
+                                compartiments, or attack vectors. 
                             </p> 
-                            <h3>What?</h3>
+                            <h3>Compart What?</h3>
                             <p>
-                                Yes, the words "attack vectors" or "compartiments" 
-                                feel weird and unusual. 
+                                Yes, the words "attack vectors" or "compartiments" are unusual and weird. 
                             </p>
                             <p>
                                 Reading about <i>"intelligence"</i> means going
                                 through a lot of jargon. But don't be afraid, 
-                                we will try as much as possible to come with 
-                                definitions or links helping you to understand.
+                                definitions or links will help.
                             </p>
                             <h3>Why are you doing this?</h3>
                             <p>
@@ -41,20 +38,21 @@
                             </div>
                             <h3>How does it work?</h3>
                             <p>
-                                Read these panels. Click on a category to show a list of related names. Clicking on a name will show its details. 
+                                Read these panels. Click on a category (ex: <a class="item-show-link" category="program" family="collect">Collect</a>) to show a list of related names. 
+                                Clicking on a name will show its details and you can close the interface by pressing on ESC or clicking the x button. 
                             </p>
                             <p>
-                                If you're coming back and want to access the database content directly, use the top right arrow which will display a navigation.
+                                If you're coming back and want to access the database content directly, the top right arrow displays a menu.
                             </p>
                             </div>
 
 				
                     </div>
 
-                    <div class="documentation page">
+                    <div class="programs page">
                         
                             <div class="symbolic subpanel">
-                            <h2>What is an NSA program?</h2>
+                            <h2>{{programs_num}} NSA programs</h2>
                                 <img src="/images/nsaobserver-programs.png" usemap="#programs">
                             <p> 
                                 <a class="item-show-link" category="program">Programs</a>
@@ -64,60 +62,100 @@
                                 used by NSA teams vor various purpose.
                             </p>
                             <p>
-                                All the programs have different roles but they 
-                                are all fitting into the same "Wheel of Intelligence":
+                                They are used to gather data and handle this data
+                                in order to determine how to gather more data. 
+                                Most of the time, this data is gathered through
+                                pervasive means.
                             </p>
-                            <ul>
-                                <li><a class="item-show-link" category="program" family="collect">collect information</a>
-                                <li><a class="item-show-link" category="program" family="process">process collected information</a>
-                                <li><a class="item-show-link" category="program" family="database">store the processed data</a>
-                                <li><a class="item-show-link" category="program" family="target">target people based on data</a>
-                                <li><a class="item-show-link" category="program" family="attack">attack targeted people to collect new information</a>
-                            </ul>
+                            <dl class="dl-horizontal">
+                                <dt><a class="item-show-link" category="program" family="collect">Collect</a><dd> Retrieves information from sources,
+                                <dt><a class="item-show-link" category="program" family="process">Process</a><dd> Computes and search data in gathered information,
+                                <dt><a class="item-show-link" category="program" family="database">Database</a><dd> Store the processed data,
+                                <dt><a class="item-show-link" category="program" family="target">Target</a><dd> Determines people to track based on data,
+                                <dt><a class="item-show-link" category="program" family="attack">Attack</a><dd> Executes attacks on targeted people to collect new information.
+                            </dl>
                             </div>
                             <div class="visual subpanel">
                             </div>
                     </div>
 
-                    <div class="options page">
+                    <div class="attacks page">
                             <div class="symbolic subpanel">
-                            <h2>What is an Attack Vector?</h2>
+                            <h2>{{attacks_num}} NSA Attack Vectors</h2>
                             <p>
                                 <a class="item-show-link" category="attack vector">Attack vectors</a>
                                 are executed on targeted individuals and/or 
                                 organizations in order to gather more personal 
                                 informations.
                             </p>
-                            <ul>
-                                <li><a class="item-show-link" category="attack vector" family="physical"> Physical devices or channels</a> attacks
-                                <li><a class="item-show-link" category="attack vector" family="software"> Software based</a> attacks
-                                <li><a class="item-show-link" category="attack vector" family="network"> Network based</a> attacks.
-                            </ul>
-                            </div>
-                            <div class="visual subpanel">
-                                todo : insert graph
- 
+                            <p>
+                                These attacks are most of the time directly 
+                                aimed at individuals who have been determined
+                                as data-worthy.
+                            </p>
+                            <dl class="dl-horizontal">
+                                <dt><a class="item-show-link" category="attack vector" family="physical">Physical</a><dd> Attacks operated through material means,
+                                <dt><a class="item-show-link" category="attack vector" family="software">Software</a><dd> Attacks operated via software installed on target,
+                                <dt><a class="item-show-link" category="attack vector" family="network">Network</a><dd> Attacks necessiting a manipulation of network traffic.
+                            </dl>
                             </div>
                     </div>
 
-                    <div class="download page">
+                    <div class="compartiments page">
                             <div class="symbolic subpanel">
-                            <h2>What is a Compartiment?</h2>
+                            <h2>{{compartiments_num}} NSA Compartiments</h2>
                             <p>
                                 <a class="item-show-link" category="compartiment">Compartiment</a>
                                 is a "jargon" word used to describe a group
                                 of companies or countries.
                             </p>
                             <p>
-                                Intelligence agencies have since long separated 
-                                groups for higher security. When a compartiment 
-                                is compromised, the other ones are still secure
-                                as they are kept unaware one from another.
+                                Intelligence agencies build groups of people
+                                ignorant of who the other groups are
+                                for higher security. Should a compartiment 
+                                be compromised, each other compartiment should 
+                                be safe.
+                            </p>
+                            <dl class="dl-horizontal">
+                                <dt><a class="item-show-link" category="compartiment" family="ECI">ECI</a><dd>Extremely Compartimented Information 
+                            </dl>
+                            </div>
+                    </div>
+
+                    <div class="undefineds page">
+                            <div class="symbolic subpanel">
+                            <h2>{{undefineds_num}} undetermined items</h2>
+                            <p>
+                                We have still a large number of <a class="item-show-link" category="undefined">undefined</a>
+                                items for one of many reasons.  
+                            </p>
+                            <p>
+                                We welcome assistance and help is appreciated. 
+                                Feel free to contact us if you'd like to 
+                                help us get this thing started.
                             </p>
                             </div>
-                            <div class="visual subpanel">
-                                todo : insert graph
- 
+                    </div>
+
+                    <div class="contacts page">
+                            <div class="symbolic subpanel">
+                            <h2>Contact </h2>
+                            <p>
+                                {todo : contact form}
+                            </p>
+                            <h3>
+                                Legal 
+                            </h3>
+                            <p>This website is hosted by OVH. </p>
+                            <p>
+                                140 Quai du Sartel, 59100 Roubaix
+                                <br>
+                                Tel : 0 899 70 17 61</p>
+                            <h3>Licence</h3>
+                                <p>The content of this site is provided under the Creative Commons CA BY SA.</p>
+                                <p>Basically, feel free to use it and simply refer to the source as "NSA Observer".</p>
+                            <h3>Tracking</h3>
+                                <p>This site is tracker free.</p>
                             </div>
                     </div>
     </div>
