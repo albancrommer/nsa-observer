@@ -88,6 +88,10 @@ Template.page.rendered = function(){
             togglePanels(isHidden)  ;
         }   
     })
+//    NodeList.drawGraph();
+CategoryGraph.drawGraph();
+
+
 }
 
 // itemList
@@ -206,13 +210,20 @@ Template.slider.compartiments_num = function(){
 Template.slider.undefineds_num = function(){
     return Items.find({category:"undefined"}).count();
 }
-
 Template.slider.rendered = function(){
-    $.jInvertScroll(['.scroll'],{onScroll:function(percent){
-        var win = window,docw = $(win).width();
-        if( undefined === $(win).data ||  $(win).data("docw") !== docw){
-            $(win).data("docw",docw);
-            $(".page").each(function(x,y){var e=$(y),w=e.width(),m=(docw-w)/2;e.css("margin-left",m+"px");})            
-        }
-    }});
+    
+   
+        circleRadii = [{c:"grey",n:"undefined",q:Items.find({category:"undefined"}).count()},{c:"red",n:"programs",q:Items.find({category:"program"}).count()}, {c:"green",n:"attack vector",q:Items.find({category:"attack vector"}).count()}, {c:"blue",n:"compartiment",q:Items.find({category:"compartiment"}).count()}];
+        var svgContainer = d3.select(".graph").append("svg")
+                                            .attr("width", 600)
+                                            .attr("height", 300);
+        var circles = svgContainer.selectAll("circle")
+                                  .data(circleRadii)
+                                  .enter()
+                                  .append("circle")
+        var circleAttributes = circles
+                               .attr("cx", "50%")
+                               .attr("cy", "50%")
+                               .attr("r", function (d) { return d.q; })
+                               .style("fill", function (d) { return d.c});        
 }

@@ -6,9 +6,10 @@
         Purpose of the stylesheet follows.
 */
 body{
-    background: url('/images/bg.png') repeat top center;
-    background-image: linear-gradient(#000,#fff);
-    overflow-x: hidden;
+    /*background: url('/images/bg.png') repeat top center;*/
+    /*background-image: linear-gradient(#000,#fff);*/
+    /*overflow-x: hidden;*/
+    font-family:  Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 body a {
     cursor: pointer;
@@ -39,7 +40,7 @@ body li{
     overflow: auto;
     padding: 1%;
     position: fixed;
-    top: 0x;
+    top: 0px;
     z-index: 2;
 }
 .panel-close {
@@ -129,63 +130,26 @@ body li{
 .nav-container input.search {
     margin-top: 10px;
 }
-/* slider */
-.scroll {
-    left: 0;
-    position: fixed;
-    text-align: center;
-    top: 0;
-    transition: all 300ms ease-out;
-    width: 100%;
-}
-.horizon {
-    line-height: 0;
-    height: 2250px;
-    z-index: -3;
-}
-.middle {
-    line-height: 0;
-    height: 4500px;
-    z-index: -2;
-}
-.front {
-    top: 5%;
-    margin-top:36px;
-    height: 6000px;
-    z-index: 0;
-}
 .page {
-    background: none repeat scroll 0 0 white;
-    padding: 10px 30px;
-    position: absolute;
-    top: 0;
-    width: 39%;
-    min-width: 400px;
-    max-width: 900px;
+    padding :30px 0;
 }
-.description {
-    top: 100px;
+.row .span12{
+    text-align: center;
 }
-.programs {
-    top: 1300px;
+.slider h1,
+.slider h2,
+.slider h3,
+.slider h4
+{
+    font-weight: normal;
+    line-height: 2em;
 }
-.attacks {
-    top: 2300px;
+.row .span12 [class*="span"]
+{
+    text-align: left;
 }
-.compartiments {
-    top: 3300px;
-}
-.undefineds{
-    top: 4300px;
-}
-.contacts{
-    top: 5300px;
-}
-.slider img{
-    border: 0 none;
-    height: auto;
+.row .span12 [class="span4"]
+{
+    text-align: justify;
 }
 
-.visual.subpanel {
-    text-align: center;
-}
