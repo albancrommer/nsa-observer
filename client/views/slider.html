@@ -5,20 +5,11 @@
                 <div class="description page">
                     <h2>Discover things the NSA doesn't want you to know!</h2>
                     <h4>
-                        And why you definitely should understand them.
+                        And why should :)
                     </h4> 
                     <hr>
-    <div class="graph">
-    {{#constant}}
-
-
-
-
-
-
-
-    {{/constant}}
-  </div>                    <h5>
+                    <div id="categories-graph">{{#constant}}{{/constant}}</div>
+                    <h5>
                         Since the summer of 2013, we are continously gathering 
                         and processing public informations about the NSA global surveillance revelations
                         and now have a collection of {{num}} entries 
@@ -70,9 +61,18 @@
         </div>
         <div class="row">
             <div class="span12 programs page">
-                <img src="/images/nsaobserver-programs.png" >
                 <h2>Presenting {{programs_num}} NSA programs...</h2>
                 <hr>
+                <div class="row">
+                    <div class="span6">
+                <img src="/images/nsaobserver-programs.png" >
+                        
+                    </div>
+                    <div class="span6">
+                <div id="programs-graph">{{#constant}}{{/constant}}</div>
+                        
+                    </div>
+                </div>
                 <div class="row">
                     <div class="span4">
                         <p> 

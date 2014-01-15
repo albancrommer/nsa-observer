@@ -153,3 +153,57 @@ body li{
     text-align: justify;
 }
 
+svg {
+    width: 100%;
+    background: #fcfcfc;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1) inset;
+}
+.graph-label{
+    opacity: 0.4;
+}
+.graph-label:hover{
+    opacity: 1;
+}
+.slider svg circle{
+    transition: fill 500ms ease 0s;
+}
+.slider svg circle:hover{
+    fill:#f8f8f8;
+    stroke:#ccc;
+    stroke-width: 0.5px;
+}
+svg .programs{
+    fill:#f88;
+}
+
+svg .compartiments{
+    fill:#8f8;
+}
+
+svg .attacks{
+    fill:#88f;
+}
+
+svg .undefineds{
+    fill:#ccc;
+}
+
+svg .collect{
+    fill:#0f0;
+}
+
+svg .process{
+    fill:#f0f;
+}
+
+svg .database{
+    fill:#0ff;
+}
+
+svg .target{
+    fill:#f00;
+}
+
+svg .attack{
+    fill:#00f;
+}

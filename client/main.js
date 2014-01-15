@@ -88,8 +88,6 @@ Template.page.rendered = function(){
             togglePanels(isHidden)  ;
         }   
     })
-//    NodeList.drawGraph();
-CategoryGraph.drawGraph();
 
 
 }
@@ -191,7 +189,9 @@ Template.nav.events({
 // Slider
 
 Template.slider.events({
-    'click a':itemLinkShowList
+    'click a':itemLinkShowList,
+    'click circle':itemLinkShowList,
+            
 })
 
 Template.slider.num = function(){
@@ -212,18 +212,24 @@ Template.slider.undefineds_num = function(){
 }
 Template.slider.rendered = function(){
     
-   
-        circleRadii = [{c:"grey",n:"undefined",q:Items.find({category:"undefined"}).count()},{c:"red",n:"programs",q:Items.find({category:"program"}).count()}, {c:"green",n:"attack vector",q:Items.find({category:"attack vector"}).count()}, {c:"blue",n:"compartiment",q:Items.find({category:"compartiment"}).count()}];
-        var svgContainer = d3.select(".graph").append("svg")
-                                            .attr("width", 600)
-                                            .attr("height", 300);
-        var circles = svgContainer.selectAll("circle")
-                                  .data(circleRadii)
-                                  .enter()
-                                  .append("circle")
-        var circleAttributes = circles
-                               .attr("cx", "50%")
-                               .attr("cy", "50%")
-                               .attr("r", function (d) { return d.q; })
-                               .style("fill", function (d) { return d.c});        
+    var data;
+    //    NodeList.drawGraph();
+    data = [
+        {c:"undefineds",n:"undefined",q:Items.find({category:"undefined"}).count(),cat:"undefined"},
+        {c:"programs",n:"programs",q:Items.find({category:"program"}).count(),cat:"program"}, 
+        {c:"attacks",n:"attack vectors",q:Items.find({category:"attack vector"}).count(),cat:"attack vector"}, 
+        {c:"compartiments",n:"compartiments",q:Items.find({category:"compartiment"}).count(),cat:"compartiment"}
+    ];
+    var catGraph = new CategoryGraph();
+    catGraph.drawGraph("#categories-graph",data, Items.find().count(),600,300);
+    data = [
+        {c:"collect",n:"collect",q:Items.find({category:"program",family:"collect"}).count(),cat:"program",fam:"collect"},
+        {c:"process",n:"process",q:Items.find({category:"program",family:"process"}).count(),cat:"program",fam:"process"}, 
+        {c:"database",n:"database",q:Items.find({category:"program",family:"database"}).count(),cat:"program",fam:"database"}, 
+        {c:"target",n:"target",q:Items.find({category:"program",family:"target"}).count(),cat:"program",fam:"target"}, 
+        {c:"attack",n:"attack",q:Items.find({category:"program",family:"attack"}).count(),cat:"program",fam:"attack"}
+    ];
+    var programGraph = new CategoryGraph();
+    programGraph.drawGraph("#programs-graph",data,Items.find({category:"program"}).count(),240,500);
+
 }
