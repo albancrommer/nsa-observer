@@ -236,7 +236,7 @@ CategoryGraph = function(){
             //console.log("concated",res)
             return res;
         };
-    instance.drawGraph = function(selector,data,total,width,height){
+    instance.drawGraph = function(selector,data,width,height){
         data = instance.sort(data).reverse();
 
         var median = instance.getMax(data);
@@ -256,7 +256,7 @@ CategoryGraph = function(){
         var circleAttributes = circles
                                .attr("cx", "50%")
                                .attr("cy", "50%")
-                               .attr("title", function(d){return d.n})
+                               .attr("title", function(d){return d.q+" "+d.n})
                                .attr("category", function(d){return d.cat})
                                .attr("family", function(d){return d.fam})
                                .attr("r", function (d) { 
@@ -274,16 +274,16 @@ CategoryGraph = function(){
                                 .data(data)
                                 .enter()
                                 .append("text");
-
-        var textLabels = text
-                         .attr("x", "1%")
-                         .attr("y", function(d,i) { return height - (1+i)*15 })
-                         .attr("z-index", "50")
-                         .text( function (d) { return d.n; })
-                         .attr("font-family", "sans-serif")
-                         .attr("font-size", "10px")
-                         .attr("class", function(d){return "graph-label "+d.c;})   
-                 ;
+//
+//        var textLabels = text
+//                         .attr("x", "1%")
+//                         .attr("y", function(d,i) { return height - (1+i)*15 })
+//                         .attr("z-index", "50")
+//                         .text( function (d) { return d.n; })
+//                         .attr("font-family", "sans-serif")
+//                         .attr("font-size", "10px")
+//                         .attr("class", function(d){return "graph-label "+d.c;})   
+//                 ;
         }
         return instance;
 }

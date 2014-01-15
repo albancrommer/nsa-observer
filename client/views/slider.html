@@ -8,7 +8,7 @@
                         And why should :)
                     </h4> 
                     <hr>
-                    <div id="categories-graph">{{#constant}}{{/constant}}</div>
+                    <div id="categories-graph"></div>
                     <h5>
                         Since the summer of 2013, we are continously gathering 
                         and processing public informations about the NSA global surveillance revelations
@@ -63,18 +63,24 @@
             <div class="span12 programs page">
                 <h2>Presenting {{programs_num}} NSA programs...</h2>
                 <hr>
-                <div class="row">
-                    <div class="span6">
-                <img src="/images/nsaobserver-programs.png" >
-                        
-                    </div>
-                    <div class="span6">
                 <div id="programs-graph">{{#constant}}{{/constant}}</div>
+                <div class="row">
+                    <div class="span6">
+                        <img src="/images/nsaobserver-programs.png" >
                         
                     </div>
-                </div>
-                <div class="row">
-                    <div class="span4">
+                    <div class="span6">
+                        <h4>
+                            Programs families
+                        </h4>
+                        <dl class="dl-horizontal">
+                            <dt><a class="item-show-link" category="program" family="collect">Collect</a><dd> Retrieves information from sources,
+                            <dt><a class="item-show-link" category="program" family="process">Process</a><dd> Computes and search data in gathered information,
+                            <dt><a class="item-show-link" category="program" family="database">Database</a><dd> Store the processed data,
+                            <dt><a class="item-show-link" category="program" family="target">Target</a><dd> Determines people to track based on data,
+                            <dt><a class="item-show-link" category="program" family="attack">Attack</a><dd> Executes attacks on targeted people to collect new information.
+                        </dl>
+                        
                         <p> 
                             <em>Programs</em> can be defined as multi millions projects,
                             involving groups of countries, companies, indivisuals 
@@ -88,25 +94,14 @@
                             pervasive means.
                         </p>
                     </div>
-                    <div class="span8">
-                        <h4>
-                            <a class="item-show-link" category="program">Programs</a> by family:
-                        </h4>
-                        <dl class="dl-horizontal">
-                            <dt><a class="item-show-link" category="program" family="collect">Collect</a><dd> Retrieves information from sources,
-                            <dt><a class="item-show-link" category="program" family="process">Process</a><dd> Computes and search data in gathered information,
-                            <dt><a class="item-show-link" category="program" family="database">Database</a><dd> Store the processed data,
-                            <dt><a class="item-show-link" category="program" family="target">Target</a><dd> Determines people to track based on data,
-                            <dt><a class="item-show-link" category="program" family="attack">Attack</a><dd> Executes attacks on targeted people to collect new information.
-                        </dl>
-                    </div>
-                </div>    
+                </div>            
             </div>
         </div>
         <div class="row">
             <div class="span12 attacks page">
                 <h2>... {{attacks_num}} NSA Attack Vectors</h2>
                 <hr>
+                <div id="attack-graph"></div>
                 <div class="row">
                     <div class="span4">                                
                         <p>
@@ -122,7 +117,7 @@
                         </p>
                     </div>
                     <div class="span6">   
-                        <h4><a class="item-show-link" category="attack vector">Attack vectors</a> by family:</h4>
+                        <h4>Attack vectors families</h4>
                         <dl class="dl-horizontal">
                             <dt><a class="item-show-link" category="attack vector" family="physical">Physical</a><dd> Attacks operated through material means,
                             <dt><a class="item-show-link" category="attack vector" family="software">Software</a><dd> Attacks operated via software installed on target,
@@ -136,6 +131,7 @@
             <div class="span12 compartiments page">
                 <h2>... and {{compartiments_num}} NSA Compartiments</h2>
                 <hr>
+                <div id="compartiment-graph"></div>
                 <div class="row">
                     <div class="span4">                                
                         <p>
@@ -153,7 +149,7 @@
                     </div>
                     <div class="span8">
                         <h4>
-                            <a class="item-show-link" category="compartiment">Compartiment</a> by family:
+                            Compartiment families
                         </h4>
                         <dl class="dl-horizontal">
                             <dt><a class="item-show-link" category="compartiment" family="ECI">ECI</a><dd>Extremely Compartimented Information 

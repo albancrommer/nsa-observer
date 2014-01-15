@@ -15,13 +15,13 @@ body a {
     cursor: pointer;
 }
 body dl{
-    margin: 0px;
+    margin:0px 0px 20px;
 }
 
 body ul,
 body li{
     list-style: none;
-    margin:0px;
+    margin: 0px;
     padding:0px;
 }
 
@@ -33,7 +33,7 @@ body li{
 
 /* Item list */
 .panel{
-    background: none repeat scroll 0 0 rgba(255,255,255, 0.98);
+    background: none repeat scroll 0 0 #f8f8f8;
     box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.34);
     height: 100%;
     left: 0;
@@ -155,33 +155,31 @@ body li{
 
 svg {
     width: 100%;
-    background: #fcfcfc;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1) inset;
 }
 .graph-label{
-    opacity: 0.4;
 }
 .graph-label:hover{
-    opacity: 1;
 }
 .slider svg circle{
-    transition: fill 500ms ease 0s;
+    transition: opacity 500ms ease, fill 500ms ease;
 }
 .slider svg circle:hover{
-    fill:#f8f8f8;
+    cursor: pointer;
+    opacity: 0.3;
+    fill: #ddd;
     stroke:#ccc;
     stroke-width: 0.5px;
 }
 svg .programs{
-    fill:#f88;
+    fill:#3d5869;
 }
 
 svg .compartiments{
-    fill:#8f8;
+    fill:#195B87;
 }
 
 svg .attacks{
-    fill:#88f;
+    fill:#083857;
 }
 
 svg .undefineds{
@@ -189,21 +187,37 @@ svg .undefineds{
 }
 
 svg .collect{
-    fill:#0f0;
+    fill:#3d5869;
 }
 
 svg .process{
-    fill:#f0f;
+    fill:#195B87;
 }
 
 svg .database{
-    fill:#0ff;
+    fill:#274C64;
 }
 
 svg .target{
-    fill:#f00;
+    fill:#083857;
 }
 
 svg .attack{
-    fill:#00f;
+    fill:#67ADDB;
+}
+
+svg .physical{
+    fill:#274C64;
+}
+
+svg .software{
+    fill:#083857;
+}
+
+svg .network{
+    fill:#67ADDB;
+}
+
+svg .eci{
+    fill:#67ADDB;
 }
