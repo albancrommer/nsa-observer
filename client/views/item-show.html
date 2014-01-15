@@ -22,9 +22,7 @@
             <dd>
                 <ul>
                 {{#each currentItem.links}}
-                    {{#if this }}
-                        <li><a href="{{this}}" target="_blank" class="item-show-link external-link">{{this}}</a></li>
-                    {{/if}}
+                {{{ externalLink this }}}
                 {{/each}}
                 </ul>&nbsp;
         </dl>

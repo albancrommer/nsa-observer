@@ -159,6 +159,11 @@ Template.itemShow.events({
 });
 
 
+Template.itemShow.externalLink = function(l){
+    return '<li><a href="'+l[0]+'" target="_blank" class="item-show-link external-link">'+l[1]+'</a></li>';
+
+}
+
 // nav
 
 Template.nav.showNav = function(){
