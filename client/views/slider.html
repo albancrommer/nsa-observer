@@ -3,33 +3,26 @@
         <div class="row">
             <div class="span12 front">
                 <div class="description page">
-                    <h2>Discover things the NSA doesn't want you to know!</h2>
-                    <h4>
-                        And why should :)
-                    </h4> 
+                            <img src="/images/nsaobserver-programs.png" >
+                            <h2>Things the NSA doesn't want you to know</h2>
+                            <h4>And why you should know about it :)</h4>
                     <hr>
                     <div id="categories-graph"></div>
-                    <h5>
-                        Since the summer of 2013, we are continously gathering 
+                    <h4>
+                        Since summer 2013, we are continously gathering 
                         and processing public informations about the NSA global surveillance revelations
-                        and now have a collection of {{num}} entries 
-                        including programs, attack vectors, or things like
-                        compartiments.
-                    </h5> 
-                    <div class="row">
-                        <div class="span6">
-                            <h3>CompartiWhat?</h3>
-                            <p>
-                                Don't know what an "attack vector" or a "compartiment" is?
-                            </p>
-                            <p>
-                                Don't worrry, reading about <i>"intelligence"</i> means going
-                                through a bit of jargon, and we're here to provide 
-                                definitions or links to help.
-                            </p>
-                        </div>
-                        <div class="span6">
-                            <h3>How does it work?</h3>
+                        and have a collection of {{num}} entries regarding the NSA
+                    </h4> 
+                    <dl class="dl-horizontal">
+                        <dt>Programs<dd>A program is a technical solution of some sort (ex: a database,   satellite collect, etc.) or a group of programs.
+                        <dt>Compartments<dd>A compartment is a partner of some sort (ex: foreign state, company, etc.) or a group of compartments.
+                        <dt>Attack vectors<dd>An attack vector is any kind of attack tool, software (ex: trojan) or hardware (ex: USB bug)."
+                            
+                    </dl>
+                    <hr>
+                     <div class="row">
+                        <div class="span4">
+                            <h4>How does it work?</h4>
                             <p>
                                 To enter the database, click on links (ex: <a class="item-show-link" category="program" family="collect">Collect</a>). 
                                 You can close the interface by pressing on ESC or clicking the x button. 
@@ -38,15 +31,22 @@
                                 If you're coming back and want to access the database content directly, the top right arrow displays a menu.
                             </p>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="span12">
-                            <h3>Why are you doing this?</h3>
+                        <div class="span8">
+                            <h4>CompartWhat?</h4>
+                            <p>
+                                You don't know what an "attack vector" or a "compartment" is?
+                            </p>
+                            <p>
+                                Don't worrry, reading about <i>"intelligence"</i> means going
+                                through a bit of jargon, and we're here to provide 
+                                definitions or links to help.
+                            </p>
+                            <h4>Why are you doing this?</h4>
                             <p>
                                 Because we think it's important for citizens to understand what's being released, and why they must act to protect their privacy.
                             </p>
                             <p>
-                                Because it's hard to keep track of everything that was leaked, harder and harder as information keeps on coming.
+                                Because it's hard to keep track of everything that was leaked. And it gets harder and harder.
                             </p>
                             <p>
                                 Because we think collaboration is required for this information to be maintained on the long run.
@@ -63,13 +63,13 @@
             <div class="span12 programs page">
                 <h2>Presenting {{programs_num}} NSA programs...</h2>
                 <hr>
-                <div id="programs-graph">{{#constant}}{{/constant}}</div>
+                <div id="programs-graph"></div>
                 <div class="row">
-                    <div class="span3">
+                    <div class="span4">
                         <h4>What are NSA Programs?</h4>
                         <p> 
                             <em>Programs</em> can be defined as multi millions projects,
-                            involving groups of countries, companies, indivisuals 
+                            involving countries, companies, individuals 
                             and technologies in the making of softwares 
                             used by NSA teams.
                         </p>
@@ -80,19 +80,16 @@
                             pervasive means.
                         </p>
                     </div>
-                    <div class="span3">
-                        <img src="/images/nsaobserver-programs.png" >
-                    </div>
-                    <div class="span6">
+                    <div class="span8">
                         <h4>
                             Programs families
                         </h4>
                         <dl class="dl-horizontal">
-                            <dt><a class="item-show-link" category="program" family="collect">Collect</a><dd> Retrieves information from sources,
-                            <dt><a class="item-show-link" category="program" family="process">Process</a><dd> Computes and search data in gathered information,
-                            <dt><a class="item-show-link" category="program" family="database">Database</a><dd> Store the processed data,
-                            <dt><a class="item-show-link" category="program" family="target">Target</a><dd> Determines people to track based on data,
-                            <dt><a class="item-show-link" category="program" family="attack">Attack</a><dd> Executes attacks on targeted people to collect new information.
+                            <dt><a class="item-show-link" category="program" family="collect">Collection</a><dd> Retrieve information from sources
+                            <dt><a class="item-show-link" category="program" family="process">Process</a><dd> Compute and search data in gathered information
+                            <dt><a class="item-show-link" category="program" family="database">Database</a><dd> Store the processed data
+                            <dt><a class="item-show-link" category="program" family="target">Target</a><dd> Determine people to track based on data
+                            <dt><a class="item-show-link" category="program" family="attack">Attack</a><dd> Execute attacks on targeted people to collect new information
                         </dl>
                     </div>
                 </div>            
@@ -104,9 +101,10 @@
                 <hr>
                 <div id="attack-graph"></div>
                 <div class="row">
-                    <div class="span4">                                
+                    <div class="span4">       
+                        <h4>What are NSA Attack vectors?</h4>
                         <p>
-                            <em>Attack vectors</em> is used to speak 
+                            <em>Attack vectors</em> are used to speak 
                             about malicious things executed on targeted individuals and/or 
                             organizations in order to gather more personal 
                             informations.
@@ -120,8 +118,8 @@
                     <div class="span6">   
                         <h4>Attack vectors families</h4>
                         <dl class="dl-horizontal">
-                            <dt><a class="item-show-link" category="attack vector" family="physical">Physical</a><dd> Attacks operated through material means,
-                            <dt><a class="item-show-link" category="attack vector" family="software">Software</a><dd> Attacks operated via software installed on target,
+                            <dt><a class="item-show-link" category="attack vector" family="physical">Physical</a><dd> Attacks operated through material means
+                            <dt><a class="item-show-link" category="attack vector" family="software">Software</a><dd> Attacks operated via software installed on target
                             <dt><a class="item-show-link" category="attack vector" family="network">Network</a><dd> Attacks necessiting a manipulation of network traffic.
                         </dl>
                     </div>
@@ -129,31 +127,32 @@
             </div>
         </div>
         <div class="row">
-            <div class="span12 compartiments page">
-                <h2>... and {{compartiments_num}} NSA Compartiments</h2>
+            <div class="span12 compartments page">
+                <h2>... and {{compartments_num}} NSA Compartments</h2>
                 <hr>
-                <div id="compartiment-graph"></div>
+                <div id="compartment-graph"></div>
                 <div class="row">
-                    <div class="span4">                                
+                    <div class="span4">         
+                        <h4>What are NSA Compartments?</h4>
                         <p>
-                            <em>Compartiment</em>
+                            <em>Compartment</em>
                             is a "jargon" word used to describe a group
                             of companies or countries.
                         </p>
                         <p>
                             Intelligence agencies build groups of people
                             ignorant of who the other groups are
-                            for higher security. Should a compartiment 
-                            be compromised, each other compartiment should 
+                            for higher security. Should a compartment 
+                            be compromised, each other compartment should 
                             be safe.
                         </p>
                     </div>
                     <div class="span8">
                         <h4>
-                            Compartiment families
+                            Compartment families
                         </h4>
                         <dl class="dl-horizontal">
-                            <dt><a class="item-show-link" category="compartiment" family="ECI">ECI</a><dd>Extremely Compartimented Information 
+                            <dt><a class="item-show-link" category="compartment" family="ECI">ECI</a><dd>Extremely Compartmented Information 
                         </dl>
                     </div>
                 </div>
@@ -165,10 +164,10 @@
                 <hr>
                 <p>
                     We still have a large number of <a class="item-show-link" category="undefined">undefined</a>
-                    items for one of many reasons.  
+                    items for many reasons.  
                 </p>
                 <p>
-                    We welcome assistance and help is appreciated. 
+                    We welcome any assistance and help is appreciated. 
                     Feel free to contact us if you'd like to 
                     help us get this thing started.
                 </p>
@@ -176,28 +175,40 @@
         </div>
         <div class="row">
             <div class="span12 contacts page">
-                <div class="symbolic subpanel">
-                    <h2>Contact </h2>
-                    <hr>
-                    <p>
-                        {todo : contact form}
-                    </p>
-                    <h3>
-                        Legal 
-                    </h3>
-                    <p>This website is hosted by OVH. </p>
-                    <p>
-                        140 Quai du Sartel, 59100 Roubaix
-                        <br>
-                        Tel : 0 899 70 17 61</p>
-                    <h3>Licence</h3>
-                    <p>The content of this site is provided under the Creative Commons CA BY SA.</p>
-                    <p>Basically, feel free to use it and simply refer to the source as "NSA Observer".</p>
-                    <h3>Tracking</h3>
-                    <p>This site is tracker free.</p>
-                    <h3>Login</h3>
-                    {{loginButtons}}
+                <div class="row">
+                    <div class="span3">
+                        <h3>Contact </h3>
+                        <hr>
+                        <p>
+                            {todo : contact form}
+                        </p>
+                        
+                    </div>
+                    <div class="span3">
+                        <h3>
+                            Legal 
+                        </h3>
+                        <hr>
+                        <p>This website is hosted by OVH. </p>
+                        <p>
+                            140 Quai du Sartel, 59100 Roubaix
+                            <br>
+                            Tel : 0 899 70 17 61</p>
+                    </div>
+                    <div class="span3">
+                        <h3>Licence</h3>
+                        <hr>
+                        <p>The content of this site is provided under the Creative Commons CA BY SA.</p>
+                        <p>Basically, feel free to use it and simply refer to the source as "NSA Observer".</p>
+                    </div>
+                    <div class="span3">
+                        <h3>Tracking</h3>
+                        <hr>
+                        <p>This site is tracker free.</p>
+                    </div>
                 </div>
+                <h3>Login</h3>
+                {{loginButtons}}
             </div>
         </div>
     </div>

@@ -238,11 +238,11 @@ CategoryGraph = function(){
         };
     instance.drawGraph = function(selector,data,width,height){
         data = instance.sort(data).reverse();
-
+        $(selector).html("");
         var median = instance.getMax(data);
         var sum = instance.getSum(data);
         var current_sum = sum;
-        console.log("selector: "+selector+", sum: "+sum+" ---------------",data);
+//        console.log("selector: "+selector+", sum: "+sum+" ---------------",data);
         if( ! median ){
             return;
         }

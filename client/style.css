@@ -27,10 +27,11 @@ body li{
 
 .dl-horizontal dt {
     text-align: left;
-    width: 90px;
+    width: 120px;
 }
 .dl-horizontal dd {
-    margin-left: 100px;
+    margin-left: 130px;
+    text-align: left;
 }
 /*Item container*/
 
@@ -88,6 +89,7 @@ body li{
     display: block;
     padding: 5px;
     text-decoration: none;
+    text-overflow: ellipsis;
 }
 .item-list a:hover:before {
     content: "➜ ";
@@ -154,7 +156,16 @@ body li{
     color: #EEEEEE;
     display: table-cell;
     padding: 8px;
+    -webkit-transform: rotate(180deg);
+         -o-transform: rotate(180deg);
+            transform: rotate(180deg);
 }
+.nav-container .menu-toggle.active {
+    -webkit-transform: rotate(0deg);
+         -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+
 .nav-container .nav-content{
     display: table-cell;
     padding-left: 8px;
@@ -168,13 +179,19 @@ body li{
 .row .span12{
     text-align: center;
 }
+.slider * {
+    color: #666;
+
+}
+
 .slider h1,
 .slider h2,
-.slider h3,
-.slider h4
+.slider h3
 {
     font-weight: normal;
-    line-height: 2em;
+    line-height: 1em;
+    margin-bottom: 10px;
+    
 }
 .row .span12 [class*="span"]
 {

@@ -209,8 +209,8 @@ Template.slider.programs_num = function(){
 Template.slider.attacks_num = function(){
     return Items.find({category:"attack vector"}).count();
 }
-Template.slider.compartiments_num = function(){
-    return Items.find({category:"compartiment"}).count();
+Template.slider.compartments_num = function(){
+    return Items.find({category:"compartment"}).count();
 }
 Template.slider.undefineds_num = function(){
     return Items.find({category:"undefined"}).count();
@@ -219,14 +219,14 @@ Template.slider.rendered = function(){
     
     var data;
     //    NodeList.drawGraph();
-    data = [
-        {c:"undefineds",n:"undefined",q:Items.find({category:"undefined"}).count(),cat:"undefined"},
-        {c:"programs",n:"programs",q:Items.find({category:"program"}).count(),cat:"program"}, 
-        {c:"attacks",n:"attack vectors",q:Items.find({category:"attack vector"}).count(),cat:"attack vector"}, 
-        {c:"compartiments",n:"compartiments",q:Items.find({category:"compartiment"}).count(),cat:"compartiment"}
-    ];
-    var catGraph = new CategoryGraph();
-    catGraph.drawGraph("#categories-graph",data,600,300);
+//    data = [
+//        {c:"undefineds",n:"undefined",q:Items.find({category:"undefined"}).count(),cat:"undefined"},
+//        {c:"programs",n:"programs",q:Items.find({category:"program"}).count(),cat:"program"}, 
+//        {c:"attacks",n:"attack vectors",q:Items.find({category:"attack vector"}).count(),cat:"attack vector"}, 
+//        {c:"compartments",n:"compartments",q:Items.find({category:"compartment"}).count(),cat:"compartment"}
+//    ];
+//    var catGraph = new CategoryGraph();
+//    catGraph.drawGraph("#categories-graph",data,600,300);
     
     data = [
         {c:"collect",n:"collect programs",q:Items.find({category:"program",family:"collect"}).count(),cat:"program",fam:"collect"},
@@ -247,9 +247,9 @@ Template.slider.rendered = function(){
     programGraph.drawGraph("#attack-graph",data,600,200);
     
     data = [
-        {c:"eci",n:"Extremely Compartimented Information compartiments",q:Items.find({category:"compartiment",family:"ECI"}).count(),cat:"compartiment",fam:"eci"},
+        {c:"eci",n:"Extremely Compartmented Information",q:Items.find({category:"compartiment",family:"ECI"}).count(),cat:"compartment",fam:"eci"},
     ];
     var programGraph = new CategoryGraph();
-    programGraph.drawGraph("#compartiment-graph",data,600,200);
+    programGraph.drawGraph("#compartment-graph",data,600,200);
 
 }
