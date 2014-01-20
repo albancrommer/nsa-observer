@@ -112,6 +112,7 @@ body li{
 
 .item-show-link {
     background: none repeat scroll 0 0 transparent;
+    border-bottom: 1px dashed #1E0FBE;
     display: inline;
     line-height: 1;
     padding: 0 3px;
@@ -121,6 +122,7 @@ body li{
 
 .item-show-link:hover {
     background: #0088CC;
+    border-bottom: none;
     border-radius: 8px;
     color:white;
     display: inline-block;

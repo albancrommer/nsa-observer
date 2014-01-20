@@ -7,25 +7,30 @@
                             <h2>Things the NSA doesn't want you to know</h2>
                             <h4>And why you should know about it :)</h4>
                     <hr>
-                    <div id="categories-graph"></div>
                     <h4>
                         Since summer 2013, we are continously gathering 
                         and processing public informations about the NSA global surveillance revelations
                         and have a collection of {{num}} entries regarding the NSA
                     </h4> 
-                    <dl class="dl-horizontal">
+                      <dl class="dl-horizontal">
                         <dt>Programs<dd>A program is a technical solution of some sort (ex: a database,   satellite collect, etc.) or a group of programs.
                         <dt>Compartments<dd>A compartment is a partner of some sort (ex: foreign state, company, etc.) or a group of compartments.
                         <dt>Attack vectors<dd>An attack vector is any kind of attack tool, software (ex: trojan) or hardware (ex: USB bug)."
                             
                     </dl>
+                    <div id="categories-graph">{{#constant}}{{/constant}}</div>
                     <hr>
                      <div class="row">
                         <div class="span4">
                             <h4>How does it work?</h4>
                             <p>
-                                To enter the database, click on links (ex: <a class="item-show-link" category="program" family="collect">Collect</a>). 
-                                You can close the interface by pressing on ESC or clicking the x button. 
+                                There are two parts to this website. First, this page with texts and interactive graphics. Second, the database lists and entries.
+                            </p>
+                            <p>
+                                At any time you can click on a link (ex: <a class="item-show-link" category="program" family="collect">Collect</a>) or an interactive graphic. 
+                            </p>
+                            <p>
+                                This will open panels which you can close by pressing on ESC or clicking the x button. 
                             </p>
                             <p>
                                 If you're coming back and want to access the database content directly, the top right arrow displays a menu.
@@ -63,7 +68,7 @@
             <div class="span12 programs page">
                 <h2>Presenting {{programs_num}} NSA programs...</h2>
                 <hr>
-                <div id="programs-graph"></div>
+                <div id="programs-graph">{{#constant}}{{/constant}}</div>
                 <div class="row">
                     <div class="span4">
                         <h4>What are NSA Programs?</h4>
@@ -99,7 +104,7 @@
             <div class="span12 attacks page">
                 <h2>... {{attacks_num}} NSA Attack Vectors</h2>
                 <hr>
-                <div id="attack-graph"></div>
+                <div id="attack-graph">{{#constant}}{{/constant}}</div>
                 <div class="row">
                     <div class="span4">       
                         <h4>What are NSA Attack vectors?</h4>
@@ -130,7 +135,7 @@
             <div class="span12 compartments page">
                 <h2>... and {{compartments_num}} NSA Compartments</h2>
                 <hr>
-                <div id="compartment-graph"></div>
+                <div id="compartment-graph">{{#constant}}{{/constant}}</div>
                 <div class="row">
                     <div class="span4">         
                         <h4>What are NSA Compartments?</h4>

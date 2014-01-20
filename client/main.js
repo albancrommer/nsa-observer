@@ -43,9 +43,10 @@ var itemLinkShowList = function(event){
 var togglePanels = function (hideOrShow,panels){
     var iterator,
         state = hideOrShow || false,
-        panels = panels || ["itemListIsVisible","itemShowIsVisible"];
+        panels = panels || ["itemListIsVisible", "itemShowIsVisible"];
         for( iterator = 0; iterator < panels.length; iterator++ ){
-            Session.set(panels[iterator],state);
+            var panel = panels[iterator];
+            Session.set(panel,state);
         }
 }
 
@@ -139,20 +140,6 @@ Template.itemShow.events({
             }
         }
         return false;
-                
-//        var href = $(event.currentTarget).attr("href"),
-//            matches = /\[\[(.*)\]\]/.exec(href),
-//            name = matches[1] || null,
-//            currentItem
-//            ;
-//        if( name ){
-//            currentItem = Items.findOne({name:name});
-//        }
-//        if( ! currentItem ){
-//            return window.open(url, "http://wikipedia.org/en/"+name);
-//        }
-//        Session.set("currentItem",currentItem);
-//        return false;
     },
     'click .family-link':itemLinkShowList,
     'click .category-link':itemLinkShowList,
@@ -219,14 +206,14 @@ Template.slider.rendered = function(){
     
     var data;
     //    NodeList.drawGraph();
-//    data = [
+    data = [
 //        {c:"undefineds",n:"undefined",q:Items.find({category:"undefined"}).count(),cat:"undefined"},
-//        {c:"programs",n:"programs",q:Items.find({category:"program"}).count(),cat:"program"}, 
-//        {c:"attacks",n:"attack vectors",q:Items.find({category:"attack vector"}).count(),cat:"attack vector"}, 
-//        {c:"compartments",n:"compartments",q:Items.find({category:"compartment"}).count(),cat:"compartment"}
-//    ];
-//    var catGraph = new CategoryGraph();
-//    catGraph.drawGraph("#categories-graph",data,600,300);
+        {c:"programs",n:"programs",q:Items.find({category:"program"}).count(),cat:"program"}, 
+        {c:"attacks",n:"attack vectors",q:Items.find({category:"attack vector"}).count(),cat:"attack vector"}, 
+        {c:"compartments",n:"compartments",q:Items.find({category:"compartment"}).count(),cat:"compartment"}
+    ];
+    var catGraph = new CategoryGraph();
+    catGraph.drawGraph("#categories-graph",data,600,100);
     
     data = [
         {c:"collect",n:"collect programs",q:Items.find({category:"program",family:"collect"}).count(),cat:"program",fam:"collect"},
@@ -247,7 +234,7 @@ Template.slider.rendered = function(){
     programGraph.drawGraph("#attack-graph",data,600,200);
     
     data = [
-        {c:"eci",n:"Extremely Compartmented Information",q:Items.find({category:"compartiment",family:"ECI"}).count(),cat:"compartment",fam:"eci"},
+        {c:"eci",n:"Extremely Compartmented Information",q:Items.find({category:"compartiment",family:"ECI"}).count(),cat:"compartiment",fam:"ECI"},
     ];
     var programGraph = new CategoryGraph();
     programGraph.drawGraph("#compartment-graph",data,600,200);
