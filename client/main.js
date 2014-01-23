@@ -368,12 +368,11 @@ Template.itemShow.editRelatedItems = function(l){
     return txt;
 }
 
-
 // itemWiki
 
 Template.itemWiki.editWikiRelatedItems = function(l){
     var txt = " ";
-    $(Session.get("currentItem").relatedItems).each(function(x,y){if (y) txt += "[["+y+"]] ";});
+    $(Session.get("currentItem").relatedItems).each(function(x,y){if (y) txt += y+" ";});
     return txt;
 }
 Template.itemWiki.editWikiExternalLink = function(){
@@ -382,7 +381,6 @@ Template.itemWiki.editWikiExternalLink = function(){
     $(Session.get("currentItem").links).each(function(x,y){if (y) txt += "* ["+y[0]+"|"+y[1]+"]\n";});
     return txt;
 }
-
 
 // nav
 
