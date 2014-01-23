@@ -272,3 +272,8 @@ svg .network{
 svg .eci{
     fill:#67ADDB;
 }
+
+.wiki-item-container{
+    width:100%;
+    height:250px;
+}

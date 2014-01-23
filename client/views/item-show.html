@@ -1,16 +1,42 @@
 <template name="itemShow">
     <div class="panel-close">x</div>
-    <h3>{{ currentItem.name }}</h3>
-    <div class="item-show">
-        <dl class="dl-horizontal">
+
+    
+
+{{# if inEditMode }}
+    {{# if inEditModeWiki }}
+    <div class="wiki-edit-wrapper">
+        {{> itemWiki currentItem}}
+    </div>
+    {{else}}
+        <form class="data-form">
+           <dl class="dl-horizontal">
             <dt>Description
-            <dd>{{{ currentItem.description }}}&nbsp;
-            <dt>Category
-            <dd><a class="item-show-link category-link" category="{{ currentItem.category }}">{{ currentItem.category }}</a> &nbsp;
-            <dt>Family
-            <dd><a class="item-show-link family-link" category="{{ currentItem.category }}" family="{{ currentItem.family }}">{{ currentItem.family }}</a>&nbsp;
-            <dt>Related items
             <dd>
+            <textarea class="input-xxlarge item-data" name="description">{{{ currentItem.description }}}</textarea>
+            <dt>Category
+            <dd><input type="text" class="input-large item-data" name="category" value="{{ currentItem.category }}">
+            <dt>Family
+            <dd><input type="text" class="input-large item-data" name="family" value="{{ currentItem.family}}">
+            <dt>Related items
+            <dd><input type="text" class="input-xxlarge item-data" name="relatedItems" value="{{editRelatedItems}}">
+            <dt>Links
+            <dd><textarea class="item-data" name="externalLinks[]" >{{editExternalLink}}</textarea>
+            </dl>
+        </form>
+    {{/if}}
+{{ else }}
+        <h3 class="item-data" >{{ currentItem.name }}</h3>
+        <div class="item-show">
+            <dl class="dl-horizontal">
+                <dt>Description
+                <dd><p class="item-data" >{{{ currentItem.description }}}&nbsp;</p>
+                <dt>Category
+                <dd><a class="item-show-link category-link" category="{{ currentItem.category }}">{{ currentItem.category }}</a> &nbsp;
+                <dt>Family
+                <dd><a class="item-show-link family-link" category="{{ currentItem.category }}" family="{{ currentItem.family }}">{{ currentItem.family }}</a>&nbsp;
+                <dt>Related items
+                <dd>
                 <ul>
                 {{#each currentItem.relatedItems}}
                     {{#if this }}
@@ -18,13 +44,30 @@
                     {{/if}}
                 {{/each}}
                 </ul>&nbsp;
-            <dt>Links
-            <dd>
-                <ul>
-                {{#each currentItem.links}}
-                {{{ externalLink this }}}
-                {{/each}}
-                </ul>&nbsp;
-        </dl>
+                <dt>Links
+                <dd>
+                    <ul>
+                    {{#each currentItem.links}}
+                    {{{ externalLink this }}}
+                    {{/each}}
+                    </ul>&nbsp;
+            </dl>
+        </div>
+{{/ if }}
+    {{# if canEdit  }}
+    <div class="btn-group">
+        {{# if inEditMode  }}
+        <a class="btn item-save" href="#">
+            Save item
+        </a>
+        <a class="btn view-mode" href="#">
+            Return to view mode 
+        </a>
+        {{ else }}
+        <a class="btn edit-mode" href="#">
+            Edit items
+        </a>
+        {{/if}}
     </div>
+    {{/if}}
 </template>
