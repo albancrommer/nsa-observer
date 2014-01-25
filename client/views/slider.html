@@ -211,20 +211,29 @@
                             <br>
                             Tel : 0 950 568 088</p>
                     </div>
-                    <div class="span3">
+                    <div class="span2">
                         <h3>Licence</h3>
                         <hr>
                         <p>The content of this site is provided under the Creative Commons CA BY SA.</p>
                         <p>Basically, feel free to use it and simply refer to the source as "NSA Observer".</p>
                     </div>
-                    <div class="span3">
+                    <div class="span2">
                         <h3>Tracking</h3>
                         <hr>
                         <p>This site is tracker free.</p>
                     </div>  
+                    <div class="span2">
+                        <h3>Export</h3>
+                        <hr>
+                        <p>Click here to export data </p>
+                        <a class="btn export-wiki">
+                            in wiki format
+                        </a>
+                    </div>
                 </div>
                 <h3>Login</h3>
                 {{loginButtons}}
+                {{# if isAdmin }}{{> adminMenu }}{{/if}}
             </div>
         </div>
     </div>

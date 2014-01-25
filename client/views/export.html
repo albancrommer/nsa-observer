@@ -1,0 +1,15 @@
+<template name="export">
+{{#if showExport }}
+    <div class="export-wrapper">
+        <h3>
+            Export data
+        </h3>
+        <div class="export-content">
+{{#each itemList}}
+{{> itemWikiAtom }}
+{{/each}}
+        </div>
+        <a class="btn export-close">Close</a>
+    </div>
+{{/if}}
+</template>

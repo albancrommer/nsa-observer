@@ -6,10 +6,8 @@
         Purpose of the stylesheet follows.
 */
 body{
-    /*background: url('/images/bg.png') repeat top center;*/
-    /*background-image: linear-gradient(#000,#fff);*/
-    /*overflow-x: hidden;*/
     font-family:  Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top:20px;
 }
 body a {
     cursor: pointer;
@@ -171,6 +169,7 @@ body li{
 .nav-container .nav-content{
     display: table-cell;
     padding-left: 8px;
+    width:100%;
 }
 .nav-container input.search {
     margin-top: 10px;
@@ -271,4 +270,25 @@ svg .network{
 
 svg .eci{
     fill:#67ADDB;
+}
+
+.wiki-item-container{
+    width:100%;
+    height:250px;
+}
+
+.export-wrapper {
+    background: none repeat scroll 0 0 #F8F8F8;
+    height: 100%;
+    left: 0;
+    padding:10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+.export-wrapper .export-content {
+    max-height: 66%;
+    overflow: auto;
+    white-space: pre;
 }
