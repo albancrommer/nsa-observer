@@ -42,7 +42,7 @@ dd, dt {
 }
 
 dt:nth-child(4n+1), dd:nth-child(4n+2) {
-    background: none repeat scroll 0 0 #FCFCFC;
+    background: none repeat scroll 0 0 #F8F8F8;
 }
 .dl-large dt{
      width: 180px;
@@ -91,6 +91,9 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 {
     font-family: monospace;
 }
+.panel dd, .panel dt {
+    padding-left: 20px;
+}
 
 .item-list-outer {
     width: 28%;
@@ -133,7 +136,7 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     background: none repeat scroll 0 0 transparent;
     display: inline;
     line-height: 1;
-    padding: 0 3px;
+    padding: 2px 5px;
     text-decoration: underline;
     font-style:italic;
 }
@@ -144,7 +147,6 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     border-radius: 8px;
     color:white;
     display: inline-block;
-    padding: 2px 5px;
     transition:background 300ms ease,color 300ms ease;
     text-decoration: none;
 
@@ -194,10 +196,11 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
             transform: rotate(0deg);
 }
 
-.nav-container .nav-content{
+.nav-container .nav-content {
     display: table-cell;
-    padding-left: 8px;
-    width:100%;
+    padding: 0 20px;
+    text-align: right;
+    width: 100%;
 }
 .nav-container input.search {
     margin-top: 10px;

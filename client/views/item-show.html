@@ -40,15 +40,15 @@
                 <ul>
                 {{#each currentItem.relatedItems}}
                     {{#if this }}
-                        <li>{{{relatedItems this}}}
+                        <li>{{{showRelatedItems this}}}
                     {{/if}}
                 {{/each}}
                 </ul>&nbsp;
-                <dt>Links
+                <dt>Sources
                 <dd>
                     <ul>
                     {{#each currentItem.links}}
-                    {{{ externalLink this }}}
+                    {{{ showExternalLink this }}}
                     {{/each}}
                     </ul>&nbsp;
             </dl>

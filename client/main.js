@@ -230,6 +230,7 @@ Session.setDefault("listName","");
 Session.setDefault("sliderRendered",false);
 Session.setDefault("showNav",true);
 Session.setDefault("itemEdit",false);
+Session.setDefault("editMode",false);
 Session.setDefault("editModeType","wiki");
 Session.setDefault('showExport', false);
 Session.setDefault('exportType', 'wiki');
@@ -297,9 +298,11 @@ Template.itemShow.currentItem = function(){
     var item = Session.get("currentItem"),
         dbItem = Items.findOne({_id:item._id});
     if( Session.equals("editMode",false)){
+        console.log( "transformWikiLinks")
         dbItem.relatedItems = $.map(dbItem.relatedItems,function(x,y){return transformWikiLinks(x)})
         dbItem.description = transformWikiLinks(dbItem.description);
     }
+    else{console.log( "Don't transformWikiLinks")}
     Session.set("currentItem",dbItem);
     return dbItem;
 }
@@ -379,8 +382,12 @@ Template.itemShow.canEdit= function(){
 Template.itemShow.inEditMode = function(){
     return Session.get("editMode");
 }
-Template.itemShow.externalLink = function(l){
-    return '<li><a href="'+l[0]+'" target="_blank" class="item-show-link external-link">'+l[1]+'</a></li>';
+Template.itemShow.showRelatedItems = function(l){
+    console.log(l)
+    return '<li><a class="item-show-link">'+l+'</a></li>';
+}
+Template.itemShow.showExternalLink = function(l){
+    return '<li><a href="'+l[0]+'" target="_blank" class="external-link">'+l[1]+'</a></li>';
 }
 Template.itemShow.inEditModeWiki = function() {
     return Session.equals('editModeType',"wiki");
