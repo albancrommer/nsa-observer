@@ -263,7 +263,6 @@ Template.itemList.element= function () {
     if( "name" in search){
         search.name = new RegExp(search.name,'i');
     }
-    console.log( search )
     return Items.find(search,{sort:{name:1}}).fetch() || [];
 };
 
@@ -288,13 +287,17 @@ Template.item.events({
 // itemShow
 
 Template.itemShow.currentItem = function(){
-    var item = Session.get("currentItem");
+    var item = Session.get("currentItem"),
+        dbItem = Items.findOne({_id:item._id});
     if( Session.equals("editMode",false)){
-        item.relatedItems = $.map(item.relatedItems,function(x,y){return transformWikiLinks(x)})
-        item.description = transformWikiLinks(item.description);
+        console.log("editMode",false )
+        dbItem.relatedItems = $.map(dbItem.relatedItems,function(x,y){return transformWikiLinks(x)})
+        dbItem.description = transformWikiLinks(dbItem.description);
     }
-    return item;
+    Session.set("currentItem",dbItem);
+    return dbItem;
 }
+
 
 Template.itemShow.events({
  
