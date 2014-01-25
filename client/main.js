@@ -231,7 +231,7 @@ Session.setDefault("sliderRendered",false);
 Session.setDefault("showNav",true);
 Session.setDefault("itemEdit",false);
 Session.setDefault("editModeType","wiki");
-Session.setDefault('showExport', true);
+Session.setDefault('showExport', false);
 Session.setDefault('exportType', 'wiki');
 
 if( Session.equals("itemListIsVisible",false ) ){
