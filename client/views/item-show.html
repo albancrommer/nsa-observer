@@ -1,6 +1,22 @@
 <template name="itemShow">
     <div class="panel-close">x</div>
 
+    {{# if canEdit  }}
+    <div class="btn-group edit-nav">
+        {{# if inEditMode  }}
+        <a class="btn item-save" href="#">
+            Save item
+        </a>
+        <a class="btn view-mode" href="#">
+            Return to view mode 
+        </a>
+        {{ else }}
+        <a class="btn edit-mode" href="#">
+            Edit items
+        </a>
+        {{/if}}
+    </div>
+    {{/if}}
     
 
 {{# if inEditMode }}
@@ -54,20 +70,4 @@
             </dl>
         </div>
 {{/ if }}
-    {{# if canEdit  }}
-    <div class="btn-group">
-        {{# if inEditMode  }}
-        <a class="btn item-save" href="#">
-            Save item
-        </a>
-        <a class="btn view-mode" href="#">
-            Return to view mode 
-        </a>
-        {{ else }}
-        <a class="btn edit-mode" href="#">
-            Edit items
-        </a>
-        {{/if}}
-    </div>
-    {{/if}}
 </template>

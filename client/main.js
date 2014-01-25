@@ -298,11 +298,9 @@ Template.itemShow.currentItem = function(){
     var item = Session.get("currentItem"),
         dbItem = Items.findOne({_id:item._id});
     if( Session.equals("editMode",false)){
-        console.log( "transformWikiLinks")
         dbItem.relatedItems = $.map(dbItem.relatedItems,function(x,y){return transformWikiLinks(x)})
         dbItem.description = transformWikiLinks(dbItem.description);
     }
-    else{console.log( "Don't transformWikiLinks")}
     Session.set("currentItem",dbItem);
     return dbItem;
 }
@@ -383,7 +381,6 @@ Template.itemShow.inEditMode = function(){
     return Session.get("editMode");
 }
 Template.itemShow.showRelatedItems = function(l){
-    console.log(l)
     return '<li><a class="item-show-link">'+l+'</a></li>';
 }
 Template.itemShow.showExternalLink = function(l){
