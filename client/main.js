@@ -228,9 +228,12 @@ Session.setDefault("itemListIsVisible",false);
 Session.setDefault("itemShowIsVisible",false);
 Session.setDefault("listName","");
 Session.setDefault("sliderRendered",false);
-Session.setDefault("showNav",false);
+Session.setDefault("showNav",true);
 Session.setDefault("itemEdit",false);
-Session.set("editModeType","wiki");
+Session.setDefault("editModeType","wiki");
+Session.setDefault('showExport', true);
+Session.setDefault('exportType', 'wiki');
+
 if( Session.equals("itemListIsVisible",false ) ){
     togglePanels(isHidden,["itemListIsVisible"]);
 }
@@ -363,7 +366,11 @@ Template.itemShow.events({
 });
 
 Template.itemShow.canEdit= function(){
-    return Meteor.user() || false;
+    var user = Meteor.user();
+    if( user && user.isAdmin){
+        return true;
+    }
+    return false;
 }
 Template.itemShow.inEditMode = function(){
     return Session.get("editMode");
@@ -422,10 +429,23 @@ Template.nav.events({
 
 // Slider
 
+
 Template.slider.events({
     'click a':itemLinkShowListEvent,
     'click circle':itemLinkShowListEvent,
+    'click .export-wiki':function(){
+        Session.set('showExport', true);
+        Session.set('exportType', 'wiki');
+    }
 })
+
+Template.slider.isAdmin = function(){
+    var user = Meteor.user();
+    if( user && user.isAdmin){
+        return true;
+    }
+    return false;
+}
 
 Template.slider.num = function(){
     return Items.find().count();
@@ -484,3 +504,5 @@ Template.slider.rendered = function(){
 
 
 Meteor.subscribe("items");
+Meteor.subscribe("userData");
+Meteor.subscribe("userList");

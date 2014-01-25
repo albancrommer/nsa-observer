@@ -6,10 +6,8 @@
         Purpose of the stylesheet follows.
 */
 body{
-    /*background: url('/images/bg.png') repeat top center;*/
-    /*background-image: linear-gradient(#000,#fff);*/
-    /*overflow-x: hidden;*/
     font-family:  Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top:20px;
 }
 body a {
     cursor: pointer;
@@ -171,6 +169,7 @@ body li{
 .nav-container .nav-content{
     display: table-cell;
     padding-left: 8px;
+    width:100%;
 }
 .nav-container input.search {
     margin-top: 10px;
