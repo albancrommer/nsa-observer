@@ -23,14 +23,35 @@ body li{
     padding:0px;
 }
 
+dd, dt {
+    line-height: 3em;
+    padding-bottom: 10px;
+}
+
 .dl-horizontal dt {
+    float: left;
+    padding-right: 10px;
+    padding-top: 10px;
     text-align: left;
     width: 120px;
 }
 .dl-horizontal dd {
+    padding-top: 10px;
     margin-left: 130px;
     text-align: left;
 }
+
+dt:nth-child(4n+1), dd:nth-child(4n+2) {
+    background: none repeat scroll 0 0 #FCFCFC;
+}
+.dl-large dt{
+     width: 180px;
+}
+
+.dl-large dd{
+}
+
+
 /*Item container*/
 
 .item-container{
@@ -110,11 +131,10 @@ body li{
 
 .item-show-link {
     background: none repeat scroll 0 0 transparent;
-    border-bottom: 1px dashed #1E0FBE;
     display: inline;
     line-height: 1;
     padding: 0 3px;
-    text-decoration: none;
+    text-decoration: underline;
     font-style:italic;
 }
 
@@ -135,15 +155,16 @@ body li{
 
 /* nav */
 
-.nav-container{
-    background: #EEE;
+.nav-container {
+    background: none repeat scroll 0 0 #EEEEEE;
+    box-shadow: 0 0 3px #AAA;
     display: table;
+    min-height: 32px;
     overflow: hidden;
     position: fixed;
     right: 0;
     top: 0;
     z-index: 2;
-
 }
 .nav-container .nav{
     display: inline-block;
@@ -155,10 +176,17 @@ body li{
     background-image: linear-gradient(to bottom, #0088CC, #0044CC);
     color: #EEEEEE;
     display: table-cell;
+    height: 34px;
+    line-height: 33px;
     padding: 8px;
     -webkit-transform: rotate(180deg);
          -o-transform: rotate(180deg);
             transform: rotate(180deg);
+}
+.nav-container .menu-toggle:hover{
+    background-color: #005BBB;
+    background-image: linear-gradient(to bottom, #0077BB, #0033BB);
+    color: #fff;
 }
 .nav-container .menu-toggle.active {
     -webkit-transform: rotate(0deg);
@@ -174,12 +202,20 @@ body li{
 .nav-container input.search {
     margin-top: 10px;
 }
+
+
+
+/* Slider */
+
 .page {
     padding :30px 0;
 }
-.row .span12{
+
+.slider .row .span12, body .slider .row .span10{
     text-align: center;
 }
+
+
 .slider * {
     color: #666;
 
@@ -194,6 +230,14 @@ body li{
     margin-bottom: 10px;
     
 }
+
+.slider hr {
+    margin: 28px 0;
+}
+.slider .btn.btn-small.btn-primary {
+    color: white;
+}
+
 .row .span12 [class*="span"]
 {
     text-align: left;
@@ -204,7 +248,9 @@ body li{
 }
 
 svg {
+    margin: 20px 0;
     width: 100%;
+    
 }
 .graph-label{
 }
@@ -287,8 +333,15 @@ svg .eci{
     width: 100%;
     z-index: 3;
 }
-.export-wrapper .export-content {
-    max-height: 66%;
-    overflow: auto;
+.export-wrapper .visible-content {
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px #ccc;
+    height: 400px;
+    margin-top:28px;
+    overflow-style: panner;
+    overflow-x: hidden;
+    padding:20px;
     white-space: pre;
+    width:100%;
 }

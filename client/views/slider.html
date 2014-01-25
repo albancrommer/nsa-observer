@@ -7,18 +7,28 @@
                             <h2>Things the NSA doesn't want you to know</h2>
                             <h4>And why you should know about it :)</h4>
                     <hr>
-                    <h4>
-                        Since summer 2013, we are continously gathering 
-                        and processing public informations about the NSA global surveillance revelations
-                        and have a collection of {{num}} entries regarding the NSA
-                    </h4> 
+                    <div class="row">
+                        <div class="span10 offset1">
+                        <h4>
+                            Since summer 2013, we are continously gathering 
+                            and processing public informations about the NSA global surveillance revelations
+                            and have a collection of {{num}} NSA:
+                        </h4> 
                       <dl class="dl-horizontal">
                         <dt>Programs<dd>A program is a technical solution of some sort (ex: a database,   satellite collect, etc.) or a group of programs.
                         <dt>Compartments<dd>A compartment is a partner of some sort (ex: foreign state, company, etc.) or a group of compartments.
                         <dt>Attack vectors<dd>An attack vector is any kind of attack tool, software (ex: trojan) or hardware (ex: USB bug)."
                             
+                        </div>
+                    </div>
+                            
                     </dl>
                     <div id="categories-graph">{{#constant}}{{/constant}}</div>
+                    <p>
+                        <em>
+                            Did you know you can click on graphics to view related database entries?
+                        </em>
+                    </p>
                     <hr>
                      <div class="row">
                         <div class="span4">
@@ -180,19 +190,47 @@
         </div>
         <div class="row">
             <div class="span12 undefineds page">
-                <h2>References and more informations</h2>
+                <h2>Looking for more informations ?</h2>
                 <hr>
                 <div class="row">
                     <div class="span6">
-                        <h4></h4>
+                        <h4>
+                            Narrative ressources
+                        </h4> 
+                        <p>
+                            We have selected a couple of ressources you might want to read.
+                        </p>
+                        <hr>
+                        <p>
+                            From the Trustees of the Courage Fund who collaborate to defend whistleblowers around the world, the freesnowden.is site has great content we encourage you to read.
+                        </p>
+                        <dl class="dl-horizontal dl-large">
+                            <dt>Freesnowden.is FAQ</dt><dd> <a class="btn btn-small btn-primary" href="https://freesnowden.is/frequently-asked-questions/index.html">freesnowden.is</a></dd>
+                        </dl>
+                        <hr>
+                        <p>
+                            From the start, the Washington Post has had a great role in the revelations. 
+                        </p>
+                        <dl class="dl-horizontal dl-large">
+                            <dt>Washington Post Search</dt><dd><a class="btn btn-small btn-primary" href="http://www.washingtonpost.com/newssearch/search.html?st=nsa&submit=Submit+Query">washingtonpost.com</a></dd>
+                        </dl>
                     </div>
                     <div class="span6">
-                        <h4>Sources</h4>
-http://cryptome.org/2013/11/snowden-tally.htm
-https://www.eff.org/nsa-spying/nsadocs
-http://bluecabinet.info
-http://buggedplanet.info/
-http://www.mindmeister.com/fr/308518551/the-national-security-agency-operates-more-than-500-separate-signals-intelligence-platforms-employs-                        
+                        <h4>
+                            Documents ressources
+                        </h4>
+                        <p>
+                            We also selected a number of websites offering documents and in-depth informations about the NSA.
+                        </p>
+                        <hr>
+                        <dl class="dl-horizontal dl-large">
+                            <dt>Blue Cabinet</dt><dd><a class="btn btn-small btn-primary" href="http://bluecabinet.info">bluecabinet.info</a></dd>
+                            <dt>BuggedPlanet</dt><dd><a class="btn btn-small btn-primary" href="http://buggedplanet.info/">buggedplanet.info</a></dd>
+                            <dt>Cryptome</dt><dd><a class="btn btn-small btn-primary" href="http://cryptome.org/2013/11/snowden-tally.htm">cryptome.org</a></dd>
+                            <dt>Electrospaces</dt><dd><a class="btn btn-small btn-primary" href=" http://electrospaces.blogspot.fr/">electrospaces.blogspot.fr</a></dd>
+                            <dt>EFF</dt><dd><a class="btn btn-small btn-primary" href="https://www.eff.org/nsa-spying/nsadocs">eff.org</a></dd>
+                            <dt>MindMeister</dt><dd><a class="btn btn-small btn-primary" href="http://www.mindmeister.com/fr/308518551/the-national-security-agency-operates-more-than-500-separate-signals-intelligence-platforms-employs-">mindmeister.com</a></dd>
+                        </dl>
                     </div>
                 </div>
 
@@ -202,36 +240,54 @@ http://www.mindmeister.com/fr/308518551/the-national-security-agency-operates-mo
             <div class="span12 contacts page">
                 <hr>
                 <div class="row">
-                    <div class="span2">
+                    <div class="span4">
                         <h3>Contact us </h3>
                         <hr>
                         <h4>On Twitter</h4>
                         <p>
-                            <a class="btn btn-small"href="https://twitter.com/NSAObserver">@NSA-Observer</a>
+                            <a class="btn btn-small btn-primary"href="https://twitter.com/NSAObserver">@NSA-Observer</a>
                         </p>
                     </div>
-                    <div class="span2">
+                    <div class="span4">
                         <h3>
-                            Code
+                            Free software
                         </h3>
                         <hr>
                         <h4>
-                            Made with Meteor 
+                            This is made with Meteor 
                         </h4>
                         <p>
                             The code is on Github, you can submit bugs and patches there
                         </p>
-                        <p><a class="btn btn-small" href="https://github.com/albancrommer/nsa-observer">NSAObserver on Github</a> <a class="btn btn-small" href="https://www.meteor.com/">Meteor</a></p>
+                        <p><a class="btn btn-small btn-primary" href="https://github.com/albancrommer/nsa-observer">NSAObserver on Github</a> <a class="btn btn-small btn-primary" href="https://www.meteor.com/">Meteor</a></p>
                     </div>
-                    <div class="span2">
+                    <div class="span4">
+                        <h3>
+                            Free database 
+                        </h3>
+                        <hr>
+                        <h4>As a principle of transparency we have chosen to distribute the database content.</h4>
+                        <p>
+                            
+                        </p>
+                        <div class="btn-group">
+                            <a class="btn btn-small btn-primary export-wiki">Database in wiki format</a>
+                            <a class="btn btn-small btn-primary export-json">Database in json format</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br />
+                <div class="row">
+                    <div class="span4">
                         <h3>Licence</h3>
                         <hr>
                         <h4>Creative Commons Public Domain</h4>
                         <p>
-                            <a class="btn btn-small" href="https://creativecommons.org/publicdomain/zero/1.0/"> (CC0 1.0) </a>
+                            <a class="btn btn-small btn-primary" href="https://creativecommons.org/publicdomain/zero/1.0/"> (CC0 1.0) </a>
                         </p>
                     </div>
-                    <div class="span2">
+                    <div class="span4">
                         <h3>Tracking</h3>
                         <hr>
                         <h4>Tracker free.</h4>
@@ -239,15 +295,7 @@ http://www.mindmeister.com/fr/308518551/the-national-security-agency-operates-mo
                             No analytics or user tracking here ;)
                         </p>
                     </div>  
-                    <div class="span2">
-                        <h3>Export</h3>
-                        <hr>
-                        <h4>Export all the data </h4>
-                        <ul>
-                            <li><a class="btn btn-small export-wiki">In wiki format</a></li>
-                        </ul>
-                    </div>
-                    <div class="span2">
+                    <div class="span4">
                         <h3>
                             Legal
                         </h3>
@@ -261,8 +309,10 @@ http://www.mindmeister.com/fr/308518551/the-national-security-agency-operates-mo
                         <p>
                             29, rue Merlin <br/>
                             75011 PARIS<br>
-                            Tel : 0 950 568 088</p>
-                        <p><a class="btn btn-small" href="http://www.octopuce.fr">Octopuce</a></p>
+                            Tel : 0 950 568 088
+                        </p>
+                        <p><a class="btn btn-small btn-primary" href="http://www.octopuce.fr">Octopuce Hosting</a></p>
+                        <p><a class="btn btn-small btn-primary" href="http://www.laquadrature.net">Supported by La Quadrature du Net</a></p>
                     </div>
                 </div>
                 <h3>Login</h3>
