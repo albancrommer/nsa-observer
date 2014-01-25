@@ -290,7 +290,6 @@ Template.itemShow.currentItem = function(){
     var item = Session.get("currentItem"),
         dbItem = Items.findOne({_id:item._id});
     if( Session.equals("editMode",false)){
-        console.log("editMode",false )
         dbItem.relatedItems = $.map(dbItem.relatedItems,function(x,y){return transformWikiLinks(x)})
         dbItem.description = transformWikiLinks(dbItem.description);
     }
@@ -355,6 +354,7 @@ Template.itemShow.events({
                 if( num ){
                 }
             });
+        // If a standard form edit should exist, do it here 
         }else{
             // @todo
             var elements = $(".item-data");
