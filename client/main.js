@@ -498,7 +498,7 @@ Template.slider.rendered = function(){
     programGraph.drawGraph("#programs-graph",data,600,200);
     
     data = [
-        {c:"physical",n:"physical attack vectors",q:Items.find({category:"attack vector",family:"physical"}).count(),cat:"attack vector",fam:"physical"},
+        {c:"hardware",n:"hardware attack vectors",q:Items.find({category:"attack vector",family:"hardware"}).count(),cat:"attack vector",fam:"hardware"},
         {c:"software",n:"software attack vectors",q:Items.find({category:"attack vector",family:"software"}).count(),cat:"attack vector",fam:"software"}, 
         {c:"network",n:"network attack vectors",q:Items.find({category:"attack vector",family:"network"}).count(),cat:"attack vector",fam:"network"} 
     ];
