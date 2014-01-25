@@ -242,6 +242,10 @@ if( Session.get("itemShowIsVisible",false ) ){
 }
 
 
+// Subscription
+Meteor.subscribe("items");
+Meteor.subscribe("userData");
+
 // page 
 Template.page.itemListIsVisible = function(){
     return Session.get("itemListIsVisible");
@@ -418,8 +422,7 @@ Template.nav.events({
     },
     'keyup .search':function(e){
         var el = $(e.currentTarget),
-            val = el.val(),
-            itemList = [];
+            val = el.val();
        
        Session.set("search",{name:val});
        Session.set("listName","search: "+val);
@@ -489,20 +492,28 @@ Template.slider.rendered = function(){
     data = [
         {c:"physical",n:"physical attack vectors",q:Items.find({category:"attack vector",family:"physical"}).count(),cat:"attack vector",fam:"physical"},
         {c:"software",n:"software attack vectors",q:Items.find({category:"attack vector",family:"software"}).count(),cat:"attack vector",fam:"software"}, 
-        {c:"network",n:"network attack vectors",q:Items.find({category:"attack vector",family:"network"}).count(),cat:"attack vector",fam:"network"}, 
+        {c:"network",n:"network attack vectors",q:Items.find({category:"attack vector",family:"network"}).count(),cat:"attack vector",fam:"network"} 
     ];
     var programGraph = new CategoryGraph();
     programGraph.drawGraph("#attack-graph",data,600,200);
     
     data = [
-        {c:"eci",n:"Extremely Compartmented Information",q:Items.find({category:"compartiment",family:"ECI"}).count(),cat:"compartiment",fam:"ECI"},
+        {c:"eci",n:"Extremely Compartmented Information",q:Items.find({category:"compartiment",family:"ECI"}).count(),cat:"compartiment",fam:"ECI"}
     ];
     var programGraph = new CategoryGraph();
     programGraph.drawGraph("#compartment-graph",data,600,200);
 
-}
+};
 
 
-Meteor.subscribe("items");
-Meteor.subscribe("userData");
-Meteor.subscribe("userList");
+Template.export.showExport = function(){
+    return Session.equals('showExport', true);
+};
+Template.export.itemList = function(){
+    return  Items.find({},{order:{name:1}}).fetch();
+};
+Template.export.events({
+    "click .export-close":function(){
+        Session.set('showExport', false);
+    }
+});

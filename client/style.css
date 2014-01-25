@@ -276,3 +276,19 @@ svg .eci{
     width:100%;
     height:250px;
 }
+
+.export-wrapper {
+    background: none repeat scroll 0 0 #F8F8F8;
+    height: 100%;
+    left: 0;
+    padding:10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+.export-wrapper .export-content {
+    max-height: 66%;
+    overflow: auto;
+    white-space: pre;
+}

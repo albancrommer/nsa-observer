@@ -25,7 +25,10 @@ Items.allow({
     }
 });
 
-Meteor.users.deny({update: function () { return true; }});
+Meteor.users.deny({
+    update: function () { return true; },
+    remove: function () { return true; }
+});
 
 Meteor.publish("userData", function () {
   return Meteor.users.find({_id: this.userId},
