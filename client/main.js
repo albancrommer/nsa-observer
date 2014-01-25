@@ -67,8 +67,8 @@ var itemParser = function(){
                 instance.addItem()
                 currentItem = new Item(r[1]);
             }],
-            [/""Short *?Description"" *?: *?(.*?) *?\n$/,function(r){
-                currentItem.description = trim($matches[1]);	
+            [/""Short *?Description"" *?: *?(.*?) *?$/,function(r){
+                currentItem.description = r[1].trim();	
                 currentItem.currentState = "description";
             }],
             [/""Category"" *: *(.*?)$/,function(r){
@@ -182,14 +182,13 @@ var itemParser = function(){
     
 }
 
-window.itemParser = new itemParser();
-
-
-var parseWikiItems = function(text){
-
-    
+var itemLinkShowList = function(listName){
+    Session.set("listName",listName)
+    togglePanels(isDisplayed,["itemListIsVisible"]);
+//    Session.set("itemList",itemList)
 }
-var itemLinkShowList = function(event){
+
+var itemLinkShowListEvent = function(event){
     var 
         element     = $(event.currentTarget),
         category    = element.attr("category"),
@@ -207,12 +206,10 @@ var itemLinkShowList = function(event){
     }else{
         return;
     }
-    Session.set("listName",listName)
-    itemList    = Items.find(search,{sorted:{name:1}}).fetch();
-    togglePanels(isDisplayed,["itemListIsVisible"]);
-    Session.set("itemList",itemList)
-    
+    Session.set("search", search);
+    itemLinkShowList( listName);
 }
+
 
 var togglePanels = function (hideOrShow,panels){
     var iterator,
@@ -225,35 +222,21 @@ var togglePanels = function (hideOrShow,panels){
 }
 
 
-if( ! (Session.get("itemList") instanceof Array) ){
-    Session.set("itemList",[]);
-}
-if( ! (Session.get("currentItem") ) ){
-    Session.set("currentItem",{});
-}
-if( ! (Session.get("itemListIsVisible") ) ){
+Session.setDefault("itemList",[]);
+Session.setDefault("currentItem",{});
+Session.setDefault("itemListIsVisible",false);
+Session.setDefault("itemShowIsVisible",false);
+Session.setDefault("listName","");
+Session.setDefault("sliderRendered",false);
+Session.setDefault("showNav",false);
+Session.setDefault("itemEdit",false);
+Session.set("editModeType","wiki");
+if( Session.equals("itemListIsVisible",false ) ){
     togglePanels(isHidden,["itemListIsVisible"]);
 }
-if( ! (Session.get("itemShowIsVisible") ) ){
+if( Session.get("itemShowIsVisible",false ) ){
     togglePanels(isHidden,["itemShowIsVisible"]);
 }
-if( ! (Session.get("listName") ) ){
-    Session.set("listName","");
-}
-if( ! (Session.get("sliderRendered") ) ){
-    Session.set("sliderRendered",false);
-}
-if( ! (Session.get("showNav") ) ){
-    Session.set("showNav",false);
-}
-if( ! (Session.get("itemEdit") ) ){
-    Session.set("itemEdit",false);
-}
-
-if( ! (Session.get("editModeType") ) ){
-    Session.set("editModeType","wiki");
-}
-
 
 
 // page 
@@ -276,7 +259,12 @@ Template.page.rendered = function(){
 
 // itemList
 Template.itemList.element= function () {
-    return Session.get("itemList") || [];
+    var search = Session.get("search");
+    if( "name" in search){
+        search.name = new RegExp(search.name,'i');
+    }
+    console.log( search )
+    return Items.find(search,{sort:{name:1}}).fetch() || [];
 };
 
 Template.itemList.listName= function () {
@@ -301,7 +289,7 @@ Template.item.events({
 
 Template.itemShow.currentItem = function(){
     var item = Session.get("currentItem");
-    if( !Session.get("editMode")){
+    if( Session.equals("editMode",false)){
         item.relatedItems = $.map(item.relatedItems,function(x,y){return transformWikiLinks(x)})
         item.description = transformWikiLinks(item.description);
     }
@@ -324,8 +312,8 @@ Template.itemShow.events({
         }
         return false;
     },
-    'click .family-link':itemLinkShowList,
-    'click .category-link':itemLinkShowList,
+    'click .family-link':itemLinkShowListEvent,
+    'click .category-link':itemLinkShowListEvent,
     'click .edit-mode':function(e){
         Session.set("editMode",true);
     },
@@ -333,14 +321,40 @@ Template.itemShow.events({
         Session.set("editMode",false);
     },
     'click .item-save':function(e){
-        var data
-        if( Session.get('editModeType') === "wiki"){
-            data = $(".wiki-item-container").html();
-            console.log(data);
+        var data,
+            currentItem = Session.get("currentItem")
+        ;
+        // Wiki style
+        if( Session.equals('editModeType',"wiki") ){
+            // Retrieves textarea
+            data = $(".wiki-item-container").val();
+            var parser = new itemParser(),
+                parsed = parser.run(data),
+                item = {};
+            // Refuses wrong data
+            if( parsed.length !== 1 ){
+                alert ("invalid data !")
+                return;
+            }
+            // Retrieves parsed item
+            item = parsed[0];
+            // Checks item validity
+            // @todo
+            // Attempts to save the item
+            var _id = currentItem._id;
+            Items.update({_id:_id},{$set:item},function(err,num){
+                
+                // Failed
+                if( err ){
+                    alert(err);
+                }
+                // Success
+                if( num ){
+                }
+            });
         }else{
             // @todo
             var elements = $(".item-data");
-            console.log(elements.each(function(x,y){console.log( $(y).val())}))
         }
     }
 });
@@ -355,7 +369,7 @@ Template.itemShow.externalLink = function(l){
     return '<li><a href="'+l[0]+'" target="_blank" class="item-show-link external-link">'+l[1]+'</a></li>';
 }
 Template.itemShow.inEditModeWiki = function() {
-    return "wiki" === Session.get('editModeType');
+    return Session.equals('editModeType',"wiki");
 }
 Template.itemShow.editExternalLink = function(){
     var txt = "";
@@ -377,7 +391,6 @@ Template.itemWiki.editWikiRelatedItems = function(l){
 }
 Template.itemWiki.editWikiExternalLink = function(){
     var txt = "";
-    console.log($(Session.get("currentItem").externalLinks))
     $(Session.get("currentItem").links).each(function(x,y){if (y) txt += "* ["+y[0]+"|"+y[1]+"]\n";});
     return txt;
 }
@@ -389,29 +402,26 @@ Template.nav.showNav = function(){
 }
 
 Template.nav.events({
-    'click a':itemLinkShowList,
+    'click a':itemLinkShowListEvent,
     'click .menu-toggle':function(e){
         Session.set("showNav", ! Session.get("showNav"));
     },
     'keyup .search':function(e){
         var el = $(e.currentTarget),
             val = el.val(),
-            itemList = [],
-            regexp = new RegExp(val,'i');
+            itemList = [];
        
-       itemList = Items.find({name:regexp}).fetch();
-       Session.set("listName","search:"+val);
-       Session.set("itemList",itemList);
+       Session.set("search",{name:val});
+       Session.set("listName","search: "+val);
        togglePanels(isDisplayed,["itemListIsVisible"]);
-       console.log(el, val,itemList,regexp)
     }
 })
 
 // Slider
 
 Template.slider.events({
-    'click a':itemLinkShowList,
-    'click circle':itemLinkShowList,
+    'click a':itemLinkShowListEvent,
+    'click circle':itemLinkShowListEvent,
 })
 
 Template.slider.num = function(){
@@ -468,3 +478,6 @@ Template.slider.rendered = function(){
     programGraph.drawGraph("#compartment-graph",data,600,200);
 
 }
+
+
+Meteor.subscribe("items");
