@@ -180,59 +180,26 @@
         </div>
         <div class="row">
             <div class="span12 contacts page">
-                <hr>
                 <div class="row">
-                    <div class="span2">
-                        <h3>Contact us </h3>
+                    <div class="span3">
+                        <h3>Contact </h3>
                         <hr>
-                        <h4>On Twitter</h4>
                         <p>
-                            <a href="https://twitter.com/NSA-Observer">@NSA-Observer</a>
+                            {todo : contact form}
                         </p>
+                        
                     </div>
-                    <div class="span2">
+                    <div class="span3">
                         <h3>
-                            Code
+                            Legal 
                         </h3>
                         <hr>
                         <h4>
-                            Made with Meteor.
+                            <a href="https://github.com/albancrommer/nsa-observer">The code is on Github</a>
                         </h4>
-                        <p>
-                            The code is on <a class="btn" href="https://github.com/albancrommer/nsa-observer">Github</a>
-                        </p>
                         <p>
                             Please submit bugs and patches there
                         </p>
-                    </div>
-                    <div class="span2">
-                        <h3>Licence</h3>
-                        <hr>
-                        <h4>Creative Commons CA BY SA</h4>
-                        <p>Basically, feel free to use it and simply refer to the source as "NSA Observer".</p>
-                    </div>
-                    <div class="span2">
-                        <h3>Tracking</h3>
-                        <hr>
-                        <h4>Tracker free.</h4>
-                        <p>
-                            No analytics or user tracking here ;)
-                        </p>
-                    </div>  
-                    <div class="span2">
-                        <h3>Export</h3>
-                        <hr>
-                        <h4>Export all the data </h4>
-                        <ul>
-                            <li><a class="btn export-wiki">In wiki format</a></li>
-                            <li>(More to come...)</li>
-                        </ul>
-                    </div>
-                    <div class="span2">
-                        <h3>
-                            Legal
-                        </h3>
-                        <hr>
                         <h4>Directors of Publication </h4>
                         <ul>
                             <li>Alban Crommer</li>
@@ -244,6 +211,29 @@
                             <br>
                             Tel : 0 950 568 088</p>
                     </div>
+                    <div class="span2">
+                        <h3>Licence</h3>
+                        <hr>
+                        <p>The content of this site is provided under the Creative Commons CA BY SA.</p>
+                        <p>Basically, feel free to use it and simply refer to the source as "NSA Observer".</p>
+                    </div>
+                    <div class="span2">
+                        <h3>Tracking</h3>
+                        <hr>
+                        <p>This site is tracker free.</p>
+<<<<<<< HEAD
+                    </div>  
+=======
+                    </div>
+                    <div class="span2">
+                        <h3>Export</h3>
+                        <hr>
+                        <p>Click here to export data </p>
+                        <a class="btn export-wiki">
+                            in wiki format
+                        </a>
+                    </div>
+>>>>>>> users
                 </div>
                 <h3>Login</h3>
                 {{loginButtons}}
