@@ -137,11 +137,11 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 /* Item show */
 
 .item-show{
-    margin-bottom: 15px;
 }
 .item-show-outer {
     left: 30%;
     width: 68%;
+    padding-bottom: 30px;
 }
 
 .item-show-link {
@@ -172,6 +172,18 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     left: 0;
     position: absolute;
     top: 0;
+}
+
+.panel .item-ul {
+    line-height: 1em;
+}
+.panel .item-ul > ul {
+    padding-top: 8px;
+}
+
+.wiki-item-container{
+    width:100%;
+    height:250px;
 }
 
 .wiki-edit-wrapper {
@@ -343,10 +355,44 @@ svg .eci{
     fill:#67ADDB;
 }
 
-.wiki-item-container{
-    width:100%;
-    height:250px;
+
+
+
+
+.item-graph path{
+  fill: none;
+  stroke: #CCC;
+  stroke-width: 1.5px;
 }
+
+.item-graph .link.level1{
+  stroke: #67ADDB;
+}
+.item-graph .link.level2{
+  stroke-dasharray: 0,2 1;
+}
+
+.item-graph circle {
+  fill: #67ADDB;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.item-graph text {
+    font: bold 16px sans-serif;
+    fill: #67ADDB;
+    pointer-events: none;
+    stroke: white;
+    stroke-opacity: 0.8;
+    stroke-width: 0.8px;
+}
+
+.item-graph text.parent{
+    fill:#274C64;
+
+}
+
+
 
 .export-wrapper {
     background: none repeat scroll 0 0 #F8F8F8;

@@ -1,13 +1,23 @@
-
-transformWikiLinks = function(string) {
+/**
+ * 
+ * @param {type} string
+ * @param {type} html
+ * @returns {unresolved}
+ */
+transformWikiLinks = function(string,html) {
   var re = /(?:\[\[([A-Z0-9\-_]+)(?:\]\]))/g,
       match,
-      str_res = string
+      str_res = string,
+      html = (undefined === html ? "true" : html)
       ;
 
   while (match = re.exec(string)) {
     if( match.length > 1){    
-        str_res = str_res.replace(match[0],'<a class="item-show-link internal-link" rel="'+match[1]+'">'+match[1]+'</a>');
+        if( html ){
+            str_res = str_res.replace(match[0],'<a class="item-show-link internal-link" rel="'+match[1]+'">'+match[1]+'</a>');
+        }else{
+            str_res = match[1];
+        }
     }
   }
   return str_res;
@@ -16,9 +26,18 @@ transformWikiLinks = function(string) {
 itemLinkShowList = function(listName){
     Session.set("listName",listName)
     togglePanels(isDisplayed,["itemListIsVisible"]);
-//    Session.set("itemList",itemList)
 }
-
+itemLinkShowEvent = function(event){
+        event.preventDefault();
+        var name = $(event.currentTarget).attr("rel");
+        if( name ){
+            currentItem = Items.findOne({name:name});
+            if( currentItem){
+                Session.set("currentItem",currentItem);
+            }
+        }
+        return false;
+    }
 itemLinkShowListEvent = function(event){
     var 
         element     = $(event.currentTarget),

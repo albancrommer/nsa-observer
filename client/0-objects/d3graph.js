@@ -262,9 +262,7 @@ CategoryGraph = function(){
                                .attr("r", function (d) { 
                                     var q = d.q;
                                     var s = ((current_sum*width)/(sum*1.39));
-//                                    console.log(d.n+" ("+q+")" +" : "+current_sum +"*"+width+")/("+sum+"*1.39) = "+s);
                                     current_sum -= q;
-//                                    console.log("current_sum -= "+q+" => "+current_sum);
                                     return s;
                                 })
                                 .attr("class",function(d){
@@ -274,16 +272,104 @@ CategoryGraph = function(){
                                 .data(data)
                                 .enter()
                                 .append("text");
-//
+
 //        var textLabels = text
 //                         .attr("x", "1%")
 //                         .attr("y", function(d,i) { return height - (1+i)*15 })
 //                         .attr("z-index", "50")
 //                         .text( function (d) { return d.n; })
+//                         .attr("opacity", "0.5")
 //                         .attr("font-family", "sans-serif")
 //                         .attr("font-size", "10px")
 //                         .attr("class", function(d){return "graph-label "+d.c;})   
 //                 ;
         }
+        return instance;
+}
+
+ItemGraph = function(){
+    var instance = {};
+    instance.drawGraph = function(selector,links,width,height){
+        $(selector).html("");
+//        console.log("selector: ",selector," ---------------",links.length);
+        var svg = d3.select(selector).append("svg")
+                                            .attr("width", width)
+                                            .attr("height", height);
+        // Use elliptical arc path segments to doubly-encode directionality.
+        function tick() {
+          path.attr("d", linkArc);
+          circle.attr("transform", transform);
+          text.attr("transform", transform);
+        }
+
+        var nodes = {};
+
+        // Compute the distinct nodes from the links.
+        links.forEach(function(link) {
+          link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
+          link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
+        });
+
+        var force = d3.layout.force()
+            .nodes(d3.values(nodes))
+            .links(links)
+            .size([width, height])
+            .linkDistance(100)
+            .charge(-1000)
+            .on("tick", tick)
+            .start();
+
+
+        var path = svg.append("g").selectAll("path")
+            .data(force.links())
+            .enter().append("path")
+            .attr("class", function(d) { return "link " + d.type; })
+            ;
+
+        var circle = svg.append("g").selectAll("circle")
+            .data(force.nodes())
+            .enter().append("circle")
+            .attr("r", 10)
+            .attr("class",function(d){ return "internal-link "+ d.type;})
+            .attr("rel",function(d){return d.name;})
+            .call(force.drag);
+
+        var text = svg.append("g").selectAll("a")
+            .data(force.nodes())
+          .enter().append("a")
+            .attr("href", "/")
+            .attr("rx", 8)
+            .attr("ry", ".31em")
+            .attr("class",function(d){ return "internal-link "+ d.type;})
+            .attr("rel",function(d){return d.name;})
+            .attr("onclick",function(){return "alert('foo')"})
+            .append("text")
+            .attr("class",function(d,i){return i?"child":"parent"})
+            .text(function(d) { return d.name; })
+                .call(force.drag);
+;
+//        var text = svg.append("g").selectAll("a")
+//            .data(force.nodes())
+//          .enter().append("a")
+//            .attr("href", "/")
+//            .attr("x", 8)
+//            .attr("y", ".31em")
+//            .attr("class",function(d){ return "internal-link "+ d.type;})
+//            .attr("rel",function(d){return d.name;})
+//            .append("text")
+//            .attr("class",function(d,i){return i?"child":"parent"})
+//            .text(function(d) { return d.name; });
+
+
+        function linkArc(d) {
+          var dx = d.target.x - d.source.x,
+              dy = d.target.y - d.source.y,
+              dr = Math.sqrt(dx * dx + dy * dy);
+          return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+        }
+
+        function transform(d) {
+          return "translate(" + d.x + "," + d.y + ")";
+        }        }
         return instance;
 }

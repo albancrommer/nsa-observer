@@ -1,5 +1,5 @@
 
-var Item = function(name){
+Item = function(name){
 
         var instance = {};
 	instance.name			= name;
@@ -26,7 +26,7 @@ var Item = function(name){
         return instance;
 }
 
-var itemParser = function(){
+itemParser = function(){
     var 
         instance = {},
         itemList = [],

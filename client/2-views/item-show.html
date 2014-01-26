@@ -46,22 +46,24 @@
         <div class="item-show">
             <dl class="dl-horizontal">
                 <dt>Description
-                <dd><p class="item-data" >{{{ currentItem.description }}}&nbsp;</p>
+                <dd><p class="item-data" >
+                        {{{wikiLinks currentItem.description }}}&nbsp;
+                    </p>
                 <dt>Category
                 <dd><a class="item-show-link category-link" category="{{ currentItem.category }}">{{ currentItem.category }}</a> &nbsp;
                 <dt>Family
                 <dd><a class="item-show-link family-link" category="{{ currentItem.category }}" family="{{ currentItem.family }}">{{ currentItem.family }}</a>&nbsp;
                 <dt>Related items
-                <dd>
+                <dd class="item-ul">
                 <ul>
                 {{#each currentItem.relatedItems}}
                     {{#if this }}
-                        <li>{{{this}}}
+                        <li>{{{wikiLinks this}}}
                     {{/if}}
                 {{/each}}
                 </ul>&nbsp;
                 <dt>Sources
-                <dd>
+                <dd class="item-ul">
                     <ul>
                     {{#each currentItem.links}}
                     {{{ showExternalLink this }}}
@@ -69,5 +71,6 @@
                     </ul>&nbsp;
             </dl>
         </div>
+        <div class="item-graph">{{#constant}}{{/constant}}</div>
 {{/ if }}
 </template>
