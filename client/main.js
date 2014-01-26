@@ -294,18 +294,6 @@ Template.item.events({
 
 // itemShow
 
-Template.itemShow.currentItem = function(){
-    var item = Session.get("currentItem"),
-        dbItem = Items.findOne({_id:item._id});
-    if( Session.equals("editMode",false)){
-        dbItem.relatedItems = $.map(dbItem.relatedItems,function(x,y){return transformWikiLinks(x)})
-        dbItem.description = transformWikiLinks(dbItem.description);
-    }
-    Session.set("currentItem",dbItem);
-    return dbItem;
-}
-
-
 Template.itemShow.events({
  
      'click .panel-close':function(event){
@@ -370,6 +358,16 @@ Template.itemShow.events({
     }
 });
 
+Template.itemShow.currentItem = function(){
+    var item = Session.get("currentItem"),
+        dbItem = Items.findOne({_id:item._id});
+    if( Session.equals("editMode",false)){
+        dbItem.relatedItems = $.map(dbItem.relatedItems,function(x,y){return transformWikiLinks(x)})
+        dbItem.description = transformWikiLinks(dbItem.description);
+    }
+    Session.set("currentItem",dbItem);
+    return dbItem;
+}
 Template.itemShow.canEdit= function(){
     var user = Meteor.user();
     if( user && user.isAdmin){
@@ -379,9 +377,6 @@ Template.itemShow.canEdit= function(){
 }
 Template.itemShow.inEditMode = function(){
     return Session.get("editMode");
-}
-Template.itemShow.showRelatedItems = function(l){
-    return '<li><a class="item-show-link">'+l+'</a></li>';
 }
 Template.itemShow.showExternalLink = function(l){
     return '<li><a href="'+l[0]+'" target="_blank" class="external-link">'+l[1]+'</a></li>';
