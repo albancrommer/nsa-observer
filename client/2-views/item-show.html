@@ -53,10 +53,37 @@
                 <dd><a class="item-show-link category-link" category="{{ currentItem.category }}">{{ currentItem.category }}</a> &nbsp;
                 <dt>Family
                 <dd><a class="item-show-link family-link" category="{{ currentItem.category }}" family="{{ currentItem.family }}">{{ currentItem.family }}</a>&nbsp;
+                <dt>Compartments
+                <dd class="item-ul">
+                <ul>
+                {{#each currentItem.compartments}}
+                    {{#if this }}
+                        <li>{{{wikiLinks this}}}
+                    {{/if}}
+                {{/each}}
+                </ul>&nbsp;
                 <dt>Related items
                 <dd class="item-ul">
                 <ul>
                 {{#each currentItem.relatedItems}}
+                    {{#if this }}
+                        <li>{{{wikiLinks this}}}
+                    {{/if}}
+                {{/each}}
+                </ul>&nbsp;
+                <dt>Parents
+                <dd class="item-ul">
+                <ul>
+                {{#each currentItem.relatedItemsParents}}
+                    {{#if this }}
+                        <li>{{{wikiLinks this}}}
+                    {{/if}}
+                {{/each}}
+                </ul>&nbsp;
+                <dt>Children
+                <dd class="item-ul">
+                <ul>
+                {{#each currentItem.relatedItemsChildren}}
                     {{#if this }}
                         <li>{{{wikiLinks this}}}
                     {{/if}}

@@ -1,0 +1,24 @@
+<template name="import">
+{{# if inImportMode }}
+    <div class="import-wrapper ">
+        <div class="container">
+            <div class="row">
+                <form class="import-form">
+                    <div class="span12">
+                        <h1>Import data</h1>
+                        <p>Caution : By pressing the red buttons, you're about to reset entirely the database.</p>
+                            <textarea style="width: 100%;height:300px;"></textarea>
+                    </div>
+                    <div class="span12">
+                            <div class="btn-group">
+                                <button class="btn btn-danger import-wiki">Import wiki</button>
+                                <button class="btn btn-danger import-json">Import json</button>
+                                <button class="btn import-close">Close</button>
+                            </div>
+                    </div>
+                </form>
+           </div>
+        </div>
+    </div>
+{{/ if }}
+</template>

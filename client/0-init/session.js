@@ -11,3 +11,4 @@ Session.setDefault("editMode",false);
 Session.setDefault("editModeType","wiki");
 Session.setDefault('showExport', false);
 Session.setDefault('exportType', 'wiki');
+Session.setDefault('importMode', false);

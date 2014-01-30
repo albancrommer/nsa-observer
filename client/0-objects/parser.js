@@ -4,6 +4,9 @@ Item = function(name){
         var instance = {};
 	instance.name			= name;
 	instance.category 		= "";
+	instance.compartments           = [];
+	instance.relatedItemsParents    = [];
+	instance.relatedItemsChildren   = [];
 	instance.relatedItems           = [];
 	instance.family			= "";
 	instance.status			= "";
@@ -32,10 +35,36 @@ itemParser = function(){
         itemList = [],
         currentItem = null
     ;
+    /**
+     * 
+     * @returns {Array}
+     */
     instance.getItemList = function(){
         return itemList;
     }
-    
+
+    /**
+     * 
+     */
+    instance.linkSplit  = function (str){
+        var re = /(\[\[[A-Z0-9 ]*?\]\])/g,
+            res = [],
+            final = [];
+        while( true ){
+            res = re.exec(str)
+            if( null === res) {
+                break
+            }
+            final.push(res[1]);
+        }
+        return final;
+    }
+
+    /**
+     * 
+     * @param {type} row
+     * @returns {unresolved}
+     */
     instance.read = function(row){
         
         var it = 0,
@@ -48,11 +77,11 @@ itemParser = function(){
             [/^== ([A-Z]) ==$/,function(r){
                 instance.addItem()
             }],
-            [/=== +(.+?) +===/,function(r){
+            [/=== *([A-Z ]*?) *?===/,function(r){
                 instance.addItem()
                 currentItem = new Item(r[1]);
             }],
-            [/""Short *?Description"" *?: *?(.*?) *?$/,function(r){
+            [/""Short ?Description"" *?: *?(.*?) *?$/,function(r){
                 currentItem.description = r[1].trim();	
                 currentItem.currentState = "description";
             }],
@@ -71,8 +100,20 @@ itemParser = function(){
                             currentItem.family = r[1].trim();	
                             currentItem.currentState = null;
             }],
+            [/""Compartments"" *?: *?(.*?)$/,function(r){
+                currentItem.compartments = instance.linkSplit(r[1])
+                currentItem.currentState = null;
+            }],
             [/""Related items"" *?: *?(.*?)$/,function(r){
-                currentItem.relatedItems = r[1].trim().split(" ");
+                currentItem.relatedItems = instance.linkSplit(r[1])
+                currentItem.currentState = null;
+            }],
+            [/""Related items \(parents\)"" *?: *?(.*?)$/,function(r){
+                currentItem.relatedItemsParents = instance.linkSplit(r[1])
+                currentItem.currentState = null;
+            }],
+            [/""Related items \(children\)"" *?: *?(.*?)$/,function(r){
+                currentItem.relatedItemsChildren= instance.linkSplit(r[1])
                 currentItem.currentState = null;
             }],
             [/""Status"" *?: *?(.*?)$/,function(r){
@@ -137,13 +178,15 @@ itemParser = function(){
         if( !currentItem){
             return;
         }
-        var item = currentItem, name = currentItem.name, list = itemList;
-        if( ! name ){
+        var item = currentItem;
+        if( ! "name" in item){
             // todo : log
             instance.log("[err] could not retrieve name for "+JSON.stringify(currentItem));
         }
+        if( "currentState" in item){
+            delete(item.currentState);
+        }
         itemList.push(item);
-        list = itemList;
     }
     
     /**

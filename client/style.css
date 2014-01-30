@@ -392,7 +392,7 @@ svg .eci{
 
 }
 
-
+/* export */
 
 .export-wrapper {
     background: none repeat scroll 0 0 #F8F8F8;
@@ -415,4 +415,17 @@ svg .eci{
     padding:20px;
     white-space: pre;
     width:100%;
+}
+
+/* import */
+
+
+.import-wrapper {
+position: fixed;
+top: 0px;
+left: 0px;
+height: 100%;
+width: 100%;
+background: #eee;
+z-index: 3;
 }

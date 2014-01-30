@@ -38,6 +38,7 @@ Template.itemShow.events({
             // @todo
             // Attempts to save the item
             var _id = currentItem._id;
+console.log("update data",item);
             Items.update({_id:_id},{$set:item},function(err,num){
 
                 // Failed
