@@ -5,7 +5,7 @@
  * @returns {unresolved}
  */
 transformWikiLinks = function(string,html) {
-  var re = /(?:\[\[([A-Z0-9\-_]+)(?:\]\]))/g,
+  var re = /(?:\[\[([A-Z0-9\-_ ]+)(?:\]\]))/g,
       match,
       str_res = string,
       html = (undefined === html ? "true" : html)
