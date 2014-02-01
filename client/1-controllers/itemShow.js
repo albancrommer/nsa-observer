@@ -107,7 +107,7 @@ Template.itemShow.inEditMode = function(){
     return Session.get("editMode");
 }
 Template.itemShow.showExternalLink = function(l){
-    return '<li><a href="'+l[0]+'" target="_blank" class="external-link">'+l[1]+'</a></li>';
+    return '<li><a href="'+l[0]+'" target="_blank" class="external-link item-show-link">'+l[1]+'</a></li>';
 }
 Template.itemShow.inEditModeWiki = function() {
     return Session.equals('editModeType',"wiki");
