@@ -384,9 +384,7 @@ svg .eci{
     fill:#67ADDB;
 }
 
-
-
-
+/* Item Graph */
 
 .item-graph path{
   fill: none;
@@ -401,24 +399,97 @@ svg .eci{
   stroke-dasharray: 0,2 1;
 }
 
+/* defaults for circles */
 .item-graph circle {
-  fill: #67ADDB;
+  fill: #ccc;
   stroke: #fff;
   stroke-width: 1.5px;
 }
 
+/* defaults for texts */
 .item-graph text {
-    font: bold 16px sans-serif;
-    fill: #67ADDB;
+    fill: #CCCCCC;
+    font: 20px sans-serif;
+    opacity: 0.6;
     pointer-events: none;
     stroke: white;
-    stroke-opacity: 0.8;
+    stroke-opacity: 1;
     stroke-width: 0.8px;
 }
 
-.item-graph text.parent{
-    fill:#274C64;
 
+
+
+
+/*
+
+Primary Color:
+				
+EB0112	C0242F	AF000D	D92F3C	F1424F
+Secondary Color A:
+				
+019686	177A70	006F64	1CB6A5	32B6A8
+Secondary Color B:
+				
+9FE201	8CB922	76A900	B0EB24	B8EB41
+*/
+
+.item-graph .program {
+    fill: #AF000D;
+}
+.item-graph path.program {
+    stroke: #AF000D;
+}
+
+.item-graph .program.collect{
+    fill: #EB0112;
+}
+.item-graph .program.process{
+    fill: #C0242F;
+}
+.item-graph .program.database{
+    fill: #AF000D;
+}
+.item-graph .program.target{
+    fill: #D92F3C;
+}
+.item-graph .program.attack{
+    fill: #F1424F;
+}
+
+
+.item-graph .attack-vector {
+    fill: #177A70;
+}
+
+.item-graph path.attack-vector {
+    stroke: #177A70;
+}
+
+.item-graph .attack-vector.hardware {
+    fill: #177A70;
+}
+
+.item-graph .attack-vector.software {
+    fill: #006F64;
+}
+
+.item-graph .attack-vector.network {
+    fill: #32B6A8;
+}
+
+.item-graph .compartiment {
+    fill: #76A900;
+}
+.item-graph path.compartiment {
+    stroke: #76A900;
+}
+
+/* always outlines parent */
+.item-graph svg g text.parent {
+    font: 24px normal;
+    opacity: 1;
+    stroke-opacity: 1;
 }
 
 /* export */
@@ -458,3 +529,5 @@ width: 100%;
 background: #eee;
 z-index: 3;
 }
+
+
