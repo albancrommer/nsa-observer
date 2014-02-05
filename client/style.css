@@ -382,7 +382,7 @@ svg .eci{
     background: none repeat scroll 0 0 white;
     border: 1px solid #CCCCCC;
     box-shadow: 0 0 5px #CCCCCC inset;
-    margin-bottom: 20px 0 90px;
+    margin: 20px 0 90px;
 }
 .item-graph svg {
     margin: 0;
