@@ -39,7 +39,7 @@ Template.itemShow.events({
             // Attempts to save the item
             var _id                     = currentItem._id;
             Items.update({_id:_id},{$set:item},function(err,num){
-
+                
                 // Failed
                 if( err ){
                     alert(err);
@@ -118,7 +118,6 @@ Template.itemShow.rendered = function(i){
             });
         }
     })
-    console.log( allItems )
     // var data = DataAccessor(request);
     var itemGraph                       = new ItemGraph();
     itemGraph.drawGraph(".item-graph",links,allItems,600,450);

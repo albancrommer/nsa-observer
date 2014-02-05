@@ -181,13 +181,6 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 }
 
 
-.item-graph {
-    background: none repeat scroll 0 0 white;
-    border: 1px solid #CCCCCC;
-    box-shadow: 0 0 5px #CCCCCC inset;
-    margin-bottom: 90px;
-}
-
 .panel .item-ul {
     line-height: 1em;
 }
@@ -316,7 +309,6 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 svg {
     margin: 20px 0;
     width: 100%;
-    
 }
 .graph-label{
 }
@@ -386,6 +378,16 @@ svg .eci{
 
 /* Item Graph */
 
+.item-graph {
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 0 5px #CCCCCC inset;
+    margin-bottom: 20px 0 90px;
+}
+.item-graph svg {
+    margin: 0;
+    width: 100%;
+}
 .item-graph path{
   fill: none;
   stroke: #CCC;
@@ -400,6 +402,9 @@ svg .eci{
 }
 
 /* defaults for circles */
+
+
+
 .item-graph circle {
   fill: #ccc;
   stroke: #fff;
