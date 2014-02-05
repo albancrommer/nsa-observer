@@ -1,5 +1,5 @@
 Template.import.events({
-    "click .close" : function(e){
+    "click .import-close" : function(e){
         Session.set('importMode', false);
     },
     'click .import-wiki' : function(e){
@@ -20,8 +20,13 @@ Template.import.parse = function(rows){
     });
     var parser      = new itemParser();
     itemList        = parser.run(rows);
+    var itemNames   = [];
     _.each( itemList, function(item){
-        Items.insert(item);
+        // Attempts to insert if not already in 
+        if( itemNames.indexOf(item.name) === -1 ){
+            itemNames.push(item.name)
+            Items.insert(item);
+        }
     });
 }
 
