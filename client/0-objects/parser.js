@@ -3,6 +3,7 @@ Item = function(name){
 
         var instance = {};
 	instance.name			= name;
+	instance.agency 		= "";
 	instance.category 		= "";
 	instance.compartments           = [];
 	instance.relatedItemsParents    = [];
@@ -75,7 +76,7 @@ itemParser = function(){
             res = [],
             expressions = [
             [/^== ([A-Z]) ==$/,function(r){
-                instance.addItem()
+//                instance.addItem()
             }],
             [/=== *([A-Z ]*?) *?===/,function(r){
                 instance.addItem()
@@ -86,12 +87,11 @@ itemParser = function(){
                 currentItem.currentState = "description";
             }],
             [/""Category"" *: *(.*?)$/,function(r){
-
-			if( "" == r[1].trim()){
-				r[1] = "program";
-			};
-			currentItem.category = r[1].trim();	
-			currentItem.currentState = null;
+                if( "" == r[1].trim()){
+                        r[1] = "program";
+                };
+                currentItem.category     = r[1].trim();	
+                currentItem.currentState = null;
             }],
             [/""Family"" *?: *?(.*?)$/,function(r){
                 if( "" == r[1].trim()){
@@ -102,6 +102,13 @@ itemParser = function(){
             }],
             [/""Compartments"" *?: *?(.*?)$/,function(r){
                 currentItem.compartments = instance.linkSplit(r[1])
+                currentItem.currentState = null;
+            }],
+            [/""Agency"" *: *(.*?)$/,function(r){
+                if( "" == r[1].trim()){
+                        r[1] = "undefined";
+                };
+                currentItem.agency       = r[1].trim();	
                 currentItem.currentState = null;
             }],
             [/""Related items"" *?: *?(.*?)$/,function(r){
@@ -122,9 +129,6 @@ itemParser = function(){
 			};
 			currentItem.status = r[1].trim();	
 			currentItem.currentState = null;                
-            }],
-            [/""Links"" :/,function(r){
-                currentItem.currentState = "links";
             }],
             [/""Links"" :/,function(r){
                 currentItem.currentState = "links";
