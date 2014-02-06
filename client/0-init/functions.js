@@ -49,7 +49,7 @@ itemLinkShowListEvent = function(event){
     ;
     if( family ){
         search      = {category:category,family:family};
-        listName    = category+"s: "+family;
+        listName    = category+"s > "+family;
     }else if (category){
         search      = {category:category};
         listName    = category+"s";
@@ -64,7 +64,8 @@ itemLinkShowListEvent = function(event){
 togglePanels = function (hideOrShow,panels){
     var iterator,
         state = hideOrShow || false,
-        panels = panels || ["itemListIsVisible", "itemShowIsVisible"];
+//        panels = panels || ["itemListIsVisible", "itemShowIsVisible"];
+        panels = ["itemListIsVisible", "itemShowIsVisible"];
         for( iterator = 0; iterator < panels.length; iterator++ ){
             var panel = panels[iterator];
             Session.set(panel,state);

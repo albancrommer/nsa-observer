@@ -1,105 +1,110 @@
 <template name="itemShow">
-    <div class="panel-close">x</div>
+    <div class="panel-head">
+        <div class="panel-close"></div>
+        {{>nav}}
+    </div>
 
-    {{# if canEdit  }}
-    <div class="btn-group edit-nav">
-        {{# if inEditMode  }}
-        <a class="btn item-save" href="#">
-            Save item
-        </a>
-        <a class="btn view-mode" href="#">
-            Return to view mode 
-        </a>
-        {{ else }}
-        <a class="btn edit-mode" href="#">
-            Edit items
-        </a>
+    {{# if currentItemExists }}
+        {{# if canEdit  }}
+        <div class="btn-group edit-nav">
+            {{# if inEditMode  }}
+            <a class="btn item-save" href="#">
+                Save item
+            </a>
+            <a class="btn view-mode" href="#">
+                Return to view mode 
+            </a>
+            {{ else }}
+            <a class="btn edit-mode" href="#">
+                Edit items
+            </a>
+            {{/if}}
+        </div>
         {{/if}}
-    </div>
-    {{/if}}
-    
 
-{{# if inEditMode }}
-    {{# if inEditModeWiki }}
-    <div class="wiki-edit-wrapper">
-        {{> itemWiki currentItem}}
-    </div>
-    {{else}}
-        <form class="data-form">
-           <dl class="dl-horizontal">
-            <dt>Description
-            <dd>
-            <textarea class="input-xxlarge item-data" name="description">{{{ currentItem.description }}}</textarea>
-            <dt>Category
-            <dd><input type="text" class="input-large item-data" name="category" value="{{ currentItem.category }}">
-            <dt>Family
-            <dd><input type="text" class="input-large item-data" name="family" value="{{ currentItem.family}}">
-            <dt>Related items
-            <dd><input type="text" class="input-xxlarge item-data" name="relatedItems" value="{{editRelatedItems}}">
-            <dt>Links
-            <dd><textarea class="item-data" name="externalLinks[]" >{{editExternalLink}}</textarea>
-            </dl>
-        </form>
-    {{/if}}
-{{ else }}
-        <h3 class="item-data" >{{ currentItem.name }}</h3>
-        <div class="item-show">
-            <dl class="dl-horizontal">
+
+    {{# if inEditMode }}
+        {{# if inEditModeWiki }}
+        <div class="wiki-edit-wrapper">
+            {{> itemWiki currentItem}}
+        </div>
+        {{else}}
+            <form class="data-form">
+               <dl class="dl-horizontal">
                 <dt>Description
-                <dd><p class="item-data" >
-                        {{{wikiLinks currentItem.description }}}&nbsp;
-                    </p>
+                <dd>
+                <textarea class="input-xxlarge item-data" name="description">{{{ currentItem.description }}}</textarea>
                 <dt>Category
-                <dd><a class="item-show-link category-link" category="{{ currentItem.category }}">{{ currentItem.category }}</a> &nbsp;
+                <dd><input type="text" class="input-large item-data" name="category" value="{{ currentItem.category }}">
                 <dt>Family
-                <dd><a class="item-show-link family-link" category="{{ currentItem.category }}" family="{{ currentItem.family }}">{{ currentItem.family }}</a>&nbsp;
-                <dt>Agency
-                <dd>{{ currentItem.agency }}&nbsp;
-                <dt>Compartments
-                <dd class="item-ul">
-                <ul>
-                {{#each currentItem.compartments}}
-                    {{#if this }}
-                        <li>{{{wikiLinks this}}}
-                    {{/if}}
-                {{/each}}
-                </ul>&nbsp;
+                <dd><input type="text" class="input-large item-data" name="family" value="{{ currentItem.family}}">
                 <dt>Related items
-                <dd class="item-ul">
-                <ul>
-                {{#each currentItem.relatedItems}}
-                    {{#if this }}
-                        <li>{{{wikiLinks this}}}
-                    {{/if}}
-                {{/each}}
-                </ul>&nbsp;
-                <dt>Parents
-                <dd class="item-ul">
-                <ul>
-                {{#each currentItem.relatedItemsParents}}
-                    {{#if this }}
-                        <li>{{{wikiLinks this}}}
-                    {{/if}}
-                {{/each}}
-                </ul>&nbsp;
-                <dt>Children
-                <dd class="item-ul">
-                <ul>
-                {{#each currentItem.relatedItemsChildren}}
-                    {{#if this }}
-                        <li>{{{wikiLinks this}}}
-                    {{/if}}
-                {{/each}}
-                </ul>&nbsp;
-                <dt>Sources
-                <dd class="item-ul">
-                    <ul class='external-links-wrapper'>
-                    {{#each currentItem.links}}
-                    {{{ showExternalLink this }}}
+                <dd><input type="text" class="input-xxlarge item-data" name="relatedItems" value="{{editRelatedItems}}">
+                <dt>Links
+                <dd><textarea class="item-data" name="externalLinks[]" >{{editExternalLink}}</textarea>
+                </dl>
+            </form>
+        {{/if}}
+    {{ else }}
+            <h3 class="item-data" >{{ currentItem.name }}</h3>
+            <div class="item-show">
+                <dl class="dl-horizontal">
+                    <dt>Description
+                    <dd><p class="item-data" >
+                            {{{wikiLinks currentItem.description }}}&nbsp;
+                        </p>
+                    <dt>Category
+                    <dd><a class="item-show-link category-link" category="{{ currentItem.category }}">{{ currentItem.category }}</a> &nbsp;
+                    <dt>Family
+                    <dd><a class="item-show-link family-link" category="{{ currentItem.category }}" family="{{ currentItem.family }}">{{ currentItem.family }}</a>&nbsp;
+                    <dt>Agency
+                    <dd>{{ currentItem.agency }}&nbsp;
+                    <dt>Compartments
+                    <dd class="item-ul">
+                    <ul>
+                    {{#each currentItem.compartments}}
+                        {{#if this }}
+                            <li>{{{wikiLinks this}}}
+                        {{/if}}
                     {{/each}}
                     </ul>&nbsp;
-            </dl>
-        </div>
-        <div class="item-graph">{{#constant}}{{/constant}}</div>
+                    <dt>Related items
+                    <dd class="item-ul">
+                    <ul>
+                    {{#each currentItem.relatedItems}}
+                        {{#if this }}
+                            <li>{{{wikiLinks this}}}
+                        {{/if}}
+                    {{/each}}
+                    </ul>&nbsp;
+                    <dt>Parents
+                    <dd class="item-ul">
+                    <ul>
+                    {{#each currentItem.relatedItemsParents}}
+                        {{#if this }}
+                            <li>{{{wikiLinks this}}}
+                        {{/if}}
+                    {{/each}}
+                    </ul>&nbsp;
+                    <dt>Children
+                    <dd class="item-ul">
+                    <ul>
+                    {{#each currentItem.relatedItemsChildren}}
+                        {{#if this }}
+                            <li>{{{wikiLinks this}}}
+                        {{/if}}
+                    {{/each}}
+                    </ul>&nbsp;
+                    <dt>Sources
+                    <dd class="item-ul">
+                        <ul class='external-links-wrapper'>
+                        {{#each currentItem.links}}
+                        {{{ showExternalLink this }}}
+                        {{/each}}
+                        </ul>&nbsp;
+                </dl>
+            </div>
+            <div class="item-graph">{{#constant}}{{/constant}}</div>
+    {{/ if }}
 {{/ if }}
 </template>

@@ -59,7 +59,11 @@ Template.itemShow.events({
 
 Template.itemShow.currentItem = function(){
     var item                            = Session.get("currentItem"),
-        dbItem                          = Items.findOne({_id:item._id});
+        dbItem                          = {};
+    if( ! item ){
+        return {};
+    }
+    dbItem                              = Items.findOne({_id:item._id})
     Session.set('currentItem', dbItem)
     return dbItem;
 }
@@ -74,7 +78,12 @@ Template.itemShow.rendered = function(i){
     
     // @todo : this should be a method of an accessor object
     var currentItem                     = Session.get('currentItem'),
-        relatedItems                    = currentItem.relatedItems;
+        relatedItems                    
+    ;
+    if( ! currentItem){
+        return;
+    }
+    relatedItems                    = currentItem.relatedItems;
     if( ! relatedItems){
         return;
     }
@@ -153,3 +162,6 @@ Template.itemShow.editRelatedItems = function(l){
     $(item.relatedItems).each(function(x,y){txt += y+" ";});
     return txt;
 };
+Template.itemShow.currentItemExists = function(){
+    return Session.get('currentItem');
+}

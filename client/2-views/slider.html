@@ -1,34 +1,48 @@
 <template name="slider">
-    <div class="slider container">
-        <div class="row">
-            <div class="span12 front">
-                <div class="description page">
-                            <img src="/images/nsaobserver-programs.png" width="400">
-                            <h2>Things the NSA doesn't want you to know</h2>
-                            <h4>And why you should know about it :)</h4>
-                    <hr>
-                    <div class="row">
-                        <div class="span10 offset1">
-                        <h4>
-                            Since summer 2013, we are continously gathering 
-                            and processing public informations about the NSA global surveillance revelations
-                            and have a collection of {{num}} NSA:
-                        </h4> 
-                      <dl class="dl-horizontal">
-                        <dt>Programs<dd>A program is a technical solution of some sort (ex: a database,   satellite collect, etc.) or a group of programs.
-                        <dt>Compartments<dd>A compartment is a partner of some sort (ex: foreign state, company, etc.) or a group of compartments.
-                        <dt>Attack vectors<dd>An attack vector is any kind of attack tool, software (ex: trojan) or hardware (ex: USB bug).
-                            
-                        </div>
-                    </div>
-                            
-                    </dl>
-                    <div id="categories-graph">{{#constant}}{{/constant}}</div>
-                    <p>
-                        <em>
-                            Did you know you can click on graphics to view related database entries?
-                        </em>
-                    </p>
+    <div class="slider">
+        <div class="inverted">
+            <div class="container">
+                <div class="row">
+                    <div class="span12 front">
+                        <div class="description page row">
+                            <div class="span4">
+                                
+                                    <img src="/images/nsaobserver-programs.png" width="400">
+                            </div>
+                            <div class="span7 ">
+                                <div  class="head" >
+                                    <h2>Things the NSA doesn't want you to know</h2>
+                                    <h4 style="color:white;">And why you should know about it :)</h4>
+                                    <h4>
+                                        Since summer 2013, we are continously gathering 
+                                        and processing public informations about the NSA global surveillance revelations
+                                        and have a collection of {{num}} NSA:
+                                    </h4>
+                                    <a class=" link" category="program" >Programs</a>
+                                    <a class=" link" category="attack vector" >Attack vectors</a>
+                                    <a class="link" category="compartiment" >Compartments</a>
+                                </div>
+                            </div>
+<!--                            <hr>
+                            <div class="row">
+                                <div class="span10 offset1">
+                              <dl class="dl-horizontal">
+                                <dt>Programs<dd>A program is a technical solution of some sort (ex: a database,   satellite collect, etc.) or a group of programs.
+                                <dt>Compartments<dd>A compartment is a partner of some sort (ex: foreign state, company, etc.) or a group of compartments.
+                                <dt>Attack vectors<dd>An attack vector is any kind of attack tool, software (ex: trojan) or hardware (ex: USB bug).
+                                </dl>
+
+                                </div>
+
+                            <div id="categories-graph">{{#constant}}{{/constant}}</div>
+<!--        
+<p>
+                                <em>
+                                    Did you know you can click on graphics to view related database entries?
+                                </em>
+                            </p>
+                    </div>  
+                </div>
                     <hr>
                      <div class="row">
                         <div class="span4">
@@ -69,11 +83,14 @@
                             <p>
                                 Because, well, we didn't find this vizualisation anywhere else and thought "Why not?".
                             </p>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container">
+        
         <div class="row">
             <div class="span12 programs page">
                 <h2>Presenting {{programs_num}} NSA programs...</h2>
@@ -173,7 +190,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+<!--        <div class="row">
             <div class="span12 undefineds page">
                 <h2>Also... {{undefineds_num}} yet undetermined items</h2>
                 <hr>
@@ -188,60 +205,78 @@
                 </p>
             </div>
         </div>
-        <div class="row">
-            <div class="span12 undefineds page">
-                <h2>Looking for more informations ?</h2>
-                <hr>
-                <div class="row">
-                    <div class="span6">
-                        <h4>
-                            Narrative ressources
-                        </h4> 
-                        <p>
-                            We have selected a couple of ressources you might want to read.
-                        </p>
-                        <hr>
-                        <p>
-                            From the Trustees of the Courage Fund who collaborate to defend whistleblowers around the world, the freesnowden.is site has great content we encourage you to read.
-                        </p>
-                        <dl class="dl-horizontal dl-large">
-                            <dt>Freesnowden.is FAQ</dt><dd> <a class="btn btn-small btn-primary" href="https://freesnowden.is/frequently-asked-questions/index.html">freesnowden.is</a></dd>
-                        </dl>
-                        <hr>
-                        <p>
-                            From the start, the Washington Post, the Guardian and Der Spiegel have had a great role in the revelations. 
-                        </p>
-                        <dl class="dl-horizontal dl-large">
-                            <dt>The Washington Post </dt><dd><a class="btn btn-small btn-primary" href="http://www.washingtonpost.com/newssearch/search.html?st=nsa&submit=Submit+Query">washingtonpost.com</a></dd>
-                            <dt>The Guardian</dt><dd><a class="btn btn-small btn-primary" href="http://www.theguardian.com/world/nsa">theguardian.com</a></dd>
-                            <dt>Der Spiegel</dt><dd><a class="btn btn-small btn-primary" href="http://www.spiegel.de/international/topic/nsa_spying_scandal/archiv.html">spiegel.de</a></dd>
-                        </dl>
-                        <p>
-                    </div>
-                    <div class="span6">
-                        <h4>
-                            Documents ressources
-                        </h4>
-                        <p>
-                            We also selected a number of websites offering documents and in-depth informations about the NSA.
-                        </p>
-                        <hr>
-                        <dl class="dl-horizontal dl-large">
-                            <dt>Blue Cabinet</dt><dd><a class="btn btn-small btn-primary" href="http://bluecabinet.info">bluecabinet.info</a></dd>
-                            <dt>BuggedPlanet</dt><dd><a class="btn btn-small btn-primary" href="http://buggedplanet.info/">buggedplanet.info</a></dd>
-                            <dt>Cryptome</dt><dd><a class="btn btn-small btn-primary" href="http://cryptome.org/2013/11/snowden-tally.htm">cryptome.org</a></dd>
-                            <dt>EFF</dt><dd><a class="btn btn-small btn-primary" href="https://www.eff.org/nsa-spying/nsadocs">eff.org</a></dd>
-                            <dt>Electrospaces</dt><dd><a class="btn btn-small btn-primary" href=" http://electrospaces.blogspot.fr/">electrospaces.blogspot.fr</a></dd>
-                            <dt>MindMeister</dt><dd><a class="btn btn-small btn-primary" href="http://www.mindmeister.com/fr/308518551/the-national-security-agency-operates-more-than-500-separate-signals-intelligence-platforms-employs-">mindmeister.com</a></dd>
-                        </dl>
-                    </div>
-                </div>
+-->
+    </div>
+    <div class="inverted">
+        <div class="container ">
+            <div class="row">
+                <div class="span12 undefineds page">
+                    <h2>Looking for more informations ?</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="span6">
+                            <h4>
+                                Narrative ressources
+                            </h4> 
+                            <p>
+                                We have selected a couple of ressources you might want to read.
+                            </p>
+                            <p>
+                                From the Trustees of the Courage Fund who collaborate to defend whistleblowers around the world, the freesnowden.is site has great content we encourage you to read.
+                            </p>
+                            <dl class="dl-horizontal dl-large">
+                                <dt>Freesnowden.is FAQ</dt><dd> <a class="btn btn-small btn-primary" href="https://freesnowden.is/frequently-asked-questions/index.html">freesnowden.is</a></dd>
+                            </dl>
+                            <p>
+                                From the start, the Washington Post, the Guardian and Der Spiegel have had a great role in the revelations. 
+                            </p>
+                            <dl class="dl-horizontal dl-large">
+                                <dt>The Washington Post </dt><dd><a class="btn btn-small btn-primary" href="http://www.washingtonpost.com/newssearch/search.html?st=nsa&submit=Submit+Query">washingtonpost.com</a></dd>
+                                <dt>The Guardian</dt><dd><a class="btn btn-small btn-primary" href="http://www.theguardian.com/world/nsa">theguardian.com</a></dd>
+                                <dt>Der Spiegel</dt><dd><a class="btn btn-small btn-primary" href="http://www.spiegel.de/international/topic/nsa_spying_scandal/archiv.html">spiegel.de</a></dd>
+                            </dl>
+                            <p>
+                        </div>
+                        <div class="span6">
+                            <h4>
+                                Documents ressources
+                            </h4>
+                            <p>
+                                We also selected a number of websites offering documents and in-depth informations about the NSA.
+                            </p>
+                            <dl class="dl-horizontal dl-large">
+                                <dt>Blue Cabinet</dt><dd><a class="btn btn-small btn-primary" href="http://bluecabinet.info">bluecabinet.info</a></dd>
+                                <dt>BuggedPlanet</dt><dd><a class="btn btn-small btn-primary" href="http://buggedplanet.info/">buggedplanet.info</a></dd>
+                                <dt>Cryptome</dt><dd><a class="btn btn-small btn-primary" href="http://cryptome.org/2013/11/snowden-tally.htm">cryptome.org</a></dd>
+                                <dt>EFF</dt><dd><a class="btn btn-small btn-primary" href="https://www.eff.org/nsa-spying/nsadocs">eff.org</a></dd>
+                                <dt>Electrospaces</dt><dd><a class="btn btn-small btn-primary" href=" http://electrospaces.blogspot.fr/">electrospaces.blogspot.fr</a></dd>
+                                <dt>MindMeister</dt><dd><a class="btn btn-small btn-primary" href="http://www.mindmeister.com/fr/308518551/the-national-security-agency-operates-more-than-500-separate-signals-intelligence-platforms-employs-">mindmeister.com</a></dd>
+                            </dl>
 
+                            <h4>
+                                Official reports by European Union
+                            </h4>
+                            <p>On the existence of a global system for the interception of private and commercial communications (ECHELON interception system) (2001)</p>
+                            <dl class="dl-horizontal dl-large">
+                                <dt>Full report (HTML)</dt>
+                                <dd><a class="btn btn-small btn-primary" href="http://www.europarl.europa.eu/sides/getDoc.do?pubRef=-//EP//TEXT+REPORT+A5-2001-0264+0+DOC+XML+V0//EN">europarl.europa.eu</a></dd>
+                            </dl>
+                            <p>Claude Moraes (MEP) on the US NSA programme (2013)</p>
+                            <dl class="dl-horizontal dl-large">
+                               <dt>Full report (PDF)</dt>
+                                <dd><a class="btn btn-small btn-primary" href="http://www.europarl.europa.eu/meetdocs/2009_2014/documents/libe/pr/1014/1014703/1014703en.pdf">europarl.europa.eu</a></dd>
+                             </dl>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
+        </div>        
+    </div>        
+    <div class="container ">
         <div class="row">
             <div class="span12 contacts page">
-                <hr>
                 <div class="row">
                     <div class="span3">
                         <h3>Contact us </h3>
@@ -351,4 +386,5 @@
             </div>
         </div>
     </div>
+</div>
 </template>

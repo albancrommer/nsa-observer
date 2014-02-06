@@ -1,6 +1,6 @@
 
 Session.setDefault("itemList",[]);
-Session.setDefault("currentItem",{});
+Session.setDefault("currentItem",null);
 Session.setDefault("itemListIsVisible",false);
 Session.setDefault("itemShowIsVisible",false);
 Session.setDefault("listName","");

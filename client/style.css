@@ -6,8 +6,8 @@
         Purpose of the stylesheet follows.
 */
 body{
-    font-family:  Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-top:20px;
+    font-family: Liberation Sans, Lucida Grande,Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6em;
 }
 body a {
     cursor: pointer;
@@ -65,35 +65,41 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     height: 100%;
     left: 0;
     overflow: auto;
-    padding: 1%;
     position: fixed;
     top: 0px;
     z-index: 2;
 }
 .panel-close {
-    cursor:pointer;
     color: white;
+    cursor: pointer;
     float: right;
-    font-size: 10px;
-    font-weight: bold;
-    padding: 4px 8px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    background: #CCF;
+    height: 35px;
+    opacity: 0.5;
+    padding: 0 10px;
     text-align: center;
 }
 .panel-close:before{
-    content:"Press Esc or click here ";
+    content:"ESC";
 }
-.panel-close:hover {
-    background: #BBE;
+
+.panel-close:hover{
+    opacity: 1;
+}
+.panel-head{
+    background: none repeat scroll 0 0 #4996CD;
+    color: white;
+    min-height: 30px;
+    padding: 10px 0 10px 10px;
+    text-transform: uppercase;
+}
+.panel-content{
+    padding: 1%;
 }
 .panel ul,
 .panel dd,
 .panel a
 {
-    font-family: monospace;
+    /*font-family: monospace;*/
 }
 .panel dd, .panel dt {
     padding-left: 20px;
@@ -102,8 +108,7 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 .panel h3 {
     font-size: 24px;
     letter-spacing: -0.05em;
-    line-height: 1em;
-    margin: 20px 0;
+    margin: 20px;
     text-transform: uppercase;
     word-spacing: -0.1em;
 }
@@ -139,11 +144,56 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 .item-show{
 }
 .item-show-outer {
-    left: 30%;
-    width: 68%;
-    padding-bottom: 30px;
+    left: 28%;
+    width: 72%;
+}
+.nav-content a {
+    color: #888888;
+}
+.nav-content a.category-link {
+    color: #666666;
+    font-weight: bold;
+}
+.nav-content .search {
+    display: inline-block;
+    margin: auto 0 auto 10px;
+}
+.nav-category{
+    border-radius: 3px;
+    position: relative;
+    display: inline-block;
+    margin: 0 10px 0 0;
+    width: 150px;
+}
+.nav-category li{
+    padding: 0 5px;
+}
+.nav-category:hover {
+    background: #fcfcfc;
+}
+.nav-category:hover .nav-family {
+    display: block;
+}
+.nav-family {
+    bottom: 0;
+    display: none;
+    margin-top: 20px;
+    position: absolute;
+    top: 0;
+}
+.nav-family li{
+    background: none repeat scroll 0 0 #FCFCFC;
+    display: inline-block;
+    line-height: 1em;
+    margin-left: -5px;
+    padding: 16px 5px 5px;
+    width: 140px;
 }
 
+
+.item-show-outer .panel-head {
+    background: none repeat scroll 0 0 #E8E8E8;
+}
 .item-show-link {
     background: none repeat scroll 0 0 transparent;
     display: inline;
@@ -175,9 +225,7 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 }
 
 .item-show-outer .edit-nav {
-    left: 0;
-    position: absolute;
-    top: 0;
+    float: right;
 }
 
 
@@ -259,12 +307,16 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     width: 100%;
 }
 .nav-container input.search {
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 }
 
 
 
 /* Slider */
+
+.slider * {
+    line-height: 1.6em;
+}
 
 .page {
     padding :30px 0;
@@ -273,7 +325,6 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 .slider .row .span12, body .slider .row .span10{
     text-align: center;
 }
-
 
 .slider * {
     color: #666;
@@ -314,10 +365,10 @@ svg {
 }
 .graph-label:hover{
 }
-.slider svg circle{
+circle{
     transition: opacity 500ms ease, fill 500ms ease;
 }
-.slider svg circle:hover{
+circle:hover{
     cursor: pointer;
     opacity: 0.3;
     fill: #ddd;
@@ -376,12 +427,57 @@ svg .eci{
     fill:#67ADDB;
 }
 
+/* Slider inverted */
+
+.inverted {
+    background: none repeat scroll 0 0 #4996CD;
+    color: white;
+}
+.inverted dt:nth-child(4n+1), .inverted dd:nth-child(4n+2) {
+    background: none repeat scroll 0 0 #5FA5D3;
+}
+.inverted hr {
+    border-color: #5FA5D3;
+}
+
+.slider .inverted h1, .slider .inverted h2, .slider .inverted h3 {
+    color:white;
+}
+.slider .inverted h4 {
+    font-weight: normal;
+    color:#4c4c54;
+}
+
+
+.slider .head{
+    margin:100px 20px 40px
+}
+
+.slider a.link{
+    background: none repeat scroll 0 0 #6ebbdd;
+    border: 1px solid #1776a0;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 1px 1px #1776a0;
+    color: white;
+    display: inline-block;
+    font-size: 18px;
+    margin: 10px 20px 0 0;
+    padding: 10px;
+    width: 130px;
+}
+.slider a.link:hover{
+    background: none repeat scroll 0 0 #69b3d3;
+    text-decoration: none;
+}
+
+
+
 /* Item Graph */
 
 .item-graph {
     background: none repeat scroll 0 0 white;
     border: 1px solid #CCCCCC;
-    box-shadow: 0 0 5px #CCCCCC inset;
+    box-shadow: 0 0 5px #CCCCCC;
     margin: 20px 0 90px;
 }
 .item-graph svg {
@@ -534,5 +630,3 @@ width: 100%;
 background: #eee;
 z-index: 3;
 }
-
-
