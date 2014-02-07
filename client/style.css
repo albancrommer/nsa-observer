@@ -59,14 +59,23 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 }
 
 /* Item list */
+.panel-bg{
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
 .panel{
     background: none repeat scroll 0 0 #f8f8f8;
     box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.34);
-    height: 100%;
-    left: 0;
+    height: 98%;
+    left: 1%;
     overflow: auto;
     position: fixed;
-    top: 0px;
+    top: 1%;
     z-index: 2;
 }
 .panel-close {
@@ -81,7 +90,6 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 .panel-close:before{
     content:"ESC";
 }
-
 .panel-close:hover{
     opacity: 1;
 }
@@ -113,7 +121,7 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     word-spacing: -0.1em;
 }
 .item-list-outer {
-    width: 28%;
+    width: 27%;
 }
 .item-list{
     margin-bottom: 15px;
@@ -145,7 +153,7 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 }
 .item-show-outer {
     left: 28%;
-    width: 72%;
+    width: 71%;
 }
 .nav-content a {
     color: #888888;
@@ -543,9 +551,6 @@ FFB350
 .item-graph .program {
     fill: #AF000D;
 }
-.item-graph path.program {
-    stroke: #AF000D;
-}
 
 .item-graph .program.collect{
     fill: #4996CD;
@@ -568,9 +573,6 @@ FFB350
     fill: #3FC8C3;
 }
 
-.item-graph path.attack-vector {
-    stroke: #3FC8C3;
-}
 
 .item-graph .attack-vector.hardware {
     fill: #F04B7D;
