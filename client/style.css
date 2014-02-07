@@ -526,13 +526,18 @@ svg .eci{
 
 Primary Color:
 				
-EB0112	C0242F	AF000D	D92F3C	F1424F
-Secondary Color A:
-				
-019686	177A70	006F64	1CB6A5	32B6A8
-Secondary Color B:
-				
-9FE201	8CB922	76A900	B0EB24	B8EB41
+4996CD
+6F54D4
+BB44CF
+F84E65
+96F04B
+3FC8C3
+F04B7D
+70EA49
+E7FC4F
+FFDF50
+FFB350
+
 */
 
 .item-graph .program {
@@ -543,36 +548,36 @@ Secondary Color B:
 }
 
 .item-graph .program.collect{
-    fill: #EB0112;
+    fill: #4996CD;
 }
 .item-graph .program.process{
-    fill: #C0242F;
+    fill: #6F54D4;
 }
 .item-graph .program.database{
-    fill: #AF000D;
+    fill: #BB44CF;
 }
 .item-graph .program.target{
-    fill: #D92F3C;
+    fill: #F84E65;
 }
 .item-graph .program.attack{
-    fill: #F1424F;
+    fill: #96F04B;
 }
 
 
 .item-graph .attack-vector {
-    fill: #177A70;
+    fill: #3FC8C3;
 }
 
 .item-graph path.attack-vector {
-    stroke: #177A70;
+    stroke: #3FC8C3;
 }
 
 .item-graph .attack-vector.hardware {
-    fill: #177A70;
+    fill: #F04B7D;
 }
 
 .item-graph .attack-vector.software {
-    fill: #006F64;
+    fill: #70EA49;
 }
 
 .item-graph .attack-vector.network {
