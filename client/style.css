@@ -159,22 +159,34 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     color: #888888;
 }
 .nav-content a.category-link {
-    color: #666666;
-    font-weight: bold;
+    color: #444;
+    display: block;
+    text-align: center;
 }
 .nav-content .search {
     display: inline-block;
     margin: auto 0 auto 10px;
 }
 .nav-category{
-    border-radius: 3px;
-    position: relative;
+    border-radius: 8px 8px 0 0;
     display: inline-block;
-    margin: 0 10px 0 0;
+    margin: 0;
+    position: relative;
     width: 150px;
 }
 .nav-category li{
     padding: 0 5px;
+}
+.nav-category li a{
+    color:#185885;
+}
+
+.nav-category:hover li{
+    background: none repeat scroll 0 0 #4996cd;
+}
+.nav-category li a:hover{
+    text-decoration: none;
+    color:#f8f8f8;
 }
 .nav-category:hover {
     background: #fcfcfc;
@@ -189,12 +201,16 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     position: absolute;
     top: 0;
 }
+.nav-family a {
+    color: white;
+}
 .nav-family li{
-    background: none repeat scroll 0 0 #FCFCFC;
+    background: none repeat scroll 0 0 #4996cd;
     display: inline-block;
     line-height: 1em;
     margin-left: -5px;
     padding: 16px 5px 5px;
+    text-align: center;
     width: 140px;
 }
 
@@ -494,6 +510,7 @@ svg .eci{
     margin: 20px 0 90px;
 }
 .item-graph svg {
+    background: #fff;
     margin: 0;
     width: 100%;
 }
@@ -511,9 +528,6 @@ svg .eci{
 }
 
 /* defaults for circles */
-
-
-
 .item-graph circle {
   fill: #ccc;
   stroke: #fff;
@@ -600,7 +614,7 @@ FFB350
 
 /* always outlines parent */
 .item-graph svg g text.parent {
-    font: 24px normal;
+    font-size: 24px;
     opacity: 1;
     stroke-opacity: 1;
 }
