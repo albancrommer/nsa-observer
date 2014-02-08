@@ -12,6 +12,27 @@ Template.slider.events({
     'click .export-json':function(){
         Session.set('showExport', true);
         Session.set('exportType', 'json');
+    },
+    "mouseout circle":function(e){
+        var tooltip = $("#tooltip");
+        tooltip.hide();
+    },
+    "mousemove circle":function(event){
+        var circle  = event.currentTarget;
+        var tooltip = $("#tooltip");
+        if( ! tooltip.length ) {
+         tooltip = $('<div id="tooltip"><div>').appendTo("body");
+        }
+
+        var x = event.clientX + $(document).scrollLeft()- tooltip.width()/2,
+            y = event.clientY + + $(document).scrollTop()+ 5
+
+        if( !x || !y){return;}
+        var title = $(circle).attr("title")||'';
+        tooltip.show()
+            .html(title)
+            .css("left",x+"px")
+            .css("top",y+"px")
     }
 })
 

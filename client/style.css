@@ -366,6 +366,7 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 }
 
 svg {
+    background: #e8e8e8;
     margin: 20px 0;
     width: 100%;
 }
@@ -383,16 +384,20 @@ circle:hover{
     stroke:#ccc;
     stroke-width: 0.5px;
 }
+
+/*
+4996CD	507B9A	185885	77B8E6	95C4E6
+*/
 svg .programs{
-    fill:#3d5869;
+    fill:#4996CD;
 }
 
 svg .compartiments{
-    fill:#195B87;
+    fill:#185885;
 }
 
 svg .attacks{
-    fill:#083857;
+    fill:#507B9A;
 }
 
 svg .undefineds{
@@ -400,39 +405,39 @@ svg .undefineds{
 }
 
 svg .collect{
-    fill:#3d5869;
+    fill:#4996CD;
 }
 
 svg .process{
-    fill:#195B87;
+    fill:#185885;
 }
 
 svg .database{
-    fill:#274C64;
+    fill:#77B8E6;
 }
 
 svg .target{
-    fill:#083857;
+    fill:#507B9A;
 }
 
 svg .attack{
-    fill:#67ADDB;
+    fill:#95C4E6;
 }
 
-svg .physical{
-    fill:#274C64;
+svg .hardware{
+    fill:#77B8E6;
 }
 
 svg .software{
-    fill:#083857;
+    fill:#507B9A;
 }
 
 svg .network{
-    fill:#67ADDB;
+    fill:#95C4E6;
 }
 
 svg .eci{
-    fill:#67ADDB;
+    fill:#95C4E6;
 }
 
 /* Slider inverted */
@@ -499,7 +504,7 @@ svg .eci{
 }
 
 .item-graph .link.level1{
-  stroke: #67ADDB;
+  stroke: #95C4E6;
 }
 .item-graph .link.level2{
   stroke-dasharray: 0,2 1;
@@ -636,4 +641,15 @@ height: 100%;
 width: 100%;
 background: #eee;
 z-index: 3;
+}
+
+/* tooltip */
+#tooltip{
+    background:#4996CD;
+    border-radius: 26px;
+    box-shadow:0 0 2px #333;
+    color:white;
+    padding:10px 16px;
+    position:absolute;
+    z-index:4;
 }
