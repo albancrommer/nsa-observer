@@ -1,16 +1,58 @@
 
-Router.configure({
-  layoutTemplate: 'layout'
-});
-
 Router.map(function () {
   this.route('home', {
     path: '/',
-    template: 'page',
+    template: 'empty    ',
     data: function(){
     }
   });
-})
+});
+
+Router.map(function () {
+  this.route('category-family-name', {
+    path: '/category/:category/family/:family/name/:name',
+    template: 'db',
+    data:function(){
+        var category        = this.params["category"];
+        var family          = this.params["family"];
+        var name            = this.params["name"];
+        var search          = {category:category,family:family};
+        var currentItem     = Items.findOne({name:name});
+        Session.set('currentItem', currentItem)
+        Session.set('search', search);
+        return {search:search};
+    }
+  });
+});
+
+Router.map(function () {
+  this.route('category-family', {
+    path: '/category/:category/family/:family',
+    template: 'db',
+    data:function(){
+        var category        = this.params["category"];
+        var family          = this.params["family"];
+        var search          = {category:category,family:family};
+        Session.set('search', search);
+        return {search:search};
+    }
+  });
+});
+
+
+Router.map(function () {
+  this.route('category', {
+    path: '/category/:category',
+    template: 'db',
+    data:function(){
+        var category        = this.params["category"];
+        var search          = {category:category};
+        Session.set('search', search);
+        return {search:search};
+    }
+  });
+});
+
 
 Router.map(function () {
   this.route('export', {
@@ -28,7 +70,7 @@ Router.map(function () {
 Router.map(function () {
   this.route('item', {
     path: '/:name',
-    template: 'page',
+    template: 'db',
     loadingTemplate:'loading',
     waitOn: function () {
         var itemName = this.params["name"];

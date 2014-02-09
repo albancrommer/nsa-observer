@@ -28,6 +28,6 @@ Template.itemList.listName= function () {
 
 Template.itemList.events({
     'click .panel-close':function(event){
-        togglePanels(isHidden);
+        Router.go("/home");
     }
 });

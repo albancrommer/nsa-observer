@@ -3,6 +3,13 @@
 
 
 Template.slider.events({
+    'click .category-link': function(event){
+        var htmlNode = event.currentTarget;
+        var category = $(htmlNode).attr("category");
+        console.log( htmlNode, category)
+        Router.go("export")
+//        Router.go("category",{category:category});
+    },
     'click a':itemLinkShowListEvent,
     'click circle':itemLinkShowListEvent,
     'click .export-wiki':function(){
