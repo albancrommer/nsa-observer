@@ -491,7 +491,7 @@ circle {
 }
 
 .item-graph .link.level1{
-  stroke: #95C4E6;
+  stroke: #C0C0C0;
 }
 .item-graph .link.level2{
   stroke-dasharray: 0,2 1;
@@ -582,13 +582,6 @@ FFB350
 }
 .item-graph path.compartiment {
     stroke: #76A900;
-}
-
-/* always outlines parent */
-.item-graph svg g text.parent {
-    font-size: 24px;
-    opacity: 1;
-    stroke-opacity: 1;
 }
 
 /* export */

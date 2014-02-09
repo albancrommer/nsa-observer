@@ -162,7 +162,7 @@ ItemGraph = function(){
             })
             .attr("rel",function(d){return d.name;})
             .append("text")
-            .attr("class",function(d,i){return (i?"child":"parent") + " " +  d.category + " " + d.family;})
+            .attr("class",function(d,i){return d.category + " " + d.family;})
             .text(function(d) { return d.name; })
             .call(force.drag);
 
