@@ -78,56 +78,102 @@ Template.itemShow.rendered = function(i){
     var currentItem                     = Session.get('currentItem'),
         relatedItems                    
     ;
-    if( ! currentItem){
-        return;
-    }
+    // Skips if invallid item
+    if( ! currentItem){ return; }
+    
+    // Retrieves the current Item related items
     relatedItems                    = currentItem.relatedItems;
-    if( ! relatedItems){
-        return;
-    }
-    var links                           = [],
-        moreItems                       = [],
-        name                            = currentItem["name"],
-        allItems                        = {},
-        item                            = currentItem,
+    
+    // Exits if invalid relatedItems 
+    if( ! relatedItems || ! relatedItems.length ){ return; }
+    
+        // Stores the full links list
+    var linkList                        = [],
+        // Stores a list of items to "dig"
+        moreItemsList                   = [],
+        // Stores the name of the item being searched
+        pivot_name                      = "",
+        // Always lower in alphabetical order
+        keyA                            = "",
+        // Always higher in alphabetical order
+        keyB                            = "",
+        // Stores keyA + keyB as a string
+        key_couple                      = "",
+        // Stores keyA.keyB couples to know already added links
+        linksKeys                       = [],
+        // This will contain a full list of items to know all their properties in the graph
+        allItems                        = {}, 
+        // A default for items not in the db
         defaultItem                     = {category:"",family:''}
         ;
-        
-    allItems[name] = item,
+    
+    // Adds current Item to full item list 
+    allItems[currentItem["name"]] = currentItem;
+    
+    // Sets the pivotName 
+    pivot_name                          = currentItem["name"];
 
+    // simple key comparison and assignment, returns the key couple
+    var setKeys                         = function( a,b){
+        keyA                            = a > b ? b : a;
+        keyB                            = a > b ? a : b;
+        return keyA+"/"+keyB;
+    }
+    // Retrieves and sets data for the immediately connex items
     _.each(relatedItems,function(item){
         if( item && item !== "undefined"){
             var name                    = transformWikiLinks(item, false);
-            item                        = Items.findOne({name:name});
+            var item                    = Items.findOne({name:name});
             if( ! item){
                 item                    = defaultItem;
             }
-            allItems[name] = item,
-            moreItems.push(item);
-//            links.push({source:currentItem.name,target:name,type:"level1"})
-            links.push({source:currentItem.name,target:name,category:item.category,family:item.family,type:"level2"});
+            ;
+            key_couple                  = setKeys(name,pivot_name);
+            // Exits if already in
+            if( linksKeys.indexOf(key_couple) !== -1){
+                return;
+            }
+            // Adds to key couples array
+            linksKeys.push(key_couple);
+            // Adds to the full node list
+            allItems[name]              = item;
+            // Adds to the next search list
+            moreItemsList.push(item);
+            // Adds to the links list
+            linkList.push({source:keyA,target:keyB,category:item.category,family:item.family,type:"level1"});
         }
     })
     // Fetches n+1 items
-    _.each(moreItems,function(parent){
+    _.each(moreItemsList,function(parent){
         var relatedItems                = parent.relatedItems;
+        pivot_name                      = parent.name;
         if( relatedItems ){
             _.each(relatedItems,function(child){
                 if( child && child !== "undefined"){
                     var name            = transformWikiLinks(child, false);
-                    item                = Items.findOne({name:name});
+                    var item            = Items.findOne({name:name});
                     if( ! item){
                         item            = defaultItem;
                     }
-                    allItems[name]      = item;
-                    links.push({source:parent.name,target:name,category:item.category,family:item.family,type:"level2"});
+                    key_couple                  = setKeys(name,pivot_name);
+                    // Exits if already in
+                    if( linksKeys.indexOf(key_couple) !== -1){
+                        return;
+                    }
+                    // Adds to key couples array
+                    linksKeys.push(key_couple);
+                    // Adds to the full node list
+                    allItems[name]              = item;
+                    // Adds to the links list
+                    linkList.push({source:keyA,target:keyB,category:item.category,family:item.family,type:"level2"});
                 }
             });
         }
     })
+    console.log(linksKeys);
     // var data = DataAccessor(request);
     var itemGraph                       = new ItemGraph();
-    itemGraph.drawGraph(".item-graph",links,allItems,600,450);
+    itemGraph.drawGraph(".item-graph",linkList,allItems,600,450);
     
 }
 
