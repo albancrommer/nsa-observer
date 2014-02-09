@@ -390,7 +390,7 @@ svg {
 circle {
     transition: opacity 500ms ease, fill 500ms ease;
 }
-circle:hover {
+.internal-link:hover {
     cursor: pointer;
 }
 
@@ -478,7 +478,6 @@ circle:hover {
     fill: #CCCCCC;
     font: 20px sans-serif;
     opacity: 0.6;
-    pointer-events: none;
     stroke: white;
     stroke-opacity: 1;
     stroke-width: 0.8px;

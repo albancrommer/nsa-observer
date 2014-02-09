@@ -161,7 +161,6 @@ ItemGraph = function(){
                 return class_value;
             })
             .attr("rel",function(d){return d.name;})
-            .attr("onclick",function(){return "alert('foo')"})
             .append("text")
             .attr("class",function(d,i){return (i?"child":"parent") + " " +  d.category + " " + d.family;})
             .text(function(d) { return d.name; })

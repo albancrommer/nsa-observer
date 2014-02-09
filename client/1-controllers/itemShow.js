@@ -52,9 +52,7 @@ Template.itemShow.events({
             // @todo
             var elements                = $(".item-data");
         }
-    },
-    'click circle':itemLinkShowListEvent,
-    'click text' :itemLinkShowListEvent
+    }
 });
 
 Template.itemShow.currentItem = function(){
