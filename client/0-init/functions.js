@@ -70,7 +70,6 @@ itemLinkShowListEvent = function(event){
     }else{
         return;
     }
-    console.log("route",route,"search",search);
     Session.set("search", search);
     Router.go(route,search);
 }

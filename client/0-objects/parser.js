@@ -172,7 +172,9 @@ itemParser = function(){
      * 
      */
     instance.log = function(str){
-        console.log(str);
+        if (console && console.log ){
+            console.log(str);
+        }
     };
     
     /**

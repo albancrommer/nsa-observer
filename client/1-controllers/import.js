@@ -9,7 +9,6 @@ Template.import.events({
     },
     'click .import-json' : function(e){
         e.preventDefault();
-        console.log($(".import-wrapper textarea"));
     }
 })
 Template.import.parse = function(rows){

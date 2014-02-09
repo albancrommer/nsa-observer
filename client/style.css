@@ -114,22 +114,14 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 .panel-content{
     padding: 1%;
 }
-.panel ul,
-.panel dd,
-.panel a
-{
-    /*font-family: monospace;*/
-}
 .panel dd, .panel dt {
     padding-left: 20px;
 }
 
 .panel h3 {
     font-size: 24px;
-    letter-spacing: -0.05em;
     margin: 20px;
     text-transform: uppercase;
-    word-spacing: -0.1em;
 }
 .item-list-outer {
     width: 27%;
