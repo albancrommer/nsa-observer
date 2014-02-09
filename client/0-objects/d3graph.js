@@ -1,125 +1,3 @@
-NodeList = {
-    nodes : [],
-    links : {},
-    build : function(){
-        var itemList = Items.find({}).fetch(),
-                that = this;
-        var addLinks = function(item){    
-            var it,
-                relatedItems;
-            for( it in item){
-                if( "relatedItems" === it ){
-                    relatedItems  = item[it];
-                }
-            }
-            if ( ! relatedItems){
-                return;
-            }
-            for (it=0;it < relatedItems.length;it++) {
-                var relatedName = relatedItems[it],
-                    matches     = []
-                    ;
-                if( "" === relatedName){
-                    continue;
-                }
-                if( matches = /\[\[([A-Z0-9\-_]+)\]\]/.exec(relatedName) ){
-                    relatedName = matches[1];
-                    relatedItem = Items.findOne({name:relatedName});
-                    if( relatedItem ){
-                        NodeList.addKey(item,relatedItem);
-                    }
-                }
-            }
-        };
-        var addNodes = function(item){
-            that.nodes.push(item._id);
-        }
-        _.each(itemList,addLinks );
-        _.each(itemList,addNodes);
-        return this;
-    },
-    minMaxKey : function(A,B){
-    var id_A = A._id,
-        id_B = B._id,
-        min,
-        max,
-        it;
-        if( id_A === id_B ){
-            return false;
-        }
-        for (it=0;it < id_A.length; it++){
-            if( id_A[it] < id_B[it] ){
-                min = id_A;
-                max = id_B;
-            }else if( id_A[it] > id_B[it] ){
-                min = id_B;
-                max = id_A;
-            }
-        }
-        return [min+max, min, max];
-    },
-    addKey : function(A,B){
-        var tuple = this.minMaxKey(A,B);
-        if( ! tuple ){
-            return;
-        }
-        this.links[tuple[0]] = [tuple[1],tuple[2]];
-    },
-    getContent : function(){
-        return this.content;
-    },
-    drawGraph : function()
-    {
-	// Declare a spot for the graph
-	var svg = d3.select("body").append("svg")
-		.attr("width", '100%')
-		.attr("height", '89%');
-
-        this.build();
-        
-	// Create the graph
-	var force = d3.layout.force()
-		.gravity(.2)
-		.distance(250)
-		.charge(-1000)
-//		.on('tick', tick)
-		.size([1000, 350]);
- 
-	// Add the data
-	force.nodes(this.nodes)
-		.links(d3.values(this.links))
-		.start();	
- 
-//	// Draw the links
-//	var link = svg.selectAll(".link").data(force.links());
-// 
-//	// Update the new links
-//	link.enter().append("line");
-// 
-//	// Remove the old links
-//	link.exit().remove();
-// 
-//	// Draw the nodes
-//	var node = svg.selectAll(".node").data(force.nodes());
-// 
-//	// Update the new nodes 
-//	node.enter().append("svg:g");
-// 
-//	// Remove the old nodes
-//	node.exit().remove();	
-// 
-//	// Create the tick function which animates the graph
-//	function tick()
-//	{
-//		link.attr("x1", function(d) { return d.source.x; })
-//		    .attr("y1", function(d) { return d.source.y; })
-//		    .attr("x2", function(d) { return d.target.x; })
-//		    .attr("y2", function(d) { return d.target.y; });
-//		node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-//	}
-    }
-}
-count = 0;
 CategoryGraph = function(){
     var instance = {};
     instance.max_q = null,
@@ -128,116 +6,23 @@ CategoryGraph = function(){
         if( ! toSort.length){
             throw "invalid data provided :"+data
         }
-        var med = 0;
-        var o;
-        for(var i = 0; i < toSort.length; i++){
-            o = toSort[i];
-            med += o.q;
-        }
-        med /= (toSort.length);
-        return med;
+        return d3.mean(toSort, function(o) {return o.q; });
     };
     instance.getMax = function(toSort){
         if( ! toSort.length){
             throw "invalid data provided :"+data
         }
-        var max = -999999999;
-        var o;
-        for(var i = 0; i < toSort.length; i++){
-            o = toSort[i];
-            if( o.q > max ){
-                max = o.q;
-            }
-        }
-        return max;
+        return d3.max(toSort, function(o) { return o.q; });
     };
     instance.getSum = function(toSort){
         if( ! toSort.length){
             throw "invalid data provided :"+data
         }
-        var sum = 0;
-        var o;
-        for(var i = 0; i < toSort.length; i++){
-            o = toSort[i];
-            sum += o.q;
-        }
-        return sum;
+        return d3.sum(toSort, function(o) { return o.q; });
     };
-    instance.sortData = function(data){
-        var that = instance;
-        var sort = function(toSort,med,deb){
-            if( !(toSort instanceof Array) || toSort.length <= 1){
-                //console.log( "done: ",toSort,deb)
-                return toSort;
-            }
-            var a = [];
-            var b = [];
-            var new_med = 0;
-            var o;
-            var deviance = false;
-            for(var i = 0; i < toSort.length; i++){
-                o = toSort[i];
-                if( i>0 &&  toSort[0].q != o.q){
-                    deviance = true;
-                }
-                new_med += o.q;
-                if( o.q <= med ){
-                    a.push(o);
-                }else{
-                    b.push(o);
-                }
-            }
-            if( ! deviance){
-                return toSort;
-            }
-            new_med /= (toSort.length);
-            a = sort(a,new_med,"a");
-            b = sort(b,new_med,"b");
-            var res = b.concat(a);
-            //console.log("concated",res)
-            return res;
-        };
-        var q;
-        for( var i = 0; i<data.length;i++){
-            q = data[i].q;
-            that.max_q =  q > that.max_q ? q : that.max_q;
-            that.average_q += q;
-        }
-        that.average_q /= data.length;
-        return sort(data,that.average_q,"init");
-    };
-    instance.sort = function(toSort){
-            if( !(toSort instanceof Array) || toSort.length <= 1){
-                //console.log( "done: ",toSort,deb)
-                return toSort;
-            }
-            var a = [];
-            var b = [];
-            var med = instance.getMedian( toSort);
-            var o;
-            var deviance = false;
-            for(var i = 0; i < toSort.length; i++){
-                o = toSort[i];
-                if( i>0 &&  toSort[0].q != o.q){
-                    deviance = true;
-                }
-                if( o.q <= med ){
-                    a.push(o);
-                }else{
-                    b.push(o);
-                }
-            }
-            if( ! deviance){
-                return toSort;
-            }
-            a = instance.sort(a);
-            b = instance.sort(b);
-            var res = a.concat(b);
-            //console.log("concated",res)
-            return res;
-        };
+
     instance.drawGraph = function(selector,data,width,height){
-        data = instance.sort(data).reverse();
+        data = data.sort(function(o, p) {return p.q - o.q; });
         $(selector).html("");
         var median = instance.getMax(data);
         var sum = instance.getSum(data);
@@ -246,6 +31,11 @@ CategoryGraph = function(){
         if( ! median ){
             return;
         }
+
+        var color_scale = d3.scale.linear()
+            .domain([0, data.length - 1])
+            .range(['#4996CD', '#1b4562']);
+
         var svgContainer = d3.select(selector).append("svg")
                                             .attr("width", width)
                                             .attr("height", height);
@@ -265,9 +55,16 @@ CategoryGraph = function(){
                                     current_sum -= q;
                                     return s;
                                 })
-                                .attr("class",function(d){
-                                    return "item-show-link "+d.c;
-                                });
+                                .attr("class", "item-show-link")
+                                .attr("fill", function(d, i) { return color_scale(i); })
+
+                                .on("mouseover", function(d, i) {
+                                    d3.select(this).attr("fill", d3.rgb(color_scale(i)).darker());
+                                })
+                                .on("mouseout", function(d, i) {
+                                    d3.select(this).attr("fill", color_scale(i));
+                                })
+
         var text = svgContainer.selectAll("text")
                                 .data(data)
                                 .enter()
@@ -341,7 +138,12 @@ ItemGraph = function(){
                 var r = Math.sqrt(d.weight) * 8;   
                 return r;
             })
-            .attr("class",function(d){ return "internal-link "+ d.category + " " + d.family;})
+            .attr("class",function(d){
+                var class_value = "internal-link";
+                if(d.category) class_value += " " + d.category;
+                if(d.family) class_value += " " + d.family;
+                return class_value;
+            })
             .attr("rel",function(d){return d.name;})
             .call(force.drag);
 
@@ -352,27 +154,17 @@ ItemGraph = function(){
             .attr('xlink:href', "#")
             .attr("rx", 8)
             .attr("ry", ".31em")
-            .attr("class",function(d){ return "internal-link "+ d.category + " " + d.family;})
+            .attr("class",function(d){
+                var class_value = "internal-link";
+                if(d.category) class_value += " " + d.category;
+                if(d.family) class_value += " " + d.family;
+                return class_value;
+            })
             .attr("rel",function(d){return d.name;})
-            .attr("onclick",function(){return "alert('foo')"})
             .append("text")
             .attr("class",function(d,i){return (i?"child":"parent") + " " +  d.category + " " + d.family;})
             .text(function(d) { return d.name; })
-                .call(force.drag);
-            ;
-            
-//        var text = svg.append("g").selectAll("a")
-//            .data(force.nodes())
-//          .enter().append("a")
-//            .attr("href", "/")
-//            .attr("x", 8)
-//            .attr("y", ".31em")
-//            .attr("class",function(d){ return "internal-link "+ d.type;})
-//            .attr("rel",function(d){return d.name;})
-//            .append("text")
-//            .attr("class",function(d,i){return i?"child":"parent"})
-//            .text(function(d) { return d.name; });
-
+            .call(force.drag);
 
         function linkArc(d) {
           var dx = d.target.x - d.source.x,

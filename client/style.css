@@ -386,75 +386,14 @@ svg {
     margin: 20px 0;
     width: 100%;
 }
-.graph-label{
-}
-.graph-label:hover{
-}
-circle{
+
+circle {
     transition: opacity 500ms ease, fill 500ms ease;
 }
-circle:hover{
+.internal-link:hover {
     cursor: pointer;
-    opacity: 0.3;
-    fill: #ddd;
-    stroke:#ccc;
-    stroke-width: 0.5px;
 }
 
-/*
-4996CD	507B9A	185885	77B8E6	95C4E6
-*/
-svg .programs{
-    fill:#4996CD;
-}
-
-svg .compartiments{
-    fill:#185885;
-}
-
-svg .attacks{
-    fill:#507B9A;
-}
-
-svg .undefineds{
-    fill:#ccc;
-}
-
-svg .collect{
-    fill:#4996CD;
-}
-
-svg .process{
-    fill:#185885;
-}
-
-svg .database{
-    fill:#77B8E6;
-}
-
-svg .target{
-    fill:#507B9A;
-}
-
-svg .attack{
-    fill:#95C4E6;
-}
-
-svg .hardware{
-    fill:#77B8E6;
-}
-
-svg .software{
-    fill:#507B9A;
-}
-
-svg .network{
-    fill:#95C4E6;
-}
-
-svg .eci{
-    fill:#95C4E6;
-}
 
 /* Slider inverted */
 
@@ -539,7 +478,6 @@ svg .eci{
     fill: #CCCCCC;
     font: 20px sans-serif;
     opacity: 0.6;
-    pointer-events: none;
     stroke: white;
     stroke-opacity: 1;
     stroke-width: 0.8px;
