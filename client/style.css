@@ -393,6 +393,11 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.slider .btn-large.btn-info {
+    background: none repeat scroll 0 0 #4996CD;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+}
 .btn-group.btn-group-vertical {
     width: 100%;
     margin: auto;
