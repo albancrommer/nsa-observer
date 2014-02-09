@@ -1,6 +1,5 @@
 
-// page 
-Template.db.rendered = function(){
+Template.content.rendered = function(){
     // esc
     $(document).keyup( function(e) {
         if (e.keyCode == 27) { 

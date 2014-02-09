@@ -20,10 +20,9 @@ Template.itemList.listName= function () {
     }else if (category){
         listName    = category+"s";
     }else{
-        return;
+        listName    = Session.get("listName")
     }
     return listName;
-    return Session.get("listName");
 };
 
 Template.itemList.events({

@@ -46,12 +46,11 @@
             </form>
         {{/if}}
     {{ else }}
+        {{#with currentItem}}
             <h3 class="item-data" >
-                {{#with currentItem}}
                 <a href="{{pathFor 'category-family-name'}}">
                     {{ name }}
                 </a>
-                {{/with}}
             </h3>
             <div class="item-show">
                 <dl class="dl-horizontal">
@@ -60,15 +59,18 @@
                             {{{wikiLinks currentItem.description }}}&nbsp;
                         </p>
                     <dt>Category
-                    <dd><a class="item-show-link category-link" category="{{ currentItem.category }}">{{ currentItem.category }}</a> &nbsp;
+                    <dd>
+                        <a href="{{pathFor 'category'}}" class="item-show-link category-link" category="{{ category }}">
+                            {{ category }}
+                        </a>&nbsp;
                     <dt>Family
-                    <dd><a class="item-show-link family-link" category="{{ currentItem.category }}" family="{{ currentItem.family }}">{{ currentItem.family }}</a>&nbsp;
+                    <dd><a href="{{pathFor 'category-family'}}" class="item-show-link family-link" category="{{ category }}" family="{{ family }}">{{ family }}</a>&nbsp;
                     <dt>Agency
-                    <dd>{{ currentItem.agency }}&nbsp;
+                    <dd>{{ agency }}&nbsp;
                     <dt>Compartments
                     <dd class="item-ul">
                     <ul>
-                    {{#each currentItem.compartments}}
+                    {{#each compartments}}
                         {{#if this }}
                             <li>{{{wikiLinks this}}}
                         {{/if}}
@@ -77,7 +79,7 @@
                     <dt>Related items
                     <dd class="item-ul">
                     <ul>
-                    {{#each currentItem.relatedItems}}
+                    {{#each relatedItems}}
                         {{#if this }}
                             <li>{{{wikiLinks this}}}
                         {{/if}}
@@ -86,7 +88,7 @@
                     <dt>Parents
                     <dd class="item-ul">
                     <ul>
-                    {{#each currentItem.relatedItemsParents}}
+                    {{#each relatedItemsParents}}
                         {{#if this }}
                             <li>{{{wikiLinks this}}}
                         {{/if}}
@@ -95,7 +97,7 @@
                     <dt>Children
                     <dd class="item-ul">
                     <ul>
-                    {{#each currentItem.relatedItemsChildren}}
+                    {{#each relatedItemsChildren}}
                         {{#if this }}
                             <li>{{{wikiLinks this}}}
                         {{/if}}
@@ -104,13 +106,14 @@
                     <dt>Sources
                     <dd class="item-ul">
                         <ul class='external-links-wrapper'>
-                        {{#each currentItem.links}}
+                        {{#each links}}
                         {{{ showExternalLink this }}}
                         {{/each}}
                         </ul>&nbsp;
                 </dl>
             </div>
             <div class="item-graph">{{#constant}}{{/constant}}</div>
+        {{/with}}
     {{/ if }}
 {{/ if }}
 </template>

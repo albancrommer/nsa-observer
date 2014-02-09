@@ -14,7 +14,17 @@ transformWikiLinks = function(string,html) {
   while (match = re.exec(string)) {
     if( match.length > 1){    
         if( html ){
-            str_res = str_res.replace(match[0],'<a class="item-show-link internal-link" rel="'+match[1]+'">'+match[1]+'</a>');
+            var name = match[1];
+            var item = Items.findOne({name:name});
+            var link = "/#";
+            if (item) {
+               link = Router.path("category-family-name",{
+                   category:item.category,
+                   family:item.family,
+                   name:item.name
+               }) 
+            }1
+            str_res = str_res.replace(match[0],'<a href="'+link+'" class="item-show-link internal-link" rel="'+match[1]+'">'+match[1]+'</a>');
         }else{
             str_res = match[1];
         }
@@ -48,18 +58,21 @@ itemLinkShowListEvent = function(event){
         element     = $(event.currentTarget),
         category    = element.attr("category"),
         family      = element.attr("family"),
-        itemList    = [],
+        route       = "",
         search      = {}
     ;
     if( family ){
         search      = {category:category,family:family};
+        route       = "category-family";
     }else if (category){
         search      = {category:category};
+        route       = "category";
     }else{
         return;
     }
+    console.log("route",route,"search",search);
     Session.set("search", search);
-    togglePanels(isDisplayed);
+    Router.go(route,search);
 }
 
 /**

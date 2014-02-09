@@ -24,7 +24,7 @@ body li{
 }
 
 dd, dt {
-    line-height: 2em;
+    line-height: 1.6em;
     padding-bottom: 10px;
 }
 
@@ -364,6 +364,10 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     margin-bottom: 10px;
     
 }
+.slider dd, .slider dt {
+    height: 25px;
+    padding-left: 5px;
+}
 
 .slider hr {
     margin: 28px 0;
@@ -371,7 +375,12 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 .slider .btn.btn-small.btn-primary {
     color: white;
 }
-
+.slider .btn-large {
+    max-width: 50%;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .row .span12 [class*="span"]
 {
     text-align: left;
@@ -483,7 +492,10 @@ circle {
     stroke-width: 0.8px;
 }
 
-
+.item-graph a:hover {
+    text-decoration: none;
+    opacity: 0.5;
+}
 
 
 
