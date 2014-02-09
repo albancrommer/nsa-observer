@@ -9,6 +9,20 @@ Template.itemList.element= function () {
 };
 
 Template.itemList.listName= function () {
+    var search      = Session.get("search"),
+        category    = search.category,
+        family      = search.family,
+        search      = {},
+        listName    = ""
+    ;
+    if( family ){
+        listName    = category+"s > "+family;
+    }else if (category){
+        listName    = category+"s";
+    }else{
+        return;
+    }
+    return listName;
     return Session.get("listName");
 };
 

@@ -46,7 +46,13 @@
             </form>
         {{/if}}
     {{ else }}
-            <h3 class="item-data" >{{ currentItem.name }}</h3>
+            <h3 class="item-data" >
+                {{#with currentItem}}
+                <a href="{{pathFor 'item'}}">
+                    {{ name }}
+                </a>
+                {{/with}}
+            </h3>
             <div class="item-show">
                 <dl class="dl-horizontal">
                     <dt>Description

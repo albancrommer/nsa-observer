@@ -22,11 +22,20 @@ transformWikiLinks = function(string,html) {
   }
   return str_res;
 }
-
+/**
+ * 
+ * @param {type} listName
+ * @returns {undefined}
+ */
 itemLinkShowList = function(listName){
-    Session.set("listName",listName)
+//    Session.set("listName",listName)
     togglePanels(isDisplayed,["itemListIsVisible"]);
 }
+/**
+ * 
+ * @param {type} event
+ * @returns {Boolean}
+ */
 itemLinkShowEvent = function(event){
         event.preventDefault();
         var name = $(event.currentTarget).attr("rel");
@@ -38,29 +47,37 @@ itemLinkShowEvent = function(event){
         }
         return false;
     }
+/**
+ * 
+ * @param {type} event
+ * @returns {unresolved}
+ */
 itemLinkShowListEvent = function(event){
     var 
         element     = $(event.currentTarget),
         category    = element.attr("category"),
         family      = element.attr("family"),
         itemList    = [],
-        search      = {},
-        listName    = ""
+        search      = {}
     ;
     if( family ){
         search      = {category:category,family:family};
-        listName    = category+"s > "+family;
     }else if (category){
         search      = {category:category};
-        listName    = category+"s";
     }else{
         return;
     }
     Session.set("search", search);
-    itemLinkShowList( listName);
+    togglePanels();
+//    itemLinkShowList( listName);
 }
 
-
+/**
+ * 
+ * @param {type} hideOrShow
+ * @param {type} panels
+ * @returns {undefined}
+ */
 togglePanels = function (hideOrShow,panels){
     var iterator,
         state = hideOrShow || false,
