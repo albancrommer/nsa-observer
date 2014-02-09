@@ -1,8 +1,4 @@
 
-
-Template.export.showExport = function(){
-    return Session.equals('showExport', true);
-};
 Template.export.itemList = function(){
     return  Items.find({},{order:{name:1}}).fetch();
 };
@@ -14,7 +10,7 @@ Template.export.wikiType = function(){
 }
 Template.export.events({
     "click .export-close":function(){
-        Session.set('showExport', false);
+        Router.go("home");
     },
     'click .export-wiki':function(){
         Session.set('exportType', 'wiki');

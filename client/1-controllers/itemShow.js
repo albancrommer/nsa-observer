@@ -5,7 +5,7 @@
 Template.itemShow.events({
  
      'click .panel-close':function(event){
-        togglePanels(isHidden,["itemShowIsVisible"]);
+         Router.go("home");
     },
     'click .internal-link':itemLinkShowEvent,
     'click .family-link':itemLinkShowListEvent,

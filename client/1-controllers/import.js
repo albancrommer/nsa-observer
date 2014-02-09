@@ -1,6 +1,6 @@
 Template.import.events({
     "click .import-close" : function(e){
-        Session.set('importMode', false);
+        Router.go("home");
     },
     'click .import-wiki' : function(e){
         e.preventDefault();
@@ -30,7 +30,4 @@ Template.import.parse = function(rows){
     });
 }
 
-Template.import.inImportMode = function(){
-    return Session.equals('importMode', true);
-}
 

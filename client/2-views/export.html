@@ -1,5 +1,4 @@
 <template name="export">
-{{#if showExport }}
     <div class="export-wrapper">
         <div class="container">
             <div class="row">
@@ -8,8 +7,8 @@
                         Export data
                     </h3>
                     <div class="btn-group">
-                        <a class="btn export-json">Export as json</a>
-                        <a class="btn export-wiki">Export as wiki</a>
+                        <a href="/export/json" class="btn export-json">Export as json</a>
+                        <a href="/export/wiki" class="btn export-wiki">Export as wiki</a>
                         <a class="btn export-close">Close</a>
                     </div>
                     <div class="export-content" style="display:none">{{#if wikiType}}{{#each itemList}}{{> itemWikiAtom }}{{/each}}{{else}}{{ JSONitemList }}{{/if}}</div>
@@ -18,5 +17,4 @@
             </div>
         </div>
     </div>
-{{/if}}
 </template>

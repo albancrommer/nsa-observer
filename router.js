@@ -1,4 +1,9 @@
 
+Router.configure({
+    loadingTemplate:'loading',
+  
+});
+
 Router.map(function () {
   this.route('home', {
     path: '/',
@@ -6,7 +11,35 @@ Router.map(function () {
     data: function(){
     }
   });
-});
+})
+
+
+Router.map(function () {
+  this.route('export', {
+    path: '/export/:format?',
+    data: function(){
+        var format = this.params.format || "wiki";
+        Session.set("exportType",format)
+    }
+  });
+})
+
+Router.map(function () {
+  this.route('import', {
+    path: '/import',
+    waitOn: function () {
+        var itemName = this.params["name"];
+        return Meteor.subscribe("userData",{isAdmin:1});
+    },
+//    action: function(){
+//        console.log( Meteor.user(), Meteor.user().isAdmin)
+//        if( ! Meteor.user().isAdmin){
+//            return false;
+//        }
+//return true;
+//    }
+  });
+})
 
 Router.map(function () {
   this.route('category-family-name', {
@@ -53,16 +86,6 @@ Router.map(function () {
   });
 });
 
-
-Router.map(function () {
-  this.route('export', {
-    path: '/export',
-    template: 'export',
-    data: function(){
-        Session.set('showExport', true)
-    }
-  });
-})
 
 /**
 * Loads programs : last route client side
