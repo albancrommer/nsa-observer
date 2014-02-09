@@ -12,12 +12,6 @@ Template.export.events({
     "click .export-close":function(){
         Router.go("home");
     },
-    'click .export-wiki':function(){
-        Session.set('exportType', 'wiki');
-    },
-    'click .export-json':function(){
-        Session.set('exportType', 'json');
-    }
 });
 Template.export.rendered = function(){
     $('.visible-content')
