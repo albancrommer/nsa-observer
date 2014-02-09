@@ -126,7 +126,12 @@ ItemGraph = function(){
                 var r = Math.sqrt(d.weight) * 8;   
                 return r;
             })
-            .attr("class",function(d){ return "internal-link "+ d.category + " " + d.family;})
+            .attr("class",function(d){
+                var class_value = "internal-link";
+                if(d.category) class_value += " " + d.category;
+                if(d.family) class_value += " " + d.family;
+                return class_value;
+            })
             .attr("rel",function(d){return d.name;})
             .call(force.drag);
 
@@ -137,27 +142,18 @@ ItemGraph = function(){
             .attr('xlink:href', "#")
             .attr("rx", 8)
             .attr("ry", ".31em")
-            .attr("class",function(d){ return "internal-link "+ d.category + " " + d.family;})
+            .attr("class",function(d){
+                var class_value = "internal-link";
+                if(d.category) class_value += " " + d.category;
+                if(d.family) class_value += " " + d.family;
+                return class_value;
+            })
             .attr("rel",function(d){return d.name;})
             .attr("onclick",function(){return "alert('foo')"})
             .append("text")
             .attr("class",function(d,i){return (i?"child":"parent") + " " +  d.category + " " + d.family;})
             .text(function(d) { return d.name; })
-                .call(force.drag);
-            ;
-            
-//        var text = svg.append("g").selectAll("a")
-//            .data(force.nodes())
-//          .enter().append("a")
-//            .attr("href", "/")
-//            .attr("x", 8)
-//            .attr("y", ".31em")
-//            .attr("class",function(d){ return "internal-link "+ d.type;})
-//            .attr("rel",function(d){return d.name;})
-//            .append("text")
-//            .attr("class",function(d,i){return i?"child":"parent"})
-//            .text(function(d) { return d.name; });
-
+            .call(force.drag);
 
         function linkArc(d) {
           var dx = d.target.x - d.source.x,
