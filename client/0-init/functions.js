@@ -24,15 +24,6 @@ transformWikiLinks = function(string,html) {
 }
 /**
  * 
- * @param {type} listName
- * @returns {undefined}
- */
-itemLinkShowList = function(listName){
-//    Session.set("listName",listName)
-    togglePanels(isDisplayed,["itemListIsVisible"]);
-}
-/**
- * 
  * @param {type} event
  * @returns {Boolean}
  */
@@ -68,8 +59,7 @@ itemLinkShowListEvent = function(event){
         return;
     }
     Session.set("search", search);
-    togglePanels();
-//    itemLinkShowList( listName);
+    togglePanels(isDisplayed);
 }
 
 /**
