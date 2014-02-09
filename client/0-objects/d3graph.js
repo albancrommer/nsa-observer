@@ -6,116 +6,23 @@ CategoryGraph = function(){
         if( ! toSort.length){
             throw "invalid data provided :"+data
         }
-        var med = 0;
-        var o;
-        for(var i = 0; i < toSort.length; i++){
-            o = toSort[i];
-            med += o.q;
-        }
-        med /= (toSort.length);
-        return med;
+        return d3.mean(toSort, function(o) {return o.q; });
     };
     instance.getMax = function(toSort){
         if( ! toSort.length){
             throw "invalid data provided :"+data
         }
-        var max = -999999999;
-        var o;
-        for(var i = 0; i < toSort.length; i++){
-            o = toSort[i];
-            if( o.q > max ){
-                max = o.q;
-            }
-        }
-        return max;
+        return d3.max(toSort, function(o) { return o.q; });
     };
     instance.getSum = function(toSort){
         if( ! toSort.length){
             throw "invalid data provided :"+data
         }
-        var sum = 0;
-        var o;
-        for(var i = 0; i < toSort.length; i++){
-            o = toSort[i];
-            sum += o.q;
-        }
-        return sum;
+        return d3.sum(toSort, function(o) { return o.q; });
     };
-    instance.sortData = function(data){
-        var that = instance;
-        var sort = function(toSort,med,deb){
-            if( !(toSort instanceof Array) || toSort.length <= 1){
-                //console.log( "done: ",toSort,deb)
-                return toSort;
-            }
-            var a = [];
-            var b = [];
-            var new_med = 0;
-            var o;
-            var deviance = false;
-            for(var i = 0; i < toSort.length; i++){
-                o = toSort[i];
-                if( i>0 &&  toSort[0].q != o.q){
-                    deviance = true;
-                }
-                new_med += o.q;
-                if( o.q <= med ){
-                    a.push(o);
-                }else{
-                    b.push(o);
-                }
-            }
-            if( ! deviance){
-                return toSort;
-            }
-            new_med /= (toSort.length);
-            a = sort(a,new_med,"a");
-            b = sort(b,new_med,"b");
-            var res = b.concat(a);
-            //console.log("concated",res)
-            return res;
-        };
-        var q;
-        for( var i = 0; i<data.length;i++){
-            q = data[i].q;
-            that.max_q =  q > that.max_q ? q : that.max_q;
-            that.average_q += q;
-        }
-        that.average_q /= data.length;
-        return sort(data,that.average_q,"init");
-    };
-    instance.sort = function(toSort){
-            if( !(toSort instanceof Array) || toSort.length <= 1){
-                //console.log( "done: ",toSort,deb)
-                return toSort;
-            }
-            var a = [];
-            var b = [];
-            var med = instance.getMedian( toSort);
-            var o;
-            var deviance = false;
-            for(var i = 0; i < toSort.length; i++){
-                o = toSort[i];
-                if( i>0 &&  toSort[0].q != o.q){
-                    deviance = true;
-                }
-                if( o.q <= med ){
-                    a.push(o);
-                }else{
-                    b.push(o);
-                }
-            }
-            if( ! deviance){
-                return toSort;
-            }
-            a = instance.sort(a);
-            b = instance.sort(b);
-            var res = a.concat(b);
-            //console.log("concated",res)
-            return res;
-        };
+
     instance.drawGraph = function(selector,data,width,height){
-        data = instance.sort(data).reverse();
+        data = data.sort(function(o, p) {return p.q - o.q; });
         $(selector).html("");
         var median = instance.getMax(data);
         var sum = instance.getSum(data);
