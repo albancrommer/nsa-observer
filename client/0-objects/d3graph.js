@@ -31,6 +31,11 @@ CategoryGraph = function(){
         if( ! median ){
             return;
         }
+
+        var color_scale = d3.scale.linear()
+            .domain([0, data.length - 1])
+            .range(['#4996CD', '#1b4562']);
+
         var svgContainer = d3.select(selector).append("svg")
                                             .attr("width", width)
                                             .attr("height", height);
@@ -50,9 +55,16 @@ CategoryGraph = function(){
                                     current_sum -= q;
                                     return s;
                                 })
-                                .attr("class",function(d){
-                                    return "item-show-link "+d.c;
-                                });
+                                .attr("class", "item-show-link")
+                                .attr("fill", function(d, i) { return color_scale(i); })
+
+                                .on("mouseover", function(d, i) {
+                                    d3.select(this).attr("fill", d3.rgb(color_scale(i)).darker());
+                                })
+                                .on("mouseout", function(d, i) {
+                                    d3.select(this).attr("fill", color_scale(i));
+                                })
+
         var text = svgContainer.selectAll("text")
                                 .data(data)
                                 .enter()
