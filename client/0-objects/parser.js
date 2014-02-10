@@ -78,7 +78,7 @@ itemParser = function(){
             [/^== ([A-Z]) ==$/,function(r){
 //                instance.addItem()
             }],
-            [/=== *([A-Z ]*?) *?===/,function(r){
+            [/=== *(.*?) *?===/,function(r){
                 instance.addItem()
                 currentItem = new Item(r[1]);
             }],
