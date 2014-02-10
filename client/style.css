@@ -90,19 +90,21 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     z-index: 2;
 }
 .panel-close {
-    color: white;
     cursor: pointer;
     float: right;
+    font-size: 22px;
     height: 35px;
     opacity: 0.5;
     padding: 0 10px;
     text-align: center;
 }
-.panel-close:before{
-    content:"ESC";
+
+.panel-close a{
+    color: white;
 }
-.panel-close:hover{
+.panel-close a:hover{
     opacity: 1;
+    text-decoration: none;
 }
 .panel-head{
     background: none repeat scroll 0 0 #4996CD;
@@ -221,6 +223,11 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 .item-show-outer .panel-head {
     background: none repeat scroll 0 0 #E8E8E8;
 }
+
+.item-show-outer .panel-close a{
+    color: #005580;
+}
+
 .item-show-link {
     background: none repeat scroll 0 0 transparent;
     display: inline;
