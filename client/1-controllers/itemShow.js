@@ -170,7 +170,6 @@ Template.itemShow.rendered = function(i){
             });
         }
     })
-    console.log(linksKeys);
     // var data = DataAccessor(request);
     var itemGraph                       = new ItemGraph();
     itemGraph.drawGraph(".item-graph",linkList,allItems,600,450);

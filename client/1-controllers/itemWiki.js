@@ -89,7 +89,6 @@ Template.itemWiki.events({
             });                
         }else{
             alert("Oops. Invalid procedure. Failed to save.");
-            console.log(item,property)
         }
         
     },
@@ -167,7 +166,6 @@ Template.itemWiki.editWikiInternalLinks = function(prop){
             txt += y+" ";
         }
     });
-    console.log( item, prop, txt)
     return txt;
 }
 

@@ -461,7 +461,12 @@ circle {
     text-decoration: none;
 }
 
+/* Circle graphs */
 
+#programs-graph, #attack-graph, #compartment-graph {
+    height: 200px;
+    overflow: hidden;
+}
 
 /* Item Graph */
 
