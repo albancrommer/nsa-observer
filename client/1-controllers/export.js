@@ -1,6 +1,7 @@
 
 Template.export.itemList = function(){
-    return  Items.find({},{order:{name:1}}).fetch();
+    var itemList = Items.find({},{order:{name:1}}).fetch();
+    return _.sortBy(itemList,"name");
 };
 Template.export.JSONitemList = function(){
     return  JSON.stringify(Items.find({},{order:{name:1}}).fetch());

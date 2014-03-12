@@ -1,6 +1,10 @@
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+
+/**
+ * 
+ * @returns {String}
  */
-
-
+Template.itemWikiAtom.editWikiExternalLink = function(item){
+    var txt                             = "";
+    $(item.links).each(function(x,y){if (y) txt += "* ["+y[0]+"|"+y[1]+"]\n";});
+    return txt;
+}
