@@ -11,14 +11,24 @@ Template.itemShow.events({
     'click .family-link':itemLinkShowListEvent,
     'click .category-link':itemLinkShowListEvent,
     'click .edit-mode':function(e){
-        Session.set("editMode",true);
+        Session.set("mode","edit");
+    },
+    'click .drafts-mode':function(e){
+        Session.set("mode","drafts");
+    },
+    'click .versions-mode':function(e){
+        Session.set("mode","versions");
+    },
+    'click .edit-mode':function(e){
+        Session.set("mode","edit");
     },
     'click .view-mode':function(e){
-        Session.set("editMode",false);
+        Session.set("mode","view");
     },
     'click .item-save':function(e){
         var data,
-            currentItem = Session.get("currentItem")
+            currentItem                 = Session.get("currentItem"),
+            _id                         = currentItem._id
         ;
         // Wiki style
         if( Session.equals('editModeType',"wiki") ){
@@ -37,16 +47,38 @@ Template.itemShow.events({
             // Checks item validity
             // @todo
             // Attempts to save the item
-            var _id = currentItem._id;
-            Items.update({_id:_id},{$set:item},function(err,num){
 
-                // Failed
-                if( err ){
-                    alert(err);
-                }
-                // Success
-                if( num){}
-            });
+            if( Meteor.user().isAdmin ){
+                // Retrieves the old item version
+                var previousVersion     = Items.findOne({_id:_id});
+                var backupVersion       = _.clone(item);
+                delete(backupVersion._id);
+                backupVersion.item_id   = _id;
+                backupVersion.created_at = new Date();
+                backupVersion.user =  Meteor.user();
+                // Updates
+                Items.update({_id:_id},{$set:item},function(err,num){
+                    // Failed
+                    if( err ){
+                        alert(err);
+                        return;
+                    }
+                    // Keeps the backup
+                    Versions.insert(backupVersion);
+                });
+            // Saves a draft
+            }else{
+                var _id                     = currentItem._id;
+                var draftVersion        = _.clone(item);
+                delete(draftVersion._id);
+                draftVersion.item_id    = _id;
+                draftVersion.created_at = new Date();
+                draftVersion.user =  Meteor.user();
+                // Keeps the backup
+                Drafts.insert(draftVersion);
+                
+                
+            }
         // If a standard form edit should exist, do it here 
         }else{
             // @todo
@@ -56,6 +88,13 @@ Template.itemShow.events({
     'click circle':itemLinkShowListEvent,
     'click text' :itemLinkShowListEvent
 });
+
+Template.itemShow.draftsNum = function(){
+    return Drafts.find().count();
+}
+Template.itemShow.versionsNum = function(){
+    return Versions.find().count();
+}
 
 Template.itemShow.currentItem = function(){
     var item = Session.get("currentItem"),
@@ -97,14 +136,14 @@ Template.itemShow.rendered = function(i){
 }
 
 Template.itemShow.canEdit= function(){
-    var user = Meteor.user();
-    if( user && user.isAdmin){
+    var user                            = Meteor.user();
+    if( user ){
         return true;
     }
     return false;
 }
-Template.itemShow.inEditMode = function(){
-    return Session.get("editMode");
+Template.itemShow.mode = function(val){
+    return Session.equals("mode",val);
 }
 Template.itemShow.showExternalLink = function(l){
     return '<li><a href="'+l[0]+'" target="_blank" class="external-link">'+l[1]+'</a></li>';

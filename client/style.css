@@ -416,3 +416,52 @@ svg .eci{
     white-space: pre;
     width:100%;
 }
+
+/* import */
+
+
+.import-wrapper {
+position: fixed;
+top: 0px;
+left: 0px;
+height: 100%;
+width: 100%;
+background: #eee;
+z-index: 3;
+}
+
+/* tooltip */
+#tooltip{
+    background:#4996CD;
+    border-radius: 26px;
+    box-shadow:0 0 2px #333;
+    color:white;
+    padding:10px 16px;
+    position:absolute;
+    z-index:4;
+}
+
+/* big graph */
+.big-graph-outer{
+    width:98%;
+}
+
+#bigGraph .node {
+  cursor: pointer;
+}
+
+#bigGraph .node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+#bigGraph .node text {
+  font: 10px sans-serif;
+}
+
+#bigGraph .link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
