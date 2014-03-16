@@ -1,33 +1,46 @@
 <template name="slider">
-    <div class="slider container">
-        <div class="row">
-            <div class="span12 front">
-                <div class="description page">
-                            <img src="/images/nsaobserver-programs.png" width="400">
-                            <h2>Things the NSA doesn't want you to know</h2>
-                            <h4>And why you should know about it :)</h4>
-                    <hr>
-                    <div class="row">
-                        <div class="span10 offset1">
-                        <h4>
-                            Since summer 2013, we are continously gathering 
-                            and processing public informations about the NSA global surveillance revelations
-                            and have a collection of {{num}} NSA:
-                        </h4> 
-                      <dl class="dl-horizontal">
-                        <dt>Programs<dd>A program is a technical solution of some sort (ex: a database,   satellite collect, etc.) or a group of programs.
-                        <dt>Compartments<dd>A compartment is a partner of some sort (ex: foreign state, company, etc.) or a group of compartments.
-                        <dt>Attack vectors<dd>An attack vector is any kind of attack tool, software (ex: trojan) or hardware (ex: USB bug).
-                            
-                        </div>
-                    </div>
-                            
-                    <div id="categories-graph">{{#constant}}{{/constant}}</div>
-                    <p>
-                        <em>
-                            Did you know you can click on graphics to view related database entries?
-                        </em>
-                    </p>
+    <div class="slider">
+        <div class="inverted">
+            <div class="container">
+                <div class="row">
+                    <div class="span12 front">
+                        <div class="description page row">
+                            <div class="span4">
+                                
+                                    <img src="/images/nsaobserver-programs.png" width="400">
+                            </div>
+                            <div class="span7 ">
+                                <div  class="head" >
+                                    <h2>Things the NSA doesn't want you to know</h2>
+                                    <h4 style="color:white;">And why you should know about it :)</h4>
+                                    <h4>
+                                        Since summer 2013, we have been gathering and processing public information about the NSA global surveillance which has resulted in a collection of 359 NSA 
+                                    </h4>
+                                    <a href="/category/program" class="category-link link" category="program" >Programs</a>
+                                    <a href="/category/attack vector" class="category-link link" category="attack vector" >Attack vectors</a>
+                                    <a href="/category/compartiment" class="category-link link" category="compartiment" >Compartments</a>
+                                </div>
+                            </div>
+<!--                            <hr>
+                            <div class="row">
+                                <div class="span10 offset1">
+                              <dl class="dl-horizontal">
+                                <dt>Programs<dd>A program is a technical solution of some sort (ex: a database,   satellite collect, etc.) or a group of programs.
+                                <dt>Compartments<dd>A compartment is a partner of some sort (ex: foreign state, company, etc.) or a group of compartments.
+                                <dt>Attack vectors<dd>An attack vector is any kind of attack tool, software (ex: trojan) or hardware (ex: USB bug).
+                                </dl>
+
+                                </div>
+
+                            <div id="categories-graph">{{#constant}}{{/constant}}</div>
+<!--        
+<p>
+                                <em>
+                                    Did you know you can click on graphics to view related database entries?
+                                </em>
+                            </p>
+                    </div>  
+                </div>
                     <hr>
                      <div class="row">
                         <div class="span4">
@@ -375,24 +388,12 @@
                 </div>
                 <br />
                 <div class="row login" style="">
-                    <div class="span4">
+                    <div class="span12">
                         <h3>Login</h3>
                         <hr>
+                        <h4>For admins</h4>
                         {{loginButtons}}
-                    </div>
-                    <div class="span4">
-                        {{# if isUser}}
-                            <h3>Users</h3>
-                            <hr>
-                            {{> userMenu }}
-                        {{/if}}
-                    </div>
-                    <div class="span4">
-                        {{# if isAdmin }}
-                            <h3>Admins</h3>
-                            <hr>
-                            {{> adminMenu }}
-                        {{/if}}
+                        {{# if isAdmin }}{{> adminMenu }}{{/if}}
                     </div>
                 </div>
             </div>
