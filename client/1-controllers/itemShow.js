@@ -47,7 +47,6 @@ Template.itemShow.events({
             // Checks item validity
             // @todo
             // Attempts to save the item
-
             if( Meteor.user().isAdmin ){
                 // Retrieves the old item version
                 var previousVersion     = Items.findOne({_id:_id});
