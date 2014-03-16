@@ -35,6 +35,12 @@ Template.slider.isAdmin = function(){
     }
     return false;
 }
+Template.slider.isUser = function(){
+    if( Meteor.user() ){
+        return true;
+    }
+    return false;
+}
 
 Template.slider.num = function(){
     return Items.find().count();

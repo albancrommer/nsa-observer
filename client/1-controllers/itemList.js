@@ -27,6 +27,6 @@ Template.itemList.listName= function () {
 
 Template.itemList.events({
     'click .panel-close':function(event){
-        Router.go("/home");
+        Router.go("home");
     }
 });

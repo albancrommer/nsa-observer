@@ -10,5 +10,8 @@ if( Session.get("itemShowIsVisible",false ) ){
 
 
 // Subscription
-Meteor.subscribe("items");
+Meteor.subscribe("items","foo",{onReady:function(){}});
 Meteor.subscribe("userData");
+Deps.autorun(function () {
+    Meteor.subscribe("versionsAndDrafts",{item:Session.get("currentItem")},{onReady:function(){}});
+});

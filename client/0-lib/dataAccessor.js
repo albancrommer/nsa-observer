@@ -1,4 +1,4 @@
-dataAccessor = function(){
+DataAccessor = function(){
     
     var instance = {};
     /**
@@ -31,7 +31,7 @@ dataAccessor = function(){
      * 
      * @returns []
      */
-    instance.tree  = function(category){
+    instance.getTree  = function(category){
         var
             query               = {},
             filters             = {fields:{name:1,relatedItemsParents:1},order:{name:1}},
