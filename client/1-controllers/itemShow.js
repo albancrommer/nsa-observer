@@ -10,6 +10,13 @@ Template.itemShow.events({
     'click .internal-link':itemLinkShowEvent,
     'click .family-link':itemLinkShowListEvent,
     'click .category-link':itemLinkShowListEvent,
+    'click .new' : function(){
+        var item = Items.findOne( Items.insert({}) );
+        Session.set('currentItem', item);
+        Session.set("mode","edit");
+        var d = new Date();
+        Router.go("item",{name:d.getTime()})
+    },
     'click .edit-mode':function(e){
         Session.set("mode","edit");
     },
@@ -26,63 +33,7 @@ Template.itemShow.events({
         Session.set("mode","view");
     },
     'click .item-save':function(e){
-        var data,
-            currentItem                 = Session.get("currentItem"),
-            _id                         = currentItem._id
-        ;
-        // Wiki style
-        if( Session.equals('editModeType',"wiki") ){
-            // Retrieves textarea
-            data                        = $(".wiki-item-container").val();
-            var parser                  = new itemParser(),
-                parsed                  = parser.run(data),
-                item                    = {};
-            // Refuses wrong data
-            if( parsed.length !== 1 ){
-                alert ("invalid data !")
-                return;
-            }
-            // Retrieves parsed item
-            item                        = parsed[0];
-            // Checks item validity
-            // @todo
-            // Attempts to save the item
-            if( Meteor.user().isAdmin ){
-                // Retrieves the old item version
-                var previousVersion     = Items.findOne({_id:_id});
-                var backupVersion       = _.clone(item);
-                delete(backupVersion._id);
-                backupVersion.item_id   = _id;
-                backupVersion.created_at = new Date();
-                backupVersion.user =  Meteor.user();
-                // Updates
-                Items.update({_id:_id},{$set:item},function(err,num){
-                    // Failed
-                    if( err ){
-                        alert(err);
-                        return;
-                    }
-                    // Keeps the backup
-                    Versions.insert(backupVersion);
-                });
-            // Saves a draft
-            }else{
-                var _id                     = currentItem._id;
-                var draftVersion        = _.clone(item);
-                delete(draftVersion._id);
-                draftVersion.item_id    = _id;
-                draftVersion.created_at = new Date();
-                draftVersion.user =  Meteor.user();
-                // Keeps the backup
-                Drafts.insert(draftVersion);
-                
-                
-            }
-        // If a standard form edit should exist, do it here 
-        }else{
-            // @todo
-            var elements                = $(".item-data");
-        }
+        ItemsMapper.save();
     }
 });
 
@@ -243,3 +194,6 @@ Template.itemShow.editRelatedItems = function(l){
     $(item.relatedItems).each(function(x,y){txt += y+" ";});
     return txt;
 };
+Template.itemShow.currentItemExists = function(){
+    return Session.get('currentItem');
+}

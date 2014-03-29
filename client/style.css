@@ -260,7 +260,9 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 }
 
 .item-show-outer .edit-nav {
-    float: right;
+    background: none repeat scroll 0 0 #4996CD;
+    padding: 2px;
+    width: 100%;
 }
 
 
@@ -294,6 +296,7 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 .wiki-edit-wrapper {
     margin-top: 28px;
 }
+
 /* nav */
 
 .nav-container {
@@ -343,6 +346,37 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 }
 .nav-container input.search {
     /*margin-top: 10px;*/
+}
+
+/* Versions nav */
+.versions-nav{
+    background: none repeat scroll 0 0 #e8e8e8;
+    padding: 2px;    
+    width: 100%;
+}
+
+.versions-nav a.btn {
+    background: transparent;
+    color: #333;
+}
+
+.versions-nav a.btn:hover {
+    background: rgba(255,255,255,0.3);
+    color: #222;
+}
+
+.show-version-container {
+}
+.show-version {
+    padding: 20px 0;
+    line-height: 1em;
+    color: #4090c0;
+    width: 100%;
+}
+.btn.show-version.active,
+.btn.show-version.active:hover
+{
+    background: #3080b0;
 }
 
 
@@ -662,3 +696,16 @@ z-index: 3;
   stroke: #ccc;
   stroke-width: 1.5px;
 }
+
+
+.content .btn {
+    background: none repeat scroll 0 0 #4996CD;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+    text-shadow: none;
+    color: #eee;
+}
+.content .btn:hover {
+   background: none repeat scroll 0 0 #4090C0;
+ }
