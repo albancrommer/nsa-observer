@@ -1,0 +1,8 @@
+{
+    "name": "jquery-ui",
+    "description": "jQuery UI - the jQuery user interface",
+    "homepage": "https://github.com/TimHeckel/meteor-jquery-ui",
+    "author": "Tim Heckel  (http://timheckel.com)",
+    "version": "1.9.2",
+    "git": "https://github.com/TimHeckel/meteor-jquery-ui.git"
+}
