@@ -60,17 +60,17 @@
             {{else}}
                 <form class="data-form">
                    <dl class="dl-horizontal">
-                    <dt>Description
+                    <dt>Description</dt>
                     <dd>
-                    <textarea class="input-xxlarge item-data" name="description">{{{ currentItem.description }}}</textarea>
-                    <dt>Category
-                    <dd><input type="text" class="input-large item-data" name="category" value="{{ currentItem.category }}">
-                    <dt>Family
-                    <dd><input type="text" class="input-large item-data" name="family" value="{{ currentItem.family}}">
-                    <dt>Related items
-                    <dd><input type="text" class="input-xxlarge item-data" name="relatedItems" value="{{editRelatedItems}}">
-                    <dt>Links
-                    <dd><textarea class="item-data" name="externalLinks[]" >{{editExternalLink}}</textarea>
+                    <textarea class="input-xxlarge item-data" name="description">{{{ currentItem.description }}}</textarea></dd>
+                    <dt>Category</dt>
+                    <dd><input type="text" class="input-large item-data" name="category" value="{{ currentItem.category }}"></dd>
+                    <dt>Family</dt>
+                    <dd><input type="text" class="input-large item-data" name="family" value="{{ currentItem.family}}"></dd>
+                    <dt>Related items</dt>
+                    <dd><input type="text" class="input-xxlarge item-data" name="relatedItems" value="{{editRelatedItems}}"></dd>
+                    <dt>Links</dt>
+                    <dd><textarea class="item-data" name="externalLinks[]" >{{editExternalLink}}</textarea></dd>
                     </dl>
                 </form>
             {{/if}}
@@ -85,62 +85,67 @@
                 </h3>
                 <div class="item-show">
                     <dl class="dl-horizontal">
-                        <dt>Description
+                        <dt>Description</dt>
                         <dd><p class="item-data" >
                                 {{{wikiLinks currentItem.description }}}&nbsp;
                             </p>
-                        <dt>Category
+                        </dd>
+                        <dt>Category</dt>
                         <dd>
                             <a href="{{pathFor 'category'}}" class="item-show-link category-link" category="{{ category }}">
                                 {{ category }}
                             </a>&nbsp;
-                        <dt>Family
+                        </dd>
+                        <dt>Family</dt>
                         <dd><a href="{{pathFor 'category-family'}}" class="item-show-link family-link" category="{{ category }}" family="{{ family }}">{{ family }}</a>&nbsp;
-                        <dt>Agency
+                        </dd>
+                        <dt>Agency</dt>
                         <dd>{{ agency }}&nbsp;
-                        <dt>Compartments
+                        </dd>
+                        <dt>Compartments</dt>
                         <dd class="item-ul">
                         <ul>
-                        {{#each compartments}}
-                            {{#if this }}
-                                <li>{{{wikiLinks this}}}
-                            {{/if}}
-                        {{/each}}
+                        {{#each compartments}}<li>{{#if this}}{{{wikiLinks this}}}{{/if}}</li>{{/each}}
                         </ul>&nbsp;
-                        <dt>Related items
+                        </dd>
+                        <dt>Related items</dt>
                         <dd class="item-ul">
                         <ul>
                         {{#each relatedItems}}
                             {{#if this }}
-                                <li>{{{wikiLinks this}}}
+                                <li>{{{wikiLinks this}}}</li>
                             {{/if}}
                         {{/each}}
                         </ul>&nbsp;
-                        <dt>Parents
+                        </dd>
+                        <dt>Parents</dt>
                         <dd class="item-ul">
                         <ul>
                         {{#each relatedItemsParents}}
                             {{#if this }}
-                                <li>{{{wikiLinks this}}}
+                                <li>{{{wikiLinks this}}}</li>
                             {{/if}}
                         {{/each}}
                         </ul>&nbsp;
-                        <dt>Children
+                        </dd>
+                        <dt>Children</dt>
                         <dd class="item-ul">
                         <ul>
                         {{#each relatedItemsChildren}}
                             {{#if this }}
-                                <li>{{{wikiLinks this}}}
+                                <li>{{{wikiLinks this}}}</li>
                             {{/if}}
                         {{/each}}
                         </ul>&nbsp;
-                        <dt>Sources
+                        </dd>
+                        <dt>Sources</dt>
                         <dd class="item-ul">
                             <ul class='external-links-wrapper'>
                             {{#each links}}
                             {{{ showExternalLink this }}}
                             {{/each}}
                             </ul>&nbsp;
+                        </dd>
                     </dl>
                 </div>
                 <div class="item-graph">{{#constant}}{{/constant}}</div>
