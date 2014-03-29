@@ -10,5 +10,5 @@ accounts-password
 accounts-ui
 bootstrap
 d3
-spiderable
+moment
 iron-router
