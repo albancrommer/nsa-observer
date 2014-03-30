@@ -348,33 +348,40 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
     /*margin-top: 10px;*/
 }
 
-/* Versions nav */
-.versions-nav{
+
+.btn.view-mode.active,
+.btn.view-mode.active:hover
+{
+    background: #3080b0;
+}
+
+/* Stubs nav */
+.stub-nav{
     background: none repeat scroll 0 0 #e8e8e8;
     padding: 2px;    
     width: 100%;
 }
 
-.versions-nav a.btn {
+.stub-nav a.btn {
     background: transparent;
     color: #333;
 }
 
-.versions-nav a.btn:hover {
+.stub-nav a.btn:hover {
     background: rgba(255,255,255,0.3);
     color: #222;
 }
 
-.show-version-container {
+.show-stub-container {
 }
-.show-version {
+.show-stub {
     padding: 20px 0;
     line-height: 1em;
     color: #4090c0;
     width: 100%;
 }
-.btn.show-version.active,
-.btn.show-version.active:hover
+.btn.show-stub.active,
+.btn.show-stub.active:hover
 {
     background: #3080b0;
 }

@@ -91,3 +91,17 @@ togglePanels = function (hideOrShow,panels){
         }
 }
 
+
+/**
+ * 
+ * @param {type} text
+ * @returns {@exp;textArray@call;join}
+ */
+removeAnnotations = function(text){
+    var textArray = text.split("\n");
+    var matches = /<\$label.*\$isolate:.*>(===.*===)/.exec(textArray[0]);
+    textArray[0] = matches[1];
+    var count = textArray.length;
+    delete(textArray[count-1]);
+    return textArray.join("\n");
+};

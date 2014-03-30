@@ -10,31 +10,6 @@ Template.itemShow.events({
     'click .internal-link':itemLinkShowEvent,
     'click .family-link':itemLinkShowListEvent,
     'click .category-link':itemLinkShowListEvent,
-    'click .new' : function(){
-        var item = Items.findOne( Items.insert({}) );
-        Session.set('currentItem', item);
-        Session.set("mode","edit");
-        var d = new Date();
-        Router.go("item",{name:d.getTime()})
-    },
-    'click .edit-mode':function(e){
-        Session.set("mode","edit");
-    },
-    'click .drafts-mode':function(e){
-        Session.set("mode","drafts");
-    },
-    'click .versions-mode':function(e){
-        Session.set("mode","versions");
-    },
-    'click .edit-mode':function(e){
-        Session.set("mode","edit");
-    },
-    'click .view-mode':function(e){
-        Session.set("mode","view");
-    },
-    'click .item-save':function(e){
-        ItemsMapper.save();
-    }
 });
 
 Template.itemShow.draftsNum = function(){
@@ -165,13 +140,6 @@ Template.itemShow.rendered = function(i){
     
 }
 
-Template.itemShow.canEdit= function(){
-    var user                            = Meteor.user();
-    if( user ){
-        return true;
-    }
-    return false;
-}
 Template.itemShow.mode = function(val){
     return Session.equals("mode",val);
 }

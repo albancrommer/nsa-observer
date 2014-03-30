@@ -1,47 +1,10 @@
 <template name="itemShow">
-    <div class="panel-head">
-         <div class="panel-close"><a href="" title="Click here or press ESC to return to homepage">X</a></div>
-        {{>nav}}
-    </div>
+    {{>nav}}
     {{# if currentItemExists }}
-        <div class="btn-group edit-nav">
-        {{# if canEdit  }}
-            <a class="btn new">
-                New item
-            </a>
-            <a class="btn view-mode" href="#">
-                View items
-            </a>
-
-            {{#if mode "edit"}}
-                <a class="btn item-save" href="#">
-                    Save item
-                </a>
-            {{ else }}
-                <a class="btn edit-mode" href="#">
-                    Edit items
-                </a>
-            {{/if}}
-            {{# if draftsNum }}
-                <a class="btn drafts-mode" href="#">
-                    Show {{draftsNum}} drafts
-                </a>
-            {{/if}}
-            {{# if versionsNum }}
-                <a class="btn versions-mode" href="#">
-                    Show {{versionsNum}} versions
-                </a>
-            {{/if}}
-
-        {{/if}}
-        </div>
-
+    
         {{# if mode "drafts"}}
-            <h3>
-                Drafts list
-            </h3>
             {{#if draftsNum}}
-                {{> itemDrafts }}
+                {{> itemStubs }}
             {{else}}
                 No drafts
             {{/if}}
@@ -49,12 +12,11 @@
 
         {{# if mode "versions"}}
             {{#if versionsNum}}
-                {{> itemVersions }}
+                {{> itemStubs }}
             {{else}}
                 No versions
             {{/if}}
         {{/if}}
-        
 
         {{#if mode "edit"}}
             {{# if inEditModeWiki }}

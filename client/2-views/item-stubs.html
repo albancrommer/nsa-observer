@@ -1,13 +1,33 @@
-<template name="itemDrafts">
-    {{#each draftsList}}
+<template name="itemStubs">
     <div class="row">
-        <div class="span4">
+        <div class="span10">
             <div class="row">
-                <div class="span3">{{created_at}}</div>
-                <div class="span3">{{user}}</div>
-                
+                <div class="span3">
+                    <div class="show-stub-container">
+                    {{#each stubs}}
+                        <a class="btn show-stub {{#if isActive currentVersion._id this._id}}active{{/if}}">
+                        {{formatDate created_at "DD/MM/YYYY HH:mm"}}
+                        {{getId user}}
+                        </a>
+                    {{/each}}
+                    </div>
+                </div>
+                <div class="span7">
+                    <div class="stub-nav">
+                        <div class="btn-group">
+                            <a class="btn stub-nav-diff">Diff</a>
+                            <a class="btn stub-nav-raw">Raw</a>
+                            <a class="btn stub-nav-apply">Apply</a>
+                        </div>
+                    </div>
+                    
+    {{#if isDiffMode }}
+                    <div style="white-space: pre;word-break: break-word;">{{{diff}}}</div>
+    {{else}} 
+                    <div style="white-space: pre;word-break: break-word;">{{{raw}}}</div>
+    {{/if}}
+                </div>
             </div>
         </div>
     </div>
-    {{/each}}
 </template>

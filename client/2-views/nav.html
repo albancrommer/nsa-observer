@@ -1,4 +1,8 @@
 <template name="nav">
+
+    <div class="panel-head">
+         <div class="panel-close"><a href="" title="Click here or press ESC to return to homepage">X</a>
+         </div>
         <div class="nav-content">
             <ul class="nav-category">
                 <li >
@@ -40,4 +44,39 @@
             </ul>
             <input class="search" type="text" size="8" placeholder="search">
         </div>
+    </div>
+        <div class="btn-group edit-nav">
+        {{# if isAdmin }}
+            <a class="btn new">
+                New item
+            </a>
+        {{/if}}
+        {{# if canEdit  }}
+            <a class="btn view-mode{{#if mode 'view'}} active {{/if}}" href="#">
+                View 
+            </a>
+
+            {{#if mode "edit"}}
+                <a class="btn item-save" href="#">
+                    Save 
+                </a>
+            {{ else }}
+                <a class="btn edit-mode" href="#">
+                    Edit 
+                </a>
+            {{/if}}
+            {{# if draftsNum }}
+                <a class="btn drafts-mode" href="#">
+                    Show {{draftsNum}} drafts
+                </a>
+            {{/if}}
+            {{# if versionsNum }}
+                <a class="btn versions-mode" href="#">
+                    Show {{versionsNum}} versions
+                </a>
+            {{/if}}
+
+        {{/if}}
+        </div>
+
 </template>
