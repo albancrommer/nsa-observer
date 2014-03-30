@@ -16,12 +16,12 @@ ItemsStubs.getPropertiesList = function(){
  * @param   object  item
  * @returns object
  */
-ItemsStubs.itemToStub = function(item){
+ItemsStubs.itemToStub = function(item, _id){
     
     if( ! item ){
         throw ("No item provided");
     }
-    var _id                             = item._id;
+    var _id                             = item._id || _id || Session.get('currentItem')._id;
     var stubProperties                  = this.getPropertiesList();
     var itemProperties                  = this.__proto__.getPropertiesList();
     var stub                            = _.clone(item);

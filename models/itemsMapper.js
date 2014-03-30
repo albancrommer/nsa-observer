@@ -8,6 +8,7 @@ ItemsMapper                 = {
     getPropertiesList: function(){
         return [
             "agency",
+            "alias",
             "category",
             "compartments",
             "description",
@@ -18,7 +19,8 @@ ItemsMapper                 = {
             "relatedItems",
             "relatedItemsChildren",
             "relatedItemsParents",
-            "status"
+            "status",
+            "tags"
         ];  
     },
     /**
@@ -57,7 +59,7 @@ ItemsMapper                 = {
         // Truncates Items db
         ItemsMapper.truncate();
         // Reads the data and attempts to insert
-        var parser                          = new itemParser();
+        var parser                          = new ItemParser();
         var itemList                        = parser.run(rows);
         var itemNames                       = [];
         if ( ! itemList.length){
@@ -90,7 +92,7 @@ ItemsMapper                 = {
             if( Session.equals('editModeType',"wiki") ){
                 // Retrieves textarea
                 data                    = $(".wiki-item-container").val();
-                var parser              = new itemParser(),
+                var parser              = new ItemParser(),
                     parsed              = parser.run(data),
                     newItem                = {};
                 // Refuses wrong data
@@ -127,7 +129,7 @@ ItemsMapper                 = {
              });
          // Saves a draft
          }else{
-             var draftVersion           = ItemsStubs.itemToStub(newItem);
+             var draftVersion           = ItemsStubs.itemToStub(newItem, _id);
              // Keeps the backup
              Drafts.insert(draftVersion);
          }
