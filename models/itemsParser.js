@@ -95,6 +95,14 @@ ItemParser                              = function(){
                 currentItem.relatedItemsChildren         = instance.linkSplit(r[1])
                 currentItem.currentState         = null;
             }],
+            [/""Tags"" *?: *?(.*?)$/,function(r){
+                currentItem.tags                 = instance.linkSplit(r[1])
+                currentItem.currentState         = null;
+            }],
+            [/""Alias"" *?: *?(.*?)$/,function(r){
+                currentItem.alias                = instance.linkSplit(r[1])
+                currentItem.currentState         = null;
+            }],
             [/""Status"" *?: *?(.*?)$/,function(r){
             if( "" == (r[1])){
                 r[1] = "unknown";

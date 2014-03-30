@@ -3,8 +3,11 @@
 Template.itemList.element= function () {
     var search = Session.get("search");
     if( "name" in search){
-        search.name = new RegExp(search.name,'i');
+        var regexp      = new RegExp(search.name,'i');
+        delete search.name;
+        search["$or"] = [{tags:regexp},{name:regexp}];
     }
+    console.log(search);
     return Items.find(search,{sort:{name:1}}).fetch() || [];
 };
 

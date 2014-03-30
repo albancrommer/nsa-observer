@@ -3,15 +3,17 @@
 === {{this.name}} ===
 ""Short Description"" : {{ this.description }}
 ""Category"" : {{ this.category }}
+""Alias"" : {{editWikiInternalLinks "alias"}}
 ""Family"" : {{ this.family}}
+""Agency"" : {{ this.agency}}
+""Tags"" : {{editWikiInternalLinks "tags"}}
 ""Compartments"" : {{editWikiInternalLinks "compartments"}}
-""Agency"" : {{this.agency}}
 ""Related items"" : {{editWikiInternalLinks "relatedItems"}}
-""Related items (parents)"" : {{editWikiInternalLinks "relatedItemsParents"}}
-""Related items (children)"" : {{editWikiInternalLinks "relatedItemsChildren"}}
+""Related items (Parents)"" : {{editWikiInternalLinks "relatedItemsParents"}}
+""Related items (Children)"" : {{editWikiInternalLinks "relatedItemsChildren"}}
 ""Status"" : {{this.status}}
 ""Links"" : 
-{{editWikiExternalLink}}</textarea>
+{{editWikiExternalLink this}}</textarea>
     <p>
         Add new <select class="item-property-list"  style="margin-top: 8px;">{{{properties}}}</select>
         <input class="item-property-value" placeholder="Type"/><button class="btn item-property-add">Add</button>

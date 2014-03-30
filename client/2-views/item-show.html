@@ -56,6 +56,12 @@
                                 {{{wikiLinks currentItem.description }}}&nbsp;
                             </p>
                         </dd>
+                        <dt>Alias</dt>
+                        <dd class="item-ul">
+                        <ul>
+                        {{#each alias}}<li>{{#if this}}{{{wikiLinks this}}}{{/if}}</li>{{/each}}
+                        </ul>&nbsp;
+                        </dd>
                         <dt>Category</dt>
                         <dd>
                             <a href="{{pathFor 'category'}}" class="item-show-link category-link" category="{{ category }}">
@@ -72,6 +78,12 @@
                         <dd class="item-ul">
                         <ul>
                         {{#each compartments}}<li>{{#if this}}{{{wikiLinks this}}}{{/if}}</li>{{/each}}
+                        </ul>&nbsp;
+                        </dd>
+                        <dt>Tags</dt>
+                        <dd class="item-ul">
+                        <ul>
+                        {{#each tags}}<li>{{#if this}}{{{wikiLinks this}}}{{/if}}</li>{{/each}}
                         </ul>&nbsp;
                         </dd>
                         <dt>Related items</dt>
