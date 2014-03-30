@@ -1,10 +1,10 @@
 
 Template.export.itemList = function(){
-    var itemList = Items.find({},{order:{name:1}}).fetch();
+    var itemList = Items.find({},{sort:{name:1}}).fetch();
     return _.sortBy(itemList,"name");
 };
 Template.export.JSONitemList = function(){
-    return  JSON.stringify(Items.find({},{order:{name:1}}).fetch());
+    return  JSON.stringify(Items.find({},{sort:{name:1}}).fetch());
 };
 Template.export.wikiType = function(){
     return Session.equals("exportType","wiki");

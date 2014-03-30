@@ -18,7 +18,7 @@ Item = function(name){
 		instance.name = name;
 	}
 	instance.getInsertString = function(){
-            str = 'Items.insert({name:"'+instance.get("name")+'",category:"'+instance.get("category")+'",family:"'+instance.get("family")+'",status:"'+instance.get("status")+'",description:"'+instance.get("description")+'",relatedItems:'+instance.get("relatedItems", TRUE)+',links:'+instance.get("links", TRUE)+'});';
+            str = 'Items.insert({name:"'+instance.get("name")+'",category:"'+instance.get("category")+'",family:"'+instance.get("family")+'",status:"'+instance.get("status")+'",description:"'+instance.get("description")+'",relatedItems:'+instance.get("relatedItems", true)+',links:'+instance.get("links", true)+'});';
             return str.replace("\n","","g")+"\n";
 	}
 	instance.get = function(name,json){
