@@ -79,6 +79,9 @@ Drafts.allow({
         return false;
     },
     remove: function() {
+        if (Meteor.user().isAdmin) {  //e.g check if admin
+            return true;
+        }
         return false;
     }
     
