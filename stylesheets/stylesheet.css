@@ -22,7 +22,7 @@ section {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 20px;
+  margin: 40px 0 20px;
 }
 
 li {
@@ -217,10 +217,6 @@ hr {
   float: left;
 }
 
-.btn-github .icon {
-  opacity: 0.6;
-  background: url("../images/blacktocat.png") 0 0 no-repeat;
-}
 
 /* Links
    a, a:hover, a:visited
