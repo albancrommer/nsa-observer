@@ -394,7 +394,7 @@
 ""Family"" : hardware
 ""Related items"" :
 ""Related items (parents)"" : [[GENIE]]
-""Related items (children)"" : [[HIGHLAND]][[VAGRANT]]
+""Related items (children)"" : [[HIGHLANDS]][[VAGRANT]]
 ""Compartments"" :
 ""Status"" :
 ""Agency"" : NSA
@@ -484,11 +484,11 @@
 === BLUEANCHOR ===
 ""Alias"" :
 ""Tags"" :
-""Short Description"" : Partner providing a network access point for the [[YACHTSTOP]] program.
+""Short Description"" : Partner providing a network access point for the [[YACHTSHOP]] program.
 ""Category"" : program
 ""Family"" : collect
-""Related items"" : [[YACHTSTOP]] [[UPSTREAM]]
-""Related items (parents)"" : [[YACHTSTOP]]
+""Related items"" : [[YACHTSHOP]] [[UPSTREAM]]
+""Related items (parents)"" : [[YACHTSHOP]]
 ""Related items (children)"" :
 ""Compartments"" :
 ""Status"" :
