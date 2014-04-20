@@ -1,10 +1,10 @@
 === ALPHA ===
-""Alias"" :
+""Alias"" : [[GCHQ]]
 ""Tags"" :
-""Short Description"" : Exchange designator for UK's Government Communications Headquarters ([[GCHQ]]). Used during sharing of intercepted civilian communications. See also UNIFORM - CSE, OSCAR - NSA, ECHO - DSD, INDIA - GCSB, plus others
-""Category"" : compartment
-""Family""
-""Related items"" : 
+""Short Description"" : Exchange designator for UK's Government Communications Headquarters ([[GCHQ]]). Used during sharing of intercepted civilian communications.
+""Category"" : five eyes
+""Family"" : agence
+""Related items"" : [[ECHO]] [[INDIA]] [[OSCAR]] [[UNIFORM]]
 ""Related items (parents)""
 ""Related items (children)""
 ""Compartments"" :
@@ -45,7 +45,7 @@
 * [http://cryptome.org/2013/08/nsa-x-keyscore-family.htm|cryptome.org - NSA X-Keyscore Member of Cyberespionage Family]
 
 === AIGHANDLER ===
-""Alias"" : 
+""Alias"" :
 ""Tags"" : [[geolocation]]
 ""Short Description"" : Geolocation analysis
 ""Category"" : program
@@ -562,7 +562,7 @@
 ""Alias"" :
 ""Tags"" : [[pci]]
 ""Short Description"" : PCI bus malicious hardware, installed via [[INTERDICTION]], possibly connected to a Wi-Fi card or a subverted router.
-""Category"" : vector attack
+""Category"" : attack vector
 ""Family"" : hardware
 ""Related items"" :
 ""Related items (parents)"" : [[INTERDICTION]]
@@ -701,7 +701,7 @@ GSM telephone trapwire
 ""Compartments"" :
 ""Status"" :
 ""Agency"" : USArmy
-""Links"" : 
+""Links"" :
 * [http://books.google.fr/books?id=SPcHq8wftrsC&pg=SA5-PA12&dq=%22CANNON+LIGHT%22+us+army&hl=en&sa=X&ei=VF3xUpmCEMmg0QXD14HQBA&redir_esc=y#v=onepage&q=%22CANNON%20LIGHT%22%20us%20army&f=false|books.google.fr - "CANNON LIGHT" us army]
 
 === CARBOY ===
@@ -1002,7 +1002,7 @@ GSM telephone trapwire
 * [http://nsa.gov1.info/dni/ | nsa.gov1.info/dni/]
 
 === CORALREEF ===
-""Alias"" : 
+""Alias"" :
 ""Tag"" : l
 ""Short Description"" : spotted on [[TURBINE]]'s document about "APEX VPN exploitation".
 ""Category"" : program
@@ -1328,7 +1328,7 @@ It is scheduled to be replaced by [[PHOTOANGLO]] staring in September 2008.
 
 === DAREDEVIL ===
 ""Alias"" :
-""Tag"" : 
+""Tag"" :
 ""Short Description"" : Implant /Shooter, spotted on [[QUANTUMTHEORY]]'s presentation.
 ""Category"" :  [[program]]
 ""Family"" :
@@ -1380,7 +1380,7 @@ Status: Released / Deployed. Ready for Immediate Delivery
 ""Alias"" :
 ""Tags"" : [[usb]]
 ""Short Description"" :USB (Universal Serial Bus) hardware host tap that provides [[COVERT]] link over US link into a target network. Operates w/RF relay subsystem to provide wireless Bridge into target network.
-""Category"" : vector attack
+""Category"" : attack vector
 ""Family"" : hardware
 ""Related items"" :
 ""Related items (parents)"" :
@@ -1556,7 +1556,7 @@ Status: Released / Deployed. Ready for Immediate Delivery
 ""Alias"" :
 ""Tags"" : [[sms]] [[geolocation]] [[phone]]
 ""Short Description"" : DROPOUTJEEP is a [[STRAITBIZARRE]] based software implant for the Apple iphone operating system and uses the [[CHIMNEYPOOL]] framework. DROPOUTJEEP is compliant with the [[FREEFLOW]] project, therefore it is supported in the [[TURBULENCE]] architecture. DROPOUTJEEP is a software implant for the Apple iPhone that utilizes modular mission applications to provide specific SIGINT functionality. This functionality includes the ability to remotely push/pull files from the device, SMS retrieval, contact list retrieval, voicemail, geolocation, hot mic, camera capture, cell tower location, etc. Command, control, and data exfiltration can occur over SMS messaging or a GPRS data connection. All communications with the implant will be covert and encrypted.
-""Category"" : vector attack
+""Category"" : attack vector
 ""Family"" : software
 ""Related items"" : [[STRAITBIZARRE]] [[CHIMNEYPOOL]] [[TURBULENCE]] [[FREEFLOW]]
 ""Related items (parents)"" : [[STRAITBIZARRE]] [[CHIMNEYPOOL]]
@@ -1621,7 +1621,7 @@ Status: Released / Deployed. Ready for Immediate Delivery
 === EBSR ===
 ""Alias"" :
 ""Tags"" : [[gsm]]
-""Short Description"" :Low power GSM base station router,
+""Short Description"" : Low power GSM base station router,
 ""Category"" : program
 ""Family"" : collect
 ""Related items"" : [[TYPHON]] [[CANDYGRAM]] [[DRTBOX]] [[CYCLONE Hx9]] [[NEBULA]]
@@ -1631,7 +1631,22 @@ Status: Released / Deployed. Ready for Immediate Delivery
 ""Status"" :
 ""Agency"" : NSA
 ""Links"" :
-* [http://cryptome.org/2014/01/nsa-codenames.htm| | cryptome.org - NSA codenames]
+* [http://cryptome.org/2014/01/nsa-codenames.htm| cryptome.org - NSA codenames]
+
+=== ECHO ===
+""Alias"" : [[DSD]]
+""Tags"" :
+""Short Description"" : Exchange designator for Australia’s Defense Signals Directorate (DSD).
+""Category"" : five eyes
+""Family"" : agence
+""Related items"" : [[ALPHA]] [[INDIA]] [[OSCAR]] [[UNIFORM]]
+""Related items (parents)""
+""Related items (children)""
+""Compartments"" :
+""Status"" : active
+""Agency"" : DSD
+""Links"" :
+* [http://www.intrepidreport.com/archives/8588|intrepidreport.com - Senate delivers fatal end-of-term blow to Constitution]
 
 === ECI ===
 ""Alias"" :
@@ -1999,7 +2014,7 @@ Status: Released / Deployed. Ready for Immediate Delivery
 ""Category"" : attack vector
 ""Family"" : hardware
 ""Related items"" : [[GODSURGE]]
-""Related items (parents)"" : [[INTERDICTION]] 
+""Related items (parents)"" : [[INTERDICTION]]
 ""Related items (children)"" :
 ""Compartments"" :
 ""Status"" :
@@ -2042,7 +2057,7 @@ An   implant plug-in named FOGGYBOTTOM records logs of Internet browsing   histo
 
 === FOXACID ===
 ""Alias"" :
-""Tags"" : [[tor]] 
+""Tags"" : [[tor]]
 ""Short  Description"" : FOXACID identifies TOR users on the Internet and then  executes an attack against their Firefox web browser.
 # finding Tor users via programs codenamed [[STORMBREW]], [[FAIRVIEW]], [[OAKSTAR]] and [[BLARNEY|]].
 # The NSA creates "fingerprints" that detect HTTP requests from the Tor network to particular servers.
@@ -2471,10 +2486,10 @@ An implant plug-in named GROK, used to log keystrokes.
 * [https://firstlook.org/theintercept/article/2014/03/12/nsa-plans-infect-millions-computers-malware/ | How the NSA Plans to Infect ‘Millions’ of Computers with Malware - theguardian.com]
 
 === HAMMERCHANT ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short   Description"" : An implant the NSA injects into network routers to    help the agency to intercept and perform “exploitation attacks” against   data that is sent through a VPN a tool that uses encrypted “tunnels”  to  enhance the security and privacy of an Internet session.
-""Category"" : vector attack
+""Category"" : attack vector
 ""Family"" : network
 ""Agency"" :  [[NSA]]
 ""Compartments"" : [[TOP SECRET]] [[COMINT]] [[REL TO USA]] [[FVEY]]
@@ -2487,8 +2502,8 @@ An implant plug-in named GROK, used to log keystrokes.
 * [https://www.aclu.org/files/natsec/nsa/vpn-and-voip-exploitation-with-hammerchant-and.pdf|vpn-and-voip-exploitation-with-hammerchant]
 
 === HAMMERSTEIN ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short   Description"" :  An implant the NSA injects into network routers  to    help the agency to intercept and perform “exploitation attacks”   against  VoIP and record the audio data and then return it to the NSA  for  analysis in real time.
 ""Category"" : attack vector
 ""Family"" : network
@@ -2732,20 +2747,19 @@ wireless bug transmitter to fit into the victim's USB plug, with no visible prof
 * [http://cryptome.org/2013/10/nsa-windstop-muscular-incenser.pdf | cryptome.org - nsa-windstop-muscular-incenser.pdf]
 
 === INDIA ===
-""Alias"" :
+""Alias"" : [[GCSB]]
 ""Tags"" :
-""Short Description"" : Exchange designator for NZ's GCSB. See also ALPHA.
-""Category"" : program
-""Family"" : collect
-""Related items"" :
-""Related items (parents)"" :
-""Related items (children)"" :
+""Short Description"" : Exchange designator for New Zealand’s Government Communications Security Bureau (GCSB).
+""Category"" : five eyes
+""Family"" : agence
+""Related items"" : [[ALPHA]] [[ECHO]] [[OSCAR]] [[UNIFORM]]
+""Related items (parents)""
+""Related items (children)""
 ""Compartments"" :
-""Status"" :
-""Agency"" : NSA
+""Status"" : active
+""Agency"" : GCSB
 ""Links"" :
 * [http://www.intrepidreport.com/archives/8588|intrepidreport.com - Senate delivers fatal end-of-term blow to Constitution]
-
 
 === INDRA ===
 ""Alias"" :
@@ -3068,7 +3082,7 @@ He  is a firmware persistence impant for Cisco PIX Series and ASA (Adaptive  Sec
 * [http://cryptome.org/2014/01/nsa-codenames.htm|cryptome.org - NSA codenames]
 
 === LEMONWOOD ===
-""Alias"" : 
+""Alias"" :
 ""Tags"" : [[phone]]
 ""Short Description"" : [[SIGINT]] for locating cellphone in Thailand
 ""Category"" : program
@@ -3353,8 +3367,8 @@ Room  audio is picked up by the microphone and converted into an analog  electri
 * [http://www.intrepidreport.com/archives/8588|intrepidreport.com - Senate delivers fatal end-of-term blow to Constitution]
 
 === METROTUBE ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short Description"" : spotted on [[TURBINE]]'s document about "APEX VPN exploitation".
 ""Category"" : program
 ""Family"" : process
@@ -3590,8 +3604,8 @@ a  technique that involves writing a unique marker (or stain) onto a  target mac
 * [http://cryptome.org/2014/01/nsa-codenames.htm|cryptome.org - NSA codenames]
 
 === MYSTIC ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short Description"" : voice interception program with comprehensive metadata access and content.
 ""Category"" : program
 ""Family"" : collect
@@ -3933,17 +3947,17 @@ OAKSTAR  is an umbrella program involving surveillance of telecommunications, it
 * [https://en.wikipedia.org/wiki/OAKSTAR|en.wikipedia.org - OAKSTAR]
 
 === OSCAR ===
-""Alias"" :
+""Alias"" : [[NSA]]
 ""Tags"" :
-""Short Description"" : Exchange designator for NSA. See Alpha.
-""Category"" : compartment
-""Family"" :
-""Related items"" :
-""Related items (parents)"" :
-""Related items (children)"" :
+""Short Description"" : Exchange designator for the United States' National Security Agency (NSA).
+""Category"" : five eyes
+""Family"" : agence
+""Related items"" : [[ALPHA]] [[ECHO]] [[INDIA]] [[UNIFORM]]
+""Related items (parents)""
+""Related items (children)""
 ""Compartments"" :
-""Status"" :
-""Agency"" : DSD
+""Status"" : active
+""Agency"" : NSA
 ""Links"" :
 * [http://www.intrepidreport.com/archives/8588|intrepidreport.com - Senate delivers fatal end-of-term blow to Constitution]
 
@@ -3961,7 +3975,6 @@ OAKSTAR  is an umbrella program involving surveillance of telecommunications, it
 ""Agency"" : NSA
 ""Links"" :
 * [http://cryptome.org/2014/01/nsa-codenames.htm|cryptome.org - NSA codenames]
-
 
 === PACKAGEGOODS ===
 ""Alias"" :
@@ -4258,8 +4271,8 @@ The  radar unit generates an un-modulated, continuous wave ([[CW]]) signal.  The
 * [https://www.schneier.com/blog/archives/2014/01/nsa_collects_hu.html|schneier.com - NSA Collects Hundreds of Millions of Text Messages Daily]
 
 === PRESSUREWAVE ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short Description"" : spotted on [[TURBINE]]'s document about "APEX VPN exploitation".
 ""Category"" : program
 ""Family"" : database
@@ -4468,7 +4481,7 @@ The  radar unit generates an un-modulated, continuous wave ([[CW]]) signal.  The
 
 === QUANTUMBISCUIT ===
 ""Alias"" :
-""Tag"" :  
+""Tag"" :
 ""Short Description"" :  Redirection based on keywork. Most HTML values
 ""Category"" :  [[program]]
 ""Family"" :
@@ -4498,8 +4511,8 @@ The  radar unit generates an un-modulated, continuous wave ([[CW]]) signal.  The
 * [http://cryptome.org/2013/12/nsa-quantum-tasking.pdf| cryptome.org - NSA QUANTUM tasking techniques]
 
 === QUANTUMBOT2 ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short Description"" : Combination of Q-BOT/Q-BISCUIT for web based. Command and controlled botnets
 ""Category"" :  [[program]]
 ""Family"" :
@@ -4545,7 +4558,7 @@ The  radar unit generates an un-modulated, continuous wave ([[CW]]) signal.  The
 * [https://firstlook.org/theintercept/article/2014/03/12/nsa-plans-infect-millions-computers-malware/ | How the NSA Plans to Infect ‘Millions’ of Computers with Malware - theguardian.com]
 
 === QUANTUMSPIM ===
-""Alias"" : 
+""Alias"" :
 ""Tag"" : [[protocols]] [[chat]]
 ""Short Description"" : Instant Messaging (MSN chat, XMPP), spotted on [[QUANTUMTHEORY]]'s presentation.
 ""Category"" :  [[program]]
@@ -4560,8 +4573,8 @@ The  radar unit generates an un-modulated, continuous wave ([[CW]]) signal.  The
 * [http://cryptome.org/2014/03/nsa-gchq-quantumtheory.pdf | 2010 sigint development conferences - nsa-gchq-quantumtheory.pdf]
 
 === QUANTUMSQUEEL ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short Description"" : Injection into MySQL persistent database connections, spotted on [[QUANTUMTHEORY]]'s presentation.
 ""Category"" :  [[program]]
 ""Family"" :
@@ -4575,8 +4588,8 @@ The  radar unit generates an un-modulated, continuous wave ([[CW]]) signal.  The
 * [http://cryptome.org/2014/03/nsa-gchq-quantumtheory.pdf | 2010 sigint development conferences - nsa-gchq-quantumtheory.pdf]
 
 === QUANTUMSQUIRREL ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short Description"" : Truly covert infrastructure, be any IP in the world, spotted on [[QUANTUMTHEORY]]'s presentation.
 ""Category"" :  [[program]]
 ""Family"" :
@@ -4590,8 +4603,8 @@ The  radar unit generates an un-modulated, continuous wave ([[CW]]) signal.  The
 * [http://cryptome.org/2014/03/nsa-gchq-quantumtheory.pdf | 2010 sigint development conferences - nsa-gchq-quantumtheory.pdf]
 
 === QUANTUMDEFENSE  ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short Description"" : spotted on [[QUANTUMTHEORY]]'s presentation.
 ""Category"" :  [[program]]
 ""Family"" :
@@ -4838,7 +4851,7 @@ QUANTUMTHEORY dynamically injects packets into a target's network session to ach
 ""Tags"" : [[tor]]
 ""Short Description"" : Joint NSA/GCHQ anti-Tor Workshop ca 2012
 ""Category"" : attack vector
-""Family"" : Vector
+""Family"" : network
 ""Related items"" :
 ""Related items (parents)"" :
 ""Related items (children)"" :
@@ -4849,8 +4862,8 @@ QUANTUMTHEORY dynamically injects packets into a target's network session to ach
 * [http://cryptome.org/2014/01/nsa-codenames.htm|cryptome.org - NSA codenames]
 
 === RETRO ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short   Description"" : [[MYSTIC]]'s tool, short for “retrospective  retrieval,”  and related projects  reached full capacity against the  first target  nation in 2011. Planning  documents two years later  anticipated similar  operations elsewhere.
 ""Category"" : [[program]]
 ""Family"" : [[process]]
@@ -5002,8 +5015,8 @@ The   NSA has a diverse arsenal of malware tools, each highly sophisticated   an
 * [https://firstlook.org/theintercept/article/2014/03/12/nsa-plans-infect-millions-computers-malware/ | How the NSA Plans to Infect ‘Millions’ of Computers with Malware - theguardian.com]
 
 === SARATOGA  ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short Description"" : spotted on [[QUANTUMTHEORY]]'s presentation.
 ""Category"" : [[program]]
 ""Family"" :
@@ -5390,8 +5403,8 @@ SIERRAMONTANA  is the cover term for the persistence technique to deploy a DNT i
 * [http://cryptome.org/2014/01/nsa-codenames.htm|cryptome.org - NSA codenames]
 
 === SMOKEYSINK  ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short Description"" : spotted on [[QUANTUMTHEORY]]'s presentation.
 ""Category"" :  [[program]]
 ""Family"" :
@@ -5785,7 +5798,7 @@ http://www.intrepidreport.com/archives/8588
 ""Alias"" :
 ""Tags"" :[[usb]]  [[malwarel]]
 ""Short  Description"" : A jointly US/Isreali written piece of malware intended  to infect, and physically destroy five Iranian organizations, with the  probable target widely suspected to be uranium enrichment infrastructure  in Iran . (which it did) Also spilled on to non-targeted SCADA systems,  causing “collateral damage”. Using 0-day exploits, it infected Personal  Computers near the targeted Installation: then it waited several months  to infect a USB-key which will be connected on the internal-network of  the target. After that, a payload dedicated to Siemens Systems is  enabled
-""Category"" :attackvector
+""Category"" : attack vector
 ""Family"" : software
 ""Related items"" :
 ""Related items (parents)"" :
@@ -6087,8 +6100,8 @@ ThinThread was dismissed and replaced by the [[TRAILBLAZER]] Project
 
 
 === TOYGRIPPE ===
-""Alias"" : 
-""Tag"" : 
+""Alias"" :
+""Tag"" :
 ""Short Description"" : spotted on [[TURBINE]]'s document about "APEX VPN exploitation".
 ""Category"" : program
 ""Family"" : database
@@ -6303,7 +6316,7 @@ ThinThread was dismissed and replaced by the [[TRAILBLAZER]] Project
 === TUTELAGE ===
 ""Alias"" :
 ""Tags"" :[[nids]]
-""Short Description"" : Part of the [[TURBULENCE]] program. NSA's own defense system against hacking. 
+""Short Description"" : Part of the [[TURBULENCE]] program. NSA's own defense system against hacking.
 ""Category"" : program
 ""Family"" : process
 ""Related items"" : [[TURBULENCE]]
@@ -6396,15 +6409,16 @@ ThinThread was dismissed and replaced by the [[TRAILBLAZER]] Project
 ""Links"" :
 
 === UNIFORM ===
-""Alias"" :
+""Alias"" : [[CSE]]
 ""Tags"" :
-""Short Description"" : Exchange designator Canada’s Communications Security Establishment (CSE). See also ALPHA.
-""Family"" : compartment
-""Related items"" :
-""Related items (parents)"" :
-""Related items (children)"" :
+""Short Description"" : Exchange designator for Canada’s Communications Security Establishment (CSE).
+""Category"" : five eyes
+""Family"" : agence
+""Related items"" : [[ALPHA]] [[ECHO]] [[INDIA]] [[OSCAR]]
+""Related items (parents)""
+""Related items (children)""
 ""Compartments"" :
-""Status"" :
+""Status"" : active
 ""Agency"" : CSE
 ""Links"" :
 * [http://www.intrepidreport.com/archives/8588|intrepidreport.com - Senate delivers fatal end-of-term blow to Constitution]
@@ -6514,7 +6528,7 @@ ThinThread was dismissed and replaced by the [[TRAILBLAZER]] Project
 ""Alias"" :
 ""Tags"" : [[gsm]]
 ""Short  Description"" : a malicious hardware device that provides covert 2-way  RF communications on the I2C channel of HP Proliant 380DL G5 servers.  [[WAGONBED]] 2 can be mated with a Motorola G20 GSM module to form  [[CROSSBEAM]].
-""Category"" :attack vector
+""Category"" : attack vector
 ""Family"" : hardware
 ""Related items"" : [[CROSSBEAM]] [[IRONCHEF]] [[FLUXBABBIT]] [[GODSURGE]]
 ""Related items (parents)"" :
