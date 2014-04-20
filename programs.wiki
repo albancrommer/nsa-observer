@@ -5693,7 +5693,7 @@ http://www.intrepidreport.com/archives/8588
 ""Family"" : collect
 ""Related items"" : [[MADCAPOCELOT]] [[STORMBREW]] [[PINWALE]] [[MARINA]] [[UPSTREAM]] [[XKEYSCORE]]
 ""Related items (parents)"" : [[UPSTREAM]]
-""Related items (children)"" : [[MADCAPOCELOT]]
+""Related items (children)"" : [[MADCAPOCELOT]] [[ARTIFICE]]
 ""Compartments"" :
 ""Status"" :
 ""Agency"" : NSA
