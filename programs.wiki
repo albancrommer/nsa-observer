@@ -1873,7 +1873,7 @@ Status: Released / Deployed. Ready for Immediate Delivery
 ""Family"" : database
 ""Related items"" : [[CHALKFUN]] [[SCISSORS]] [[BOUNDLESSINFORMANT]]
 ""Related items (parents)"" : [[BOUNDLESSINFORMANT]]
-""Related items (children)"" : [[DANCINGOASIS]] [[MARINA]]
+""Related items (children)"" : [[DANCINGOASIS]] [[MARINA]] [[CHALKFUN]]
 ""Compartments"" : [[TOP SECRET]] [[SI]] [[NOFORN]]
 ""Status"" :
 ""Agency"" : NSA
