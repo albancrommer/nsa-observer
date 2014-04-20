@@ -6417,7 +6417,7 @@ ThinThread was dismissed and replaced by the [[TRAILBLAZER]] Project
 ""Family"" : network
 ""Related items"" : [[IRATEMONK]] [[FERRETCANNON]] [[FOXACID]]
 ""Related items (parents)"" : [[FERRETCANNON]]
-""Related items (children)"" :
+""Related items (children)"" : [[CAPTIVATEDAUDIENCE]]
 ""Compartments"" :
 ""Status"" :
 ""Agency"" : NSA
