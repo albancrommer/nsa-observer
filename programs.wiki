@@ -4296,7 +4296,7 @@ The  radar unit generates an un-modulated, continuous wave ([[CW]]) signal.  The
 ""Family"" : process
 ""Related items"" : [[TRAFFICTHIEF]] [[MARINA]] [[MAINWAY]] [[FALLOUT]] [[PINWALE]] [[CONVEYANCE]] [[NUCLEON]]
 ""Related items (parents)"" : [[NSA]]
-""Related items (children)"" :
+""Related items (children)"" : [[BOUNDLESSINFORMANT]]
 ""Compartments"" : [[TOP SECRET]] [[SI]] [[ORCON]] [[NOFORN]]
 ""Status"" : active
 ""Agency"" : NSA
