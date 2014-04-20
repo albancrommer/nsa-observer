@@ -2771,7 +2771,7 @@ wireless bug transmitter to fit into the victim's USB plug, with no visible prof
 ""Family"" : hardware
 ""Related items"" : [[ARKSTREAM]] [[TAO]]  [[INTERDICTION]]
 ""Related items (parents)"" : [[TAO]]
-""Related items (children)"" :
+""Related items (children)"" : [[BULLDOZER]]
 ""Compartments"" :
 ""Status"" :
 ""Agency"" : NSA
