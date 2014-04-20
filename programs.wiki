@@ -394,7 +394,7 @@
 ""Family"" : hardware
 ""Related items"" :
 ""Related items (parents)"" : [[GENIE]]
-""Related items (children)"" : [[HIGHLAND]][[VAGRANT]]
+""Related items (children)"" : [[HIGHLANDS]][[VAGRANT]]
 ""Compartments"" :
 ""Status"" :
 ""Agency"" : NSA
@@ -484,11 +484,11 @@
 === BLUEANCHOR ===
 ""Alias"" :
 ""Tags"" :
-""Short Description"" : Partner providing a network access point for the [[YACHTSTOP]] program.
+""Short Description"" : Partner providing a network access point for the [[YACHTSHOP]] program.
 ""Category"" : program
 ""Family"" : collect
-""Related items"" : [[YACHTSTOP]] [[UPSTREAM]]
-""Related items (parents)"" : [[YACHTSTOP]]
+""Related items"" : [[YACHTSHOP]] [[UPSTREAM]]
+""Related items (parents)"" : [[YACHTSHOP]]
 ""Related items (children)"" :
 ""Compartments"" :
 ""Status"" :
@@ -1888,7 +1888,7 @@ Status: Released / Deployed. Ready for Immediate Delivery
 ""Family"" : database
 ""Related items"" : [[CHALKFUN]] [[SCISSORS]] [[BOUNDLESSINFORMANT]]
 ""Related items (parents)"" : [[BOUNDLESSINFORMANT]]
-""Related items (children)"" : [[DANCINGOASIS]] [[MARINA]]
+""Related items (children)"" : [[DANCINGOASIS]] [[MARINA]] [[CHALKFUN]]
 ""Compartments"" : [[TOP SECRET]] [[SI]] [[NOFORN]]
 ""Status"" :
 ""Agency"" : NSA
@@ -2286,7 +2286,7 @@ See [[QUANTUM]] for the Man-in-the-middle.
 ""Family"" : network
 ""Related items"" :
 ""Related items (parents)"" :
-""Related items (children)"" : [[BLACKFOOT]] [[WABASH]]
+""Related items (children)"" : [[BLACKFOOT]] [[WABASH]] [[BRUNEAU]]
 ""Compartments"" :
 ""Status"" : projected ?
 ""Agency"" : NSA
@@ -2785,7 +2785,7 @@ wireless bug transmitter to fit into the victim's USB plug, with no visible prof
 ""Family"" : hardware
 ""Related items"" : [[ARKSTREAM]] [[TAO]]  [[INTERDICTION]]
 ""Related items (parents)"" : [[TAO]]
-""Related items (children)"" :
+""Related items (children)"" : [[BULLDOZER]]
 ""Compartments"" :
 ""Status"" :
 ""Agency"" : NSA
@@ -4309,7 +4309,7 @@ The  radar unit generates an un-modulated, continuous wave ([[CW]]) signal.  The
 ""Family"" : process
 ""Related items"" : [[TRAFFICTHIEF]] [[MARINA]] [[MAINWAY]] [[FALLOUT]] [[PINWALE]] [[CONVEYANCE]] [[NUCLEON]]
 ""Related items (parents)"" : [[NSA]]
-""Related items (children)"" :
+""Related items (children)"" : [[BOUNDLESSINFORMANT]] [[CARBOY]]
 ""Compartments"" : [[TOP SECRET]] [[SI]] [[ORCON]] [[NOFORN]]
 ""Status"" : active
 ""Agency"" : NSA
@@ -5706,7 +5706,7 @@ http://www.intrepidreport.com/archives/8588
 ""Family"" : collect
 ""Related items"" : [[MADCAPOCELOT]] [[STORMBREW]] [[PINWALE]] [[MARINA]] [[UPSTREAM]] [[XKEYSCORE]]
 ""Related items (parents)"" : [[UPSTREAM]]
-""Related items (children)"" : [[MADCAPOCELOT]]
+""Related items (children)"" : [[MADCAPOCELOT]] [[ARTIFICE]]
 ""Compartments"" :
 ""Status"" :
 ""Agency"" : NSA
@@ -5928,7 +5928,7 @@ http://www.intrepidreport.com/archives/8588
 ""Family"" :
 ""Related items"" : [[ROC]] [[ANGRYNEIGHBOR]]
 ""Related items (parents)"" : [[NSA]]
-""Related  items (children)"" : [[ROC]] [[QUANTUM]] [[INTERDICTION]] [[IRONCHEF]]  [[ANGRYNEIGHBOR]] [[FEEDTROUGH]] [[GOURMETTROUGH]] [[JETPLOW]]  [[SOUFFLETROUGH]] [[SCHOOLMONTANA]] [[NIGHTSTAND]] [[STUCCOMONTANA]]  [[CROSSBEAM]] [[BSR]] [[CHIMNEYPOOL]] [[MIDDLEMAN]] [[TAO]]
+""Related  items (children)"" : [[ROC]] [[QUANTUM]] [[INTERDICTION]] [[IRONCHEF]]  [[ANGRYNEIGHBOR]] [[FEEDTROUGH]] [[GOURMETTROUGH]] [[JETPLOW]]  [[SOUFFLETROUGH]] [[SCHOOLMONTANA]] [[NIGHTSTAND]] [[STUCCOMONTANA]]  [[CROSSBEAM]] [[BSR]] [[CHIMNEYPOOL]] [[MIDDLEMAN]] [[ARKSTREAM]] [[BACONRIDGE]] [[BANANAGLEE]]
 ""Compartments"" :
 ""Status"" :
 ""Agency"" : NSA
@@ -6431,7 +6431,7 @@ ThinThread was dismissed and replaced by the [[TRAILBLAZER]] Project
 ""Family"" : network
 ""Related items"" : [[IRATEMONK]] [[FERRETCANNON]] [[FOXACID]]
 ""Related items (parents)"" : [[FERRETCANNON]]
-""Related items (children)"" :
+""Related items (children)"" : [[CAPTIVATEDAUDIENCE]]
 ""Compartments"" :
 ""Status"" :
 ""Agency"" : NSA
