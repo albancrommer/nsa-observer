@@ -47,6 +47,9 @@ Template.nav.canEdit= function(){
 }
 Template.nav.isAdmin= function(){
     var user                            = Meteor.user();
+    if( ! user){
+        return false;
+    }
     return user.isAdmin;
 }
 
