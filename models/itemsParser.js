@@ -21,7 +21,7 @@ ItemParser                              = function(){
      * 
      */
     instance.linkSplit                  = function (str){
-        var re                          = /(\[\[[A-Z0-9 ]*?\]\])/g,
+        var re                          = /(\[\[[a-zA-Z0-9 ]*?\]\])/g,
             res                         = [],
             final                       = [];
         while( true ){

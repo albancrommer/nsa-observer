@@ -11,8 +11,7 @@ Template.nav.events({
             val = el.val();
        
        Session.set("search",{name:val});
-       Session.set("listName","search: "+val);
-       togglePanels(isDisplayed,["itemListIsVisible"]);
+       Session.set("listName","Search: "+val);
     },
     'click .new' : function(){
         var item = Items.findOne( Items.insert({}) );

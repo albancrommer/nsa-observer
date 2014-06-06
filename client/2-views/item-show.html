@@ -82,9 +82,9 @@
                         </dd>
                         <dt>Tags</dt>
                         <dd class="item-ul">
-                        <ul>
-                        {{#each tags}}<li>{{#if this}}{{{wikiLinks this}}}{{/if}}</li>{{/each}}
-                        </ul>&nbsp;
+                        {{#each tags}}
+                            {{#if this}}{{{tagLinks this}}}{{/if}}
+                        {{/each}}
                         </dd>
                         <dt>Related items</dt>
                         <dd class="item-ul">

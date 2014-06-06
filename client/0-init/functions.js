@@ -5,7 +5,7 @@
  * @returns {unresolved}
  */
 transformWikiLinks = function(string,html) {
-  var re = /(?:\[\[([A-Z0-9\-_ ]+)(?:\]\]))/g,
+  var re = /(?:\[\[([a-zA-Z0-9\-_ ]+)(?:\]\]))/g,
       match,
       str_res = string,
       html = (undefined === html ? "true" : html)
@@ -23,7 +23,7 @@ transformWikiLinks = function(string,html) {
                    family:item.family,
                    name:item.name
                }) 
-            }1
+            }
             str_res = str_res.replace(match[0],'<a href="'+link+'" class="item-show-link internal-link" rel="'+match[1]+'">'+match[1]+'</a>');
         }else{
             str_res = match[1];
@@ -32,6 +32,40 @@ transformWikiLinks = function(string,html) {
   }
   return str_res;
 }
+
+/**
+ * 
+ * @param {type} string
+ * @param {type} html
+ * @returns {unresolved}
+ */
+transformTagLinks = function(string,html) {
+  var re = /(?:\[\[([a-zA-Z0-9\-_ ]+)(?:\]\]))/g,
+      match,
+      str_res = string,
+      html = (undefined === html ? "true" : html)
+      ;
+
+  while (match = re.exec(string)) {
+    if( match.length > 1){    
+        if( html ){
+            var tag = match[1];
+            var link = "/#";
+            if (tag) {
+               link = Router.path("tags",{
+                   tags:tag
+               }) 
+            }
+            str_res = str_res.replace(match[0],'<a href="'+link+'" class="item-show-link tag-link" tag="'+match[1]+'">'+match[1]+'</a>');
+        }else{
+            str_res = match[1];
+        }
+    }
+  }
+  return str_res;
+}
+
+
 /**
  * 
  * @param {type} event
@@ -58,6 +92,7 @@ itemLinkShowListEvent = function(event){
         element     = $(event.currentTarget),
         category    = element.attr("category"),
         family      = element.attr("family"),
+        tag         = element.attr("tag"),
         route       = "",
         search      = {}
     ;
@@ -67,6 +102,9 @@ itemLinkShowListEvent = function(event){
     }else if (category){
         search      = {category:category};
         route       = "category";
+    }else if (tag){
+        search      = {tags :new RegExp(tag)};
+        route       = "tags";
     }else{
         return;
     }

@@ -10,6 +10,7 @@ Template.itemShow.events({
     'click .internal-link':itemLinkShowEvent,
     'click .family-link':itemLinkShowListEvent,
     'click .category-link':itemLinkShowListEvent,
+    'click .tag-link':itemLinkShowListEvent,
 });
 
 Template.itemShow.draftsNum = function(){
@@ -151,6 +152,9 @@ Template.itemShow.inEditModeWiki = function() {
 }
 Template.itemShow.wikiLinks = function(t){
     return transformWikiLinks(t);
+};
+Template.itemShow.tagLinks = function(t){
+    return transformTagLinks(t);
 };
 Template.itemShow.editExternalLink = function(){
     var txt                             = "";
