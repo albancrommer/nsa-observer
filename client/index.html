@@ -6,10 +6,14 @@ Sorry, but this site relays entirely on javascript. <br />
 For your information, it doesn't include any tracker or any script linking to another domain.
 </noscript>
 <script>
-if (!navigator.cookieEnabled)
-     document.write("Cookies are only required for Meteor to work. No analytics");
+if (!navigator.cookieEnabled){
+     document.write('<div style="text-align:center;">');
+     document.write('<h1>Sorry, cookies are required for this site to work.</h1>');
+     document.write("For your information, it doesn't include any tracker and cookies are only needed for basic functionality.");
+     document.write('</div">');
+}
 </script>
-</head>
+    </head>
 <body>
 {{> slider}}
 </body>
