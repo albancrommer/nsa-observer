@@ -1,7 +1,8 @@
 
 // itemList
 Template.itemList.element= function () {
-    var search = this.search || Session.get("search");
+    var search = Session.get("search");
+    // When looking for a list based on name
     if( "name" in search){
         var regexp      = new RegExp(search.name,'i');
         delete search.name;
@@ -16,20 +17,12 @@ Template.itemList.listName= function () {
         family      = search.family,
         tags        = search.tags,
         search      = {},
-        listName    = ""
+        listName    = Session.get("listName") || ""
     ;
     if( family ){
         listName    = category+"s > "+family;
     }else if (category){
         listName    = category+"s";
-    }else if (tags){
-        if( "source" in tags){
-            listName = tags.source;
-        }else{
-            listName = "tags";
-        }
-    }else{
-        listName    = Session.get("listName")
     }
     return listName;
 };

@@ -103,7 +103,9 @@ itemLinkShowListEvent = function(event){
         search      = {category:category};
         route       = "category";
     }else if (tag){
-        search      = {tags :new RegExp(tag)};
+//        search      = {tags :new RegExp(tag,"i")};
+        search      = {tags :tag};
+        Session.set("listName",tag)
         route       = "tags";
     }else{
         return;
