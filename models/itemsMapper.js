@@ -88,7 +88,8 @@ ItemsMapper                 = {
             newItem                     = newItem || null,
             user                        = Meteor.user(),
             item_name                   = currentItem.name,
-            email
+            email,
+            link                        = Router.url("item",{"name":item_name})
         ;
         // Attempts to retrieve user email
         if( "emails" in user && user.emails.length && "address" in user.emails[0] ){
@@ -130,9 +131,8 @@ ItemsMapper                 = {
                 // send email to admin team
                 Meteor.call('sendEmail',
                 email,
-                'admin@nsa-observer.net',
-                'NSAOBS : '+item_name+' VERSION by '+email,
-                JSON.stringify(draftVersion)
+                'NSAOBS : VERSION '+item_name+' by '+email,
+                link
                 );
             }catch(err){
                 alert("An error occured : failed to send admin team the notification email.");
@@ -156,9 +156,8 @@ ItemsMapper                 = {
                     // send email to admin team
                     Meteor.call('sendEmail',
                     email,
-                    'admin@nsa-observer.net',
-                    'NSAOBS : '+item_name+' DRAFT by '+email,
-                    JSON.stringify(draftVersion)
+                    'NSAOBS : DRAFT '+item_name+' by '+email,
+                    link
                     );
                 }catch(err){
                     alert("An error occured : failed to send admin team the notification email.");
