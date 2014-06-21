@@ -85,8 +85,16 @@ ItemsMapper                 = {
             var data,
             currentItem                 = Session.get("currentItem"),
             _id                         = currentItem._id,
-            newItem                     = newItem || null
+            newItem                     = newItem || null,
+            user                        = Meteor.user(),
+            item_name                   = currentItem.name,
+            email
         ;
+        // Attempts to retrieve user email
+        if( "emails" in user && user.emails.length && "address" in user.emails[0] ){
+            email = Meteor.user().emails[0].address;
+        }
+        
         if( !newItem ){
             // Wiki style
             if( Session.equals('editModeType',"wiki") ){
@@ -117,6 +125,18 @@ ItemsMapper                 = {
          // Attempts to save the item
          if( Meteor.user().isAdmin ){
              var backupVersion          = ItemsStubs.itemToStub(currentItem);
+             
+            try{
+                // send email to admin team
+                Meteor.call('sendEmail',
+                email,
+                'admin@nsa-observer.net',
+                'NSAOBS : '+item_name+' VERSION by '+email,
+                JSON.stringify(draftVersion)
+                );
+            }catch(err){
+                alert("An error occured : failed to send admin team the notification email.");
+            }
              // Updates
              Items.update({_id:_id},{$set:newItem},function(err,num){
                  // Failed
@@ -129,9 +149,25 @@ ItemsMapper                 = {
              });
          // Saves a draft
          }else{
-             var draftVersion           = ItemsStubs.itemToStub(newItem, _id);
-             // Keeps the backup
-             Drafts.insert(draftVersion);
+             
+            var draftVersion           = ItemsStubs.itemToStub(newItem, _id);
+            if (email){
+                try{
+                    // send email to admin team
+                    Meteor.call('sendEmail',
+                    email,
+                    'admin@nsa-observer.net',
+                    'NSAOBS : '+item_name+' DRAFT by '+email,
+                    JSON.stringify(draftVersion)
+                    );
+                }catch(err){
+                    alert("An error occured : failed to send admin team the notification email.");
+                }
+                // Keeps the backup
+                Drafts.insert(draftVersion);
+            }else{
+                alert("An error occured : failed to retrieve your email");
+            }
          }
          return true;
          
