@@ -12,7 +12,7 @@ Template.itemList.element= function () {
 };
 
 Template.itemList.listName= function () {
-    var search      = this.search || Session.get("search"),
+    var search      = Session.get("search"),
         category    = search.category,
         family      = search.family,
         tags        = search.tags,
