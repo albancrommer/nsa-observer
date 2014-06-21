@@ -89,7 +89,7 @@ ItemsMapper                 = {
             user                        = Meteor.user(),
             item_name                   = currentItem.name,
             email,
-            link                        = Router.url("item",{"name":item_name})
+            link                        = "https://www.nsa-observer.net/"+item_name
         ;
         // Attempts to retrieve user email
         if( "emails" in user && user.emails.length && "address" in user.emails[0] ){
