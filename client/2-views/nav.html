@@ -50,6 +50,10 @@
             <a class="btn new">
                 New item
             </a>
+        {{else}}
+            <a class="btn itemPropose">
+                New item
+            </a>
         {{/if}}
         {{# if canEdit  }}
             <a class="btn view-mode{{#if mode 'view'}} active {{/if}}" href="#">

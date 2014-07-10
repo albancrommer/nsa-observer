@@ -34,6 +34,9 @@ Template.nav.events({
     },
     'click .item-save':function(e){
         ItemsMapper.save();
+    },
+    'click .itemPropose':function(e){
+        Router.go("itemPropose",{})
     }
             
 })
