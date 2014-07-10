@@ -48,72 +48,72 @@ ItemParser                              = function(){
             tuple                       = [],
             res                         = [],
             expressions                 = [
-            [/^== ([A-Z]) ==$/,function(r){
+            [/^== ([A-Z]) ==$/i,function(r){
             }],
-            [/=== *(.*?) *?===/,function(r){
+            [/=== *(.*?) *?===/i,function(r){
                 instance.addItem()
                 currentItem             = new Item(r[1]);
             }],
-            [/""Short ?Description"" *?: *?(.*?) *?$/,function(r){
+            [/""Short ?Description"" *?: *?(.*?) *?$/i,function(r){
                 currentItem.description         = r[1].trim();    
                 currentItem.currentState         = "description";
             }],
-            [/""Category"" *: *(.*?)$/,function(r){
+            [/""Category"" *: *(.*?)$/i,function(r){
                 if( "" == r[1].trim()){
                         r[1] = "program";
                 };
                 currentItem.category         = r[1].trim();    
                 currentItem.currentState         = null;
             }],
-            [/""Family"" *?: *?(.*?)$/,function(r){
+            [/""Family"" *?: *?(.*?)$/i,function(r){
                 if( "" == r[1].trim()){
                                     r[1] = "collect";
                             };
                             currentItem.family         = r[1].trim();    
                             currentItem.currentState         = null;
             }],
-            [/""Compartments"" *?: *?(.*?)$/,function(r){
+            [/""Compartments"" *?: *?(.*?)$/i,function(r){
                 currentItem.compartments         = instance.linkSplit(r[1])
                 currentItem.currentState         = null;
             }],
-            [/""Agency"" *: *(.*?)$/,function(r){
+            [/""Agency"" *: *(.*?)$/i,function(r){
                 if( "" == r[1].trim()){
                         r[1] = "undefined";
                 };
                 currentItem.agency         = r[1].trim();    
                 currentItem.currentState         = null;
             }],
-            [/""Related items"" *?: *?(.*?)$/,function(r){
+            [/""Related items"" *?: *?(.*?)$/i,function(r){
                 currentItem.relatedItems         = instance.linkSplit(r[1])
                 currentItem.currentState         = null;
             }],
-            [/""Related items \(parents\)"" *?: *?(.*?)$/,function(r){
+            [/""Related items \(parents\)"" *?: *?(.*?)$/i,function(r){
                 currentItem.relatedItemsParents         = instance.linkSplit(r[1])
                 currentItem.currentState         = null;
             }],
-            [/""Related items \(children\)"" *?: *?(.*?)$/,function(r){
+            [/""Related items \(children\)"" *?: *?(.*?)$/i,function(r){
                 currentItem.relatedItemsChildren         = instance.linkSplit(r[1])
                 currentItem.currentState         = null;
             }],
-            [/""Tags"" *?: *?(.*?)$/,function(r){
+            [/""Tags"" *?: *?(.*?)$/i,function(r){
                 currentItem.tags                 = instance.linkSplit(r[1])
                 currentItem.currentState         = null;
             }],
-            [/""Alias"" *?: *?(.*?)$/,function(r){
+            [/""Alias"" *?: *?(.*?)$/i,function(r){
                 currentItem.alias                = instance.linkSplit(r[1])
                 currentItem.currentState         = null;
             }],
-            [/""Status"" *?: *?(.*?)$/,function(r){
+            [/""Status"" *?: *?(.*?)$/i,function(r){
             if( "" == (r[1])){
                 r[1] = "unknown";
             };
             currentItem.status          = r[1].trim();    
             currentItem.currentState         = null;                
             }],
-            [/""Links"" :/,function(r){
+            [/""Links"" :/i,function(r){
                 currentItem.currentState         = "links";
             }],
-            [/\[(.*)\|(.*)\]/,function(r){
+            [/\[(.*)\|(.*)\]/i,function(r){
                 if( ! r[1] ){
                     instance.log( "[invalid url]"+ row);
                     return;
