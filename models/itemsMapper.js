@@ -164,6 +164,7 @@ ItemsMapper                 = {
                 }
                 // Keeps the backup
                 Drafts.insert(draftVersion);
+                alert("Draft saved");
             }else{
                 alert("An error occured : failed to retrieve your email");
             }
