@@ -388,53 +388,53 @@ dt:nth-child(4n+1), dd:nth-child(4n+2) {
 
 
 
-/* Slider */
+/* home */
 
-.slider * {
-    line-height: 1.6em;
+.home * {
+    /*line-height: 1.6em;*/
 }
 
 .page {
     padding :30px 0;
 }
 
-.slider .row .span12, body .slider .row .span10{
+.home .row .span12, body .home .row .span10{
     text-align: center;
 }
 
-.slider * {
+.home * {
     color: #666;
 
 }
 
-.slider h1,
-.slider h2,
-.slider h3
+.home h1,
+.home h2,
+.home h3
 {
     font-weight: normal;
     line-height: 1em;
     margin-bottom: 10px;
     
 }
-.slider dd, .slider dt {
+.home dd, .home dt {
     min-height: 25px;
     padding-left: 5px;
 }
 
-.slider hr {
+.home hr {
     margin: 28px 0;
 }
-.slider .btn.btn-small.btn-primary {
+.home .btn.btn-small.btn-primary {
     color: white;
 }
-.slider .btn-large {
+.home .btn-large {
     width: 80%;
     margin: auto;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.slider .btn-large.btn-info {
+.home .btn-large.btn-info {
     background: none repeat scroll 0 0 #4996CD;
     border-radius: 3px 3px 3px 3px;
     color: #FFFFFF;
@@ -465,9 +465,33 @@ circle {
 .internal-link:hover {
     cursor: pointer;
 }
+.home-item-wrapper * {
+    text-align: center;
+    margin: auto;
+}
+.home-item-count {
+    font-size: 44pt;
+    color: #4996CD;
+    line-height: 1em;
+}
+.home-item-name {
+    line-height: 1em;
+    font-weight: bold;
+}
 
-
-/* Slider inverted */
+.home-hero-link {
+    font-size: 34pt;
+    color: #0088cc;
+    display: inline-block;
+    padding: 12px;
+}
+.home-tags-link {
+    font-size: 14pt;
+    color: #0088cc;
+    display: inline-block;
+    padding: 4px;
+}
+/* home inverted */
 
 .inverted {
     background: none repeat scroll 0 0 #4996CD;
@@ -480,20 +504,27 @@ circle {
     border-color: #5FA5D3;
 }
 
-.slider .inverted h1, .slider .inverted h2, .slider .inverted h3 {
+.home .inverted * {
+    color: #eee;
+}
+
+.home .inverted h1, .home .inverted h2, .home .inverted h3 {
     color:white;
 }
-.slider .inverted h4 {
+.home .inverted h4 {
     font-weight: normal;
-    color:#4c4c54;
+    color:#ccf;
+}
+.home .inverted .btn{
+    color:#425767;
 }
 
 
-.slider .head{
+.home .head{
     margin:100px 20px 40px
 }
 
-.slider a.link{
+.home a.link{
     background: none repeat scroll 0 0 #6ebbdd;
     border: 1px solid #1776a0;
     border-radius: 2px 2px 2px 2px;
@@ -505,7 +536,7 @@ circle {
     padding: 10px;
     width: 130px;
 }
-.slider a.link:hover{
+.home a.link:hover{
     background: none repeat scroll 0 0 #69b3d3;
     text-decoration: none;
 }
