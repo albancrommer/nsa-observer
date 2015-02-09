@@ -51,41 +51,56 @@
                 </h3>
                 <div class="item-show">
                     <dl class="dl-horizontal">
+        {{#if currentItem.description}}
                         <dt>Description</dt>
                         <dd><p class="item-data" >
                                 {{{wikiLinks currentItem.description }}}&nbsp;
                             </p>
                         </dd>
+        {{/if}}
+        {{#if currentItem.alias}}
                         <dt>Alias</dt>
                         <dd class="item-ul">
                         <ul>
                         {{#each alias}}<li>{{#if this}}{{{wikiLinks this}}}{{/if}}</li>{{/each}}
                         </ul>&nbsp;
                         </dd>
+        {{/if}}
+        {{#if currentItem.category}}
                         <dt>Category</dt>
                         <dd>
                             <a href="{{pathFor 'category'}}" class="item-show-link category-link" category="{{ category }}">
                                 {{ category }}
                             </a>&nbsp;
                         </dd>
+        {{/if}}
+        {{#if currentItem.family}}
                         <dt>Family</dt>
                         <dd><a href="{{pathFor 'category-family'}}" class="item-show-link family-link" category="{{ category }}" family="{{ family }}">{{ family }}</a>&nbsp;
                         </dd>
+        {{/if}}
+        {{#if currentItem.agency}}
                         <dt>Agency</dt>
                         <dd>{{ agency }}&nbsp;
+        {{/if}}
                         </dd>
+        {{#if currentItem.compartments}}
                         <dt>Compartments</dt>
                         <dd class="item-ul">
                         <ul>
                         {{#each compartments}}<li>{{#if this}}{{{wikiLinks this}}}{{/if}}</li>{{/each}}
                         </ul>&nbsp;
                         </dd>
+        {{/if}}
+        {{#if currentItem.tags}}
                         <dt>Tags</dt>
                         <dd class="item-ul">
                         {{#each tags}}
                             {{#if this}}{{{tagLinks this}}}{{/if}}
                         {{/each}}
                         </dd>
+        {{/if}}
+        {{#if currentItem.relatedItems}}
                         <dt>Related items</dt>
                         <dd class="item-ul">
                         <ul>
@@ -96,6 +111,8 @@
                         {{/each}}
                         </ul>&nbsp;
                         </dd>
+        {{/if}}
+        {{#if currentItem.relatedItemsParents}}
                         <dt>Parents</dt>
                         <dd class="item-ul">
                         <ul>
@@ -106,6 +123,8 @@
                         {{/each}}
                         </ul>&nbsp;
                         </dd>
+        {{/if}}
+        {{#if currentItem.relatedItemsChildren}}
                         <dt>Children</dt>
                         <dd class="item-ul">
                         <ul>
@@ -116,6 +135,7 @@
                         {{/each}}
                         </ul>&nbsp;
                         </dd>
+        {{/if}}
                         <dt>Sources</dt>
                         <dd class="item-ul">
                             <ul class='external-links-wrapper'>

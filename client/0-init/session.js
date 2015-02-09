@@ -4,7 +4,7 @@ Session.setDefault("currentItem",null);
 Session.setDefault("itemListIsVisible",false);
 Session.setDefault("itemShowIsVisible",false);
 Session.setDefault("listName","");
-Session.setDefault("sliderRendered",false);
+Session.setDefault("homeRendered",false);
 Session.setDefault("showNav",true);
 Session.setDefault("itemEdit",false);
 Session.setDefault("editMode",false);
