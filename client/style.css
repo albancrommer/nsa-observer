@@ -508,6 +508,10 @@ circle {
     color: #eee;
 }
 
+.home .inverted input {
+    color: #333;
+}
+
 .home .inverted h1, .home .inverted h2, .home .inverted h3 {
     color:white;
 }
