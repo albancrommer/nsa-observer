@@ -9,10 +9,8 @@ Template.itemList.element= function () {
         search["$or"] = [{tags:regexp},{alias:regexp},{agency:regexp},{name:regexp},{description:regexp}];
     }
     var list =  Items.find(search,{sort:{name:1}}).fetch() || [];
-    if( list.length >= 1 ){
+    if( list.length >= 1 && ! Session.get("currentItem")){
         Session.set("currentItem",list[0]);
-    }else{
-        Session.set("currentItem",null);
     }
     return list;
 };
