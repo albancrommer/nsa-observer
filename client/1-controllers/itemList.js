@@ -3,7 +3,12 @@
 Template.itemList.element= function () {
     var search = Session.get("search");
     // When looking for a list based on name
-    if( "name" in search){
+    if( "name" in search ){
+        // Sometimes when coming from home, the search runs with an empty search name
+        // This fixes it, for now.
+        if( "" === search["name"]){
+            return Session.get("currentList");
+        }
         var regexp      = new RegExp(search.name,'i');
         delete search.name;
         search["$or"] = [{tags:regexp},{alias:regexp},{agency:regexp},{name:regexp},{description:regexp}];
@@ -12,6 +17,7 @@ Template.itemList.element= function () {
     if( list.length >= 1 && ! Session.get("currentItem")){
         Session.set("currentItem",list[0]);
     }
+    Session.set("currentList",list);
     return list;
 };
 

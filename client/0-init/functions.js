@@ -114,22 +114,6 @@ itemLinkShowListEvent = function(event){
     Router.go(route,search);
 }
 
-/**
- * 
- * @param {type} hideOrShow
- * @param {type} panels
- * @returns {undefined}
- */
-togglePanels = function (hideOrShow,panels){
-    var iterator,
-        state = hideOrShow || false,
-//        panels = panels || ["itemListIsVisible", "itemShowIsVisible"];
-        panels = ["itemListIsVisible", "itemShowIsVisible"];
-        for( iterator = 0; iterator < panels.length; iterator++ ){
-            var panel = panels[iterator];
-            Session.set(panel,state);
-        }
-}
 
 
 /**

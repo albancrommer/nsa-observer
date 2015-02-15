@@ -187,7 +187,6 @@ BigGraph = function(){
     var instance = {};
     instance.drawGraph = function(selector,hierarchy,width,height){
 
-        console.log(hierarchy);
 //        console.log("selector: ",selector," ---------------",hierarchy);
 
     var margin = {top: 20, right: 120, bottom: 20, left: 120},
