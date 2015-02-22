@@ -1,7 +1,7 @@
 // javascript:(function(){!function(){function n(n){var e=[];o.forEach(function(t){var a=t[1],r=!1;n.forEach(function(n){var i=new RegExp("\\b"+n+"\\b","i"),o=i.exec(a);o&&o.length&&(-1===e.indexOf(n)&&e.push(n),c.push([n,t[0]]),r=!0)}),r&&(t[0].innerHTML=t[0].innerText)});var t=encodeURI(JSON.stringify(e));s=new XMLHttpRequest,s.open("GET",i+"/api/search?q="+t),s.onreadystatechange=function(){4===s.readyState&&200===s.status&&r(JSON.parse(s.response))},s.send()}function e(n,e){return'<a style="display:inline-block; background:#00ccff;color:#fff;" href="'+e+'"> -@NSAO '+n+"- </a> "}function t(n,t){var a=t.innerHTML,r=n.name,o=a.replace(new RegExp("\\b"+r+"\\b","i"),e(r,i+"/"+r));t.innerHTML=o,console.log(t,"old",a,"new",o)}function a(n,t){var a=t.innerHTML,r=n.name,o=a.replace(new RegExp("\\b"+r+"\\b","i"),e(r,i+"/tags/"+r));t.innerHTML=o}function r(n){var e=n.itemList,r=n.tagList;c.forEach(function(n){var i=n[0],o=n[1];i in e?t(e[i],o):a(r[i],o)})}var i="https://localhost:3001",o=[],c=[];["p","li","h1","h2","h3","h4"].forEach(function(n){for(var e=document.getElementsByTagName(n),t=0;t<e.length;t++)o.push([e[t],e[t].innerText])});var s=new XMLHttpRequest;s.open("GET",i+"/api/list"),s.onreadystatechange=function(){4===s.readyState&&200===s.status&&n(JSON.parse(s.response))},s.send()}(window,void 0);})();
 (function (window, undefined) {
 //    var host = "http://localhost:3001";
-    var host = "https://localhost:3001";
+    var host = "https://www.nsa-observer.net";
     var htmlElementList = [];
     var toBindList = [];
 
