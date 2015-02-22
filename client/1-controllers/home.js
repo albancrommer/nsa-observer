@@ -53,22 +53,10 @@ Template.home.tagList = function(){
 }
 
 Template.home.fullTagList = function(){
-    var rawSet = Items.find({},{fields:{"tags":1}}).fetch();
-    var fullList = [];
-    var sortable = [];
-    _.each(rawSet,function(item){
-        _.each(item.tags,function(t){ 
-            if ( -1 === fullList.indexOf(t) ) {
-                var i = /\[?\[?([\w\s]+)\]?\]?/.exec(t)[1];
-                fullList.push(t); 
-                sortable.push({tags:i}); 
-            }; 
-        });
-    }); 
-    var final  = sortable.sort(function(a,b){return a.tags > b.tags })
-//    fullList.sort()
-    return final;
+    var da = new DataAccessor();
+    return da.getTagsList();
 }
+
 Template.home.tags_num = function(){
     return Template.home.tags_num;
 }
